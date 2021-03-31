@@ -209,7 +209,7 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 在本地的博客文件夹下面打开命令行，依次执行以下命令即可完成推送：
 
 ```bash
-git init   // 初始化版本库
+git init -b main   // 初始化版本库
 
 git add .   // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件 
 
@@ -218,8 +218,70 @@ git commit -m "first commit" // 把添加的文件提交到版本库，并填写
 git remote add origin 你的远程库地址  // 把本地库与远程库关联
 # 如果提示error: 远程 origin 已经存在，git remote rm origin
 
+git pull origin main --allow-unrelated-histories 
+
 git push -u origin main    // 第一次推送时
 
 # git push origin main  // 第一次推送后，直接使用该命令即可推送修改
 ```
+
+四、添加Travis CI服务
+
+**Travis：**
+
+- Travis CI 提供的是持续集成服务。它绑定 GitHub 上的项目，只要有新代码更新，它就会自动抓取。然后，提供一个运行环境，执行测试，完成构建，部署到服务器
+- 持续集成指的是只要代码有变更，就自动运行构建和测试，反馈运行结果。确保符合预期之后，再将新代码集成到主干
+- 持续集成的好处在于，每次代码的小幅变更，就能看到运行结果，从而不断累计小的变更，而不是在开发周期结束时，一次合并很多代码
+- Travis CI 只支持 GitHub，所以必须要有一个 Git 账号
+- 该账号下面有一个项目，里面有可运行的代码，还包括构建或测试脚本
+- 需要激活一个仓库，Travis 会监听这个仓库的所有变化
+
+打开 Travis 官网https://www.travis-ci.org/，使用github账号登陆。在左侧导航栏添加需要使用Travis CI服务的仓库。
+
+![](/home/oylx/Desktop/CDN/hexo/travis.png)
+
+添加成功后可以在左侧查看添加的仓库，并前往github配置travis权限。
+
+![](/home/oylx/Desktop/CDN/hexo/travs1.png)
+
+你应该会被重定向到 Travis CI 的页面。如果没有，请 [手动前往](https://travis-ci.com/)。
+
+在浏览器新建一个标签页，前往 GitHub [新建 Personal Access Token](https://github.com/settings/tokens)，只勾选 `repo` 的权限并生成一个新的 Token。Token 生成后请复制并保存好。{% note red, 生成token后关闭页面则无法在查看，注意保存好token% }
+
+![](/home/oylx/Desktop/CDN/hexo/token.png)
+
+回到 Travis CI，在左侧导航栏点击仓库后在右侧选中`More options`然后打开settings，在 **Environment Variables** 下新建一个环境变量，**Name** 为 `GH_TOKEN`，**Value** 为刚才你在 GitHub 生成的 Token。确保 **DISPLAY VALUE IN BUILD LOG** 保持 **不被勾选** 避免你的 Token 泄漏。点击 **Add** 保存。
+
+![](/home/oylx/Desktop/CDN/hexo/token1.png)
+
+在本地 博客文件夹中新建一个 `.travis.yml` 文件：
+
+```yaml
+sudo: false
+language: node_js
+node_js:
+  - 14 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - main # build main branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: main
+  local-dir: public
+```
+
+将 `.travis.yml` 推送到 repository 中。Travis CI 应该会自动开始运行，并将生成的文件推送到同一 repository 下的 `gh-pages` 分支下
+
+```bash
+git push origin main
+```
+
+
 

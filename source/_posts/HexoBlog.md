@@ -5,6 +5,7 @@ categories:
 	- hexo
 tags:
 	- hexo
+heading: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A02/01.png
 ---
 
 ## 前言
@@ -27,17 +28,21 @@ Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown](h
 
 ### Node.js
 
-Node.js版本需不低于10.13，建议使用Node.js12.0及以上版本，可以通过`node -v`查看当前系统Node版本。
+Node.js版本需不低于10.13，建议使用Node.js12.0及以上版本，可以通过在命令行中键入`node -v`命令查看当前系统Node版本。
 
 {% folding green, 安装Node.js %}
 
-[node下载地址](https://nodejs.org/zh-cn/download/)
+点击前往[node下载地址](https://nodejs.org/zh-cn/download/)
+
+![](https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A02/02.jpg)
+
+根据你的系统选择不同的安装方式
 
 {% tabs tab-id %}
 
 <!-- tab windows -->
 
-按需下载相应版本，如果选择.msi(安装程序)则默认安装即可，如果选择.zip则需要[配置系统变量](https://m.html.cn/qa/node-js/11835.html)。
+按需下载相应版本，如果选择.msi(安装程序)则默认安装即可，如果选择.zip压缩包，届亚后还需要[配置系统变量](https://m.html.cn/qa/node-js/11835.html)。
 
 <!-- endtab -->
 
@@ -84,6 +89,8 @@ node -v									// 查看node版本
 
 {% folding cyan open, 升级nodejs版本 %}
 
+打开命令行工具执行下列命令可以升级nodejs和npm的版本
+
 ```bash
 npm -v											// 查看npm版本
 sudo npm install -g npm@7.7.6					// 升级npm版本
@@ -93,6 +100,8 @@ n latest	// 安装最新版node		n stable	//安装最新稳定版
 
 {% note, 如果是使用从官网下载的二进制包安装的node也可以直接删除目录，重新在官网下载新版本。 如果是windows安装程序安装可以直接从卸载程序卸载并重新安装%}
 
+{% folding gray , ubutun下使用apt升级nodejs版本 %}
+
 ```bash
 sudo apt-get remove nodejs					// 卸载nodejs
 sudo apt-get remove npm						// 卸载npm
@@ -101,6 +110,8 @@ sudo apt-get remove npm						// 卸载npm
 sudo apt-get update
 sudo apt-get upgrade
 ```
+
+{% endfolding %}
 
 {% endfolding %}
 

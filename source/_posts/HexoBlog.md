@@ -106,7 +106,7 @@ sudo apt-get upgrade
 
 ### Git
 
-通过`git --version`命令查看git版本确定是否安装git。
+通过`git --version`命令查看git版本确定是否安装git，建议使用最新版本的git否则下面git命令可能会出错。
 
 - Windows：下载并安装 [git](https://git-scm.com/download/win).
 - Mac：使用 [Homebrew](http://mxcl.github.com/homebrew/), [MacPorts](http://www.macports.org/) 或者下载 [安装程序](http://sourceforge.net/projects/git-osx-installer/)。
@@ -209,6 +209,16 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 在本地的博客文件夹下面打开命令行，依次执行以下命令即可完成推送：
 
 ```bash
+git init   // 初始化版本库
 
+git add .   // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件 
+
+git commit -m "first commit" // 把添加的文件提交到版本库，并填写提交备注
+
+git remote add origin 你的远程库地址  // 把本地库与远程库关联
+
+git push -u origin main    // 第一次推送时
+
+# git push origin main  // 第一次推送后，直接使用该命令即可推送修改
 ```
 

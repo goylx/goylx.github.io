@@ -153,7 +153,7 @@ echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
 
 执行`npx hexo init blog`命令可以在当前路径下生成一个blog的文件夹安装初始化的hexo博客，`ubutun`系统上出现以下效果表示初始化成功。
 
-![](/home/oylx/Desktop/CDN/hexo/init.jpg)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.1/hexo/init.jpg)
 
 {% note gray, 上述命令需要从github（外网）上获取数据（`git clone`），可能会由于网络问题导致初始化失败，可以手动进行初始化 %}
 
@@ -170,7 +170,7 @@ npx hexo server 						// 启动服务
 
 如果执行`npx hexo init`则会在当前目录下生成初始化的博客。Hexo 安装完成后，将会在指定文件夹中新建所需要的文件，Hexo 文件夹下的目录如下：
 
-![](/home/oylx/Desktop/CDN/hexo/initfolder.jpg)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initfolder.jpg)
 
 执行以下命令，执行完即可使用浏览器打开 http://localhost:4000/ 查看效果
 
@@ -186,17 +186,15 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 
 浏览器打开 http://localhost:4000/ 查看效果：
 
-![](/home/oylx/Desktop/CDN/hexo/initLocal.jpg)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initLocal.jpg)
 
 ## Github Pages
-
-这里我们将会使用 [Travis CI](https://travis-ci.com/) 将 Hexo 博客部署到 GitHub Pages 上。Travis CI 对于开源 repository 是免费的，但是这意味着你希望分享你的博客配置。如果你仅希望使用github托管静态网站，可以跳过本节前往。
 
 一、注册Github账号：[点击此处](https://github.com/)访问 Github 官网，点击 Sign Up 注册账户
 
 二、创建项目代码库：点击 New repository 开始创建，步骤及注意事项见图。
 
-![](/home/oylx/Desktop/CDN/hexo/repo.png)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/repo.png)
 
 如果你希望你的博客能通过 `<你的 GitHub 用户名>.github.io` 域名访问，你的 repository 应该直接命名为 `<你的 GitHub 用户名>.github.io`否则需要通过 `<你的 GitHub 用户名>.github.io/<仓库名>` 访问。
 
@@ -204,7 +202,7 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 
 > 注意`.gitignore`文件为隐藏文件，建议使用vscode打开`npx hexo init `生成的文件夹编辑
 
-![](/home/oylx/Desktop/CDN/hexo/repo1.png)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/repo1.png)
 
 在本地的博客文件夹下面打开命令行，依次执行以下命令即可完成推送：
 
@@ -215,7 +213,7 @@ git add .   // 添加文件到版本库（只是添加到缓存区），.代表�
 
 git commit -m "first commit" // 把添加的文件提交到版本库，并填写提交备注
 
-git remote add origin 你的远程库地址  // 把本地库与远程库关联
+git remote add origin 上图获取远程仓库地址  // 把本地库与远程库关联
 # 如果提示error: 远程 origin 已经存在，git remote rm origin
 
 git pull origin main --allow-unrelated-histories 
@@ -224,6 +222,36 @@ git push -u origin main    // 第一次推送时
 
 # git push origin main  // 第一次推送后，直接使用该命令即可推送修改
 ```
+
+四、在github仓库页面点击setting，开启pages服务
+
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/pages.png)
+
+五、使用`hexo-deployer-git`一键部署
+
+1. 安装`hexo-deployer-git`
+
+   ```bash
+   npm install hexo-deployer-git --save
+   ```
+
+2. 编辑本地Hexo博客文件夹下的`_config.yml`，找到display属性如下修改：
+
+   ```yaml
+   deploy:
+     type: 'git'
+     repo: 
+       github: github仓库的地址
+     branch: main 							# 希望部署到的分支，即上图中选择的仓库托管分支
+   ```
+
+3. 执行命令`npx hexo deploy --generate`即可一键部署服务
+
+然后可以在浏览器中访问上图中`Your site is published at`后面的域名即可看到你的独立博客。上述只会把生成的静态页面保存到github仓库中，如果你希望将源文件也由github存储，并且每次只需要将修改的源代码推送就可以自动部署，请添加travis服务。
+
+{% folding cyan , 添加travis服务 %}
+
+这里我们将会使用 [Travis CI](https://travis-ci.com/) 将 Hexo 博客部署到 GitHub Pages 上。Travis CI 对于开源 repository 是免费的，但是这意味着你希望分享你的博客配置。
 
 四、添加Travis CI服务
 
@@ -236,23 +264,25 @@ git push -u origin main    // 第一次推送时
 - 该账号下面有一个项目，里面有可运行的代码，还包括构建或测试脚本
 - 需要激活一个仓库，Travis 会监听这个仓库的所有变化
 
+第一步，开启Travis监控仓库变更，即本地推送源码
+
 打开 Travis 官网https://www.travis-ci.org/，使用github账号登陆。在左侧导航栏添加需要使用Travis CI服务的仓库。
 
-![](/home/oylx/Desktop/CDN/hexo/travis.png)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/travis.png)
 
 添加成功后可以在左侧查看添加的仓库，并前往github配置travis权限。
 
-![](/home/oylx/Desktop/CDN/hexo/travs1.png)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/travs1.png)
 
 你应该会被重定向到 Travis CI 的页面。如果没有，请 [手动前往](https://travis-ci.com/)。
 
-在浏览器新建一个标签页，前往 GitHub [新建 Personal Access Token](https://github.com/settings/tokens)，只勾选 `repo` 的权限并生成一个新的 Token。Token 生成后请复制并保存好。{% note red, 生成token后关闭页面则无法在查看，注意保存好token% }
+在浏览器新建一个标签页，前往 GitHub [新建 Personal Access Token](https://github.com/settings/tokens)，只勾选 `repo` 的权限并生成一个新的 Token。Token 生成后请复制并保存好。{% note red, 生成token后关闭页面则无法在查看，注意保存好token %}
 
-![](/home/oylx/Desktop/CDN/hexo/token.png)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/token.png)
 
 回到 Travis CI，在左侧导航栏点击仓库后在右侧选中`More options`然后打开settings，在 **Environment Variables** 下新建一个环境变量，**Name** 为 `GH_TOKEN`，**Value** 为刚才你在 GitHub 生成的 Token。确保 **DISPLAY VALUE IN BUILD LOG** 保持 **不被勾选** 避免你的 Token 泄漏。点击 **Add** 保存。
 
-![](/home/oylx/Desktop/CDN/hexo/token1.png)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/token1.png)
 
 在本地 博客文件夹中新建一个 `.travis.yml` 文件：
 
@@ -280,8 +310,36 @@ deploy:
 将 `.travis.yml` 推送到 repository 中。Travis CI 应该会自动开始运行，并将生成的文件推送到同一 repository 下的 `gh-pages` 分支下
 
 ```bash
+git add .
+git commit -m '开启travis CI服务'
 git push origin main
 ```
 
+等待一段时间应该可以在github仓库下看到多出了一个命名为`gh-pages`的分支
 
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/ghpages.png)
+
+第二步修改本地Hexo博客文件夹下的`_config.yml`文件的deploy属性：
+
+```yaml
+deploy:
+  type: 'git'
+  repo: 
+    github: https://github.com/oylx-maker/oylx-maker.github.io.git
+  branch: gh-pages    #使用一键部署到travis的分支
+```
+
+第三步修改Github pages监听的分支为`gh-pages`，在github仓库中点击settings找到Github Pages修改。
+
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/pages1.png)
+
+第四步修改本地文件后推送到main分支，等待一段时间后访问即可看到更改后的效果
+
+```bash
+git add .
+git commit -m '注释信息'
+git push origin main
+```
+
+{% endfolding %}
 

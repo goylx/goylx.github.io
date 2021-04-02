@@ -5,14 +5,18 @@ categories:
 	- hexo
 tags:
 	- hexo
-heading: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A02/01.png
+thumbnail: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png
+# headimg: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A02/01.png
+references:
+  - title: 使用Github Pages 和Hexo搭建自己的独立博客
+    url: https://www.itrhx.com/2018/08/15/A02-hexo-blog/
 ---
 
 ## 前言
 
-{% note message blue,  首先感谢你阅读我的博客：[OYLX'S BLOG](https://oylx-maker.github.io/Blog/) %}
+{% note message blue,  首先感谢你阅读我的博客：[OYLX'S BLOG](https://guluo.icu) %}
 
-这是一篇有关如何使用[Hexo](https://hexo.io/zh-cn/)搭建博客，并通过[Github Pages](https://pages.github.com/)服务部署上线，本人是软件工程专业本科生，目前大三下册在企业顶岗实习，主要学习java后端技术了解部分前端知识，这是搭建好博客后写得第一篇博客。借这个机会记录一下搭建博客的整体流程，希望能够帮助你更快搭建好自己的独立博客。
+这是一篇有关如何使用[Hexo](https://hexo.io/zh-cn/)搭建博客，并通过[Github Pages](https://pages.github.com/)服务部署上线的详细教程。本人是软件工程专业本科生，目前大三下学期在企业顶岗实习，主要学习java后端技术以及部分前端知识，这是搭建好博客后写得第一篇博客。借这个机会记录一下搭建博客的整体流程，希望能够帮助你更快搭建好自己的独立博客。
 
 ## 基本概述
 
@@ -22,13 +26,13 @@ Github Pages是github提供的静态网站托管服务，使用Github Pages可�
 
 {% note link green, [Hexo](https://hexo.io/zh-cn/)  %}
 
-Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown](http://daringfireball.net/projects/markdown/)（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown](http://daringfireball.net/projects/markdown/)（或其他渲染引擎）解析文章，并根据指定的主题生成静态网页，在存储位置上可以有：`Github Page、OSS 对象存储、云主机`等多种选择。
 
 ## 环境准备
 
 ### Node.js
 
-Node.js版本需不低于10.13，建议使用Node.js12.0及以上版本，可以通过在命令行中键入`node -v`命令查看当前系统Node版本。
+NodeJs是Hexo的运行时环境，版本需不低于10.13，建议使用Node.js12.0及以上版本，可以通过在命令行中键入`node -v`命令查看当前系统Node版本。
 
 {% folding green, 安装Node.js %}
 
@@ -42,7 +46,7 @@ Node.js版本需不低于10.13，建议使用Node.js12.0及以上版本，可以
 
 <!-- tab windows -->
 
-按需下载相应版本，如果选择.msi(安装程序)则默认安装即可，如果选择.zip压缩包，届亚后还需要[配置系统变量](https://m.html.cn/qa/node-js/11835.html)。
+按需下载相应版本，如果选择.msi(安装程序)则默认安装即可。如果选择.zip压缩包，解压后还需要[配置系统变量](https://m.html.cn/qa/node-js/11835.html)。
 
 <!-- endtab -->
 
@@ -50,17 +54,16 @@ Node.js版本需不低于10.13，建议使用Node.js12.0及以上版本，可以
 
 {% folding cyan open, 官网下载.tar.gz二进制包 %}
 
-按需下载相应版本
+按需下载相应版本，打开命令行输入下列命令可以安装node并查看版本
 
 ```bash
-# tar xzvf  node-v10.9.0-linux-x64.tar.xz			// 解压
-# cd node-v10.9.0-linux-x64/						// 进入解压目录
-# ./bin/node -v										// 查看版本
-# sudo mv node-v10.9.0-linus-x64 /usr/local/nodejs	// 移动到/usr/local
-v10.9.0
+tar xzvf  node-v10.9.0-linux-x64.tar.xz				// 解压
+cd node-v10.9.0-linux-x64/							// 进入解压目录
+./bin/node -v										// 查看版本
+sudo mv node-v10.9.0-linus-x64 /usr/local/nodejs	// 移动到/usr/local
 ```
 
-解压文件的 bin 目录底下包含了 node、npm 等命令，我们可以使用 ln 命令来设置软连接：
+解压文件的 bin 目录底下包含了 node、npm 等命令，我们可以使用 ln 命令来设置软连接使得可以在任何路径下执行node和npm命令：
 
 ```bash
 ln -s /usr/local/nodejs/bin/npm   /usr/local/bin/ 
@@ -71,7 +74,7 @@ ln -s /usr/local/nodejs/bin/node   /usr/local/bin/
 
 {% folding cyan , Ubuntu apt-get命令安装 %}
 
-命令格式如下：
+打开命令行执行下列命令：
 
 ```bash
 sudo apt-get install nodejs				// 安装nodejs
@@ -98,7 +101,7 @@ sudo npm install -g n							// 安装n模块
 n latest	// 安装最新版node		n stable	//安装最新稳定版	
 ```
 
-{% note, 如果是使用从官网下载的二进制包安装的node也可以直接删除目录，重新在官网下载新版本。 如果是windows安装程序安装可以直接从卸载程序卸载并重新安装%}
+{% note gray, 如果是使用从官网下载的二进制包安装的node也可以直接删除目录，重新在官网下载新版本。 如果是windows安装程序安装可以直接从卸载程序卸载并重新安装%}
 
 {% folding gray , ubutun下使用apt升级nodejs版本 %}
 
@@ -117,7 +120,7 @@ sudo apt-get upgrade
 
 ### Git
 
-通过`git --version`命令查看git版本确定是否安装git，建议使用最新版本的git否则下面git命令可能会出错。
+Git 是一个开源的分布式版本控制系统，用于将自己本地的项目和github仓库绑定，从而可以通过命令一键上传自己更新的文件，通过`git --version`命令查看git版本确定是否安装git。（windows用户可以点击鼠标右键，如果有`Git Bash Here`则已安装Bash）
 
 - Windows：下载并安装 [git](https://git-scm.com/download/win).
 - Mac：使用 [Homebrew](http://mxcl.github.com/homebrew/), [MacPorts](http://www.macports.org/) 或者下载 [安装程序](http://sourceforge.net/projects/git-osx-installer/)。
@@ -164,17 +167,17 @@ echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
 
 执行`npx hexo init blog`命令可以在当前路径下生成一个blog的文件夹安装初始化的hexo博客，`ubutun`系统上出现以下效果表示初始化成功。
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.1/hexo/init.jpg)
+![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/init.jpg)
 
 {% note gray, 上述命令需要从github（外网）上获取数据（`git clone`），可能会由于网络问题导致初始化失败，可以手动进行初始化 %}
 
 {% folding cyan , 手动初始化hexo %}
 
 ```bash
-git clone https://gitee.com/sczzoylx/hexo-starter.git					// 从我的站点克隆一份博客
-cd hexo-starter							// 进入克隆出来的文件夹
-npm install --save						// 安装依赖
-npx hexo server 						// 启动服务
+git clone https://gitee.com/oylxgl/hexo-starter.git					// 从我的站点克隆一份博客
+cd hexo-starter														// 进入克隆出来的文件夹
+npm install --save													// 安装依赖
+npx hexo server 													// 启动服务
 ```
 
 {% endfolding %}
@@ -183,10 +186,22 @@ npx hexo server 						// 启动服务
 
 ![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initfolder.jpg)
 
+```
+.
+├── _config.yml            # 网站配置文件
+├── .gitignore             # Git 忽略文件
+├── node_modules           # 插件安装目录
+├── package.json           # 描述插件
+├── package-lock.json      # 描述插件 更详细
+├── scaffolds              # 模板
+├── source                 # 资源
+└── themes                 # 主题
+```
+
 执行以下命令，执行完即可使用浏览器打开 http://localhost:4000/ 查看效果
 
 ```
-$ hexo server
+npx hexo server									//启动服务
 ```
 
 {% note blue, 显示以下信息说明操作成功 %}
@@ -198,6 +213,14 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 浏览器打开 http://localhost:4000/ 查看效果：
 
 ![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initLocal.jpg)
+
+### Hexo的一些常用命令
+
+```bash
+
+```
+
+
 
 ## Github Pages
 

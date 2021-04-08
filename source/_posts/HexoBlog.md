@@ -18,7 +18,7 @@ references:
 
 这是一篇有关如何使用[Hexo](https://hexo.io/zh-cn/)搭建博客，并通过[Github Pages](https://pages.github.com/)服务部署上线的详细教程。本人是软件工程专业本科生，目前大三下学期在企业顶岗实习，主要学习java后端技术以及部分前端知识，这是搭建好博客后写得第一篇博客。借这个机会记录一下搭建博客的整体流程，希望能够帮助你更快搭建好自己的独立博客。
 
-## 基本概述
+## 1.基本概述
 
 {% note link green, [Github Pages](https://pages.github.com/) %}
 
@@ -28,9 +28,9 @@ Github Pages是github提供的静态网站托管服务，使用Github Pages可�
 
 Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 [Markdown](http://daringfireball.net/projects/markdown/)（或其他渲染引擎）解析文章，并根据指定的主题生成静态网页，在存储位置上可以有：`Github Page、OSS 对象存储、云主机`等多种选择。
 
-## 环境准备
+## 2.环境准备
 
-### Node.js
+### 2.1Node.js
 
 NodeJs是Hexo的运行时环境，版本需不低于10.13，建议使用Node.js12.0及以上版本，可以通过在命令行中键入`node -v`命令查看当前系统Node版本。
 
@@ -38,7 +38,7 @@ NodeJs是Hexo的运行时环境，版本需不低于10.13，建议使用Node.js1
 
 点击前往[node下载地址](https://nodejs.org/zh-cn/download/)
 
-![](https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A02/02.jpg)
+{% image https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/A02/02.jpg, alt=图1 node官方下载页面 %}
 
 根据你的系统选择不同的安装方式
 
@@ -118,7 +118,7 @@ sudo apt-get upgrade
 
 {% endfolding %}
 
-### Git
+### 2.2Git
 
 Git 是一个开源的分布式版本控制系统，用于将自己本地的项目和github仓库绑定，从而可以通过命令一键上传自己更新的文件，通过`git --version`命令查看git版本确定是否安装git。（windows用户可以点击鼠标右键，如果有`Git Bash Here`则已安装Bash）
 
@@ -127,7 +127,8 @@ Git 是一个开源的分布式版本控制系统，用于将自己本地的项�
 - Linux (Ubuntu, Debian)：`sudo apt-get install git-core`
 - Linux (Fedora, Red Hat, CentOS)：`sudo yum install git-core`
 
-## 安装Hexo
+## 3.Hexo基本使用
+### 3.1安装hexo
 
 新建一个文件夹放置博客相关文件，然后在这个文件夹下打开命令行工具，windows用户可以在该文件夹下右键鼠标，点击{% span red, Git Bash Here %}，输入以下 npm 命令即可安装：
 
@@ -162,12 +163,21 @@ echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
 # windows系统会将Hexo默认安装在C:\Users\你的电脑名称\AppData\Roaming\npm\node_modules\ 
 只需要将C:\Users\你的电脑名称\AppData\Roaming\npm\node_modules\.bin配置到系统变量path即可
 ```
+### 3.2Hexo的一些常用命令
+这部分内容以 Hexo 官方文档为准，;这里记录一些最常用的。传送门：[命令 | Hexo](https://hexo.io/zh-cn/docs/commands "hexo 命令")
 
-## 初始化博客
+```bash
+npx hexo init           # 初始化博客
+npx hexo server         # 启动本地的hexo服务
+npx hexo clean          # 清空本地缓存即public目录
+npx hexo deploy         # 使用hexo-deployer-xxx插件部署博客
+
+```
+### 3.3初始化博客
 
 执行`npx hexo init blog`命令可以在当前路径下生成一个blog的文件夹安装初始化的hexo博客，`ubutun`系统上出现以下效果表示初始化成功。
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/init.jpg)
+{% image https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/init.jpg, alt=图2 初始化命令执行结果 %}
 
 {% note gray, 上述命令需要从github（外网）上获取数据（`git clone`），可能会由于网络问题导致初始化失败，可以手动进行初始化 %}
 
@@ -184,7 +194,7 @@ npx hexo server 													// 启动服务
 
 如果执行`npx hexo init`则会在当前目录下生成初始化的博客。Hexo 安装完成后，将会在指定文件夹中新建所需要的文件，Hexo 文件夹下的目录如下：
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initfolder.jpg)
+{% image https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initfolder.jpg, alt = 图3 初始化的文件目录结构 %}
 
 ```
 .
@@ -212,23 +222,49 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 
 浏览器打开 http://localhost:4000/ 查看效果：
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initLocal.jpg)
+{% image https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/initLocal.jpg,alt = 图4 初始化的博客主页 %}
+### 3.4网站配置
+网站 配置文件：`_config.yml` ，官方配置文档传送门：[配置 | Hexo](https://hexo.io/zh-cn/docs/configuration)
 
-### Hexo的一些常用命令
-
-```bash
-
+一般来说在该配置文件中只需要修改一些网站基本属性，下面记录一下指定主题和设置发布（部署）对象。
+#### 3.4.1修改主题类型
+```yaml
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: 主题名
 ```
-
-
-
-## Github Pages
+#### 3.4.2配置部署信息
+```yaml
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+## 需要使用hexo-deployer-xxx插件，可以部署到多个地址
+deploy:
+  - type: git   #使用的部署工具
+    repo: git@github.com:xxxx/xxxxx   #部署到的仓库地址
+    branch: master    #部署到的分支
+```
+#### 3.4.3忽略解析指定的文件
+```yaml
+# Directory
+# 忽略解析指定文件：比如 Github 仓库的 ReadMe.md 文件。
+skip_render: README.md
+```
+{% note, PS：一些插件的属性设置也是在这个文件中配置的。%}
+### 3.5编写博客
+hexo会自动解析source文件夹下的文件并生成静态网站，可以直接将写好的md文件拖入到`/source/_posts`下就可以生成一篇新文章。
+你可以执行下列命令来创建一篇新文章或者新的页面。
+```yaml
+npx hexo new [layout] <title>
+```
+您可以在命令中指定文章的布局（layout），默认为 post(一篇新文章)，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。
+## 4.部署到Github Pages
 
 一、注册Github账号：[点击此处](https://github.com/)访问 Github 官网，点击 Sign Up 注册账户
 
 二、创建项目代码库：点击 New repository 开始创建，步骤及注意事项见图。
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/repo.png)
+{% image https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/repo.png, height = 360px, alt=图5 创建github仓库 %}
 
 如果你希望你的博客能通过 `<你的 GitHub 用户名>.github.io` 域名访问，你的 repository 应该直接命名为 `<你的 GitHub 用户名>.github.io`否则需要通过 `<你的 GitHub 用户名>.github.io/<仓库名>` 访问。
 
@@ -236,12 +272,12 @@ INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
 
 > 注意`.gitignore`文件为隐藏文件，建议使用vscode打开`npx hexo init `生成的文件夹编辑
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/repo1.png)
+{% image https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/repo1.png, alt=图6 生成的仓库 %}
 
 在本地的博客文件夹下面打开命令行，依次执行以下命令即可完成推送：
 
 ```bash
-git init -b main   // 初始化版本库
+git init    // 初始化版本库
 
 git add .   // 添加文件到版本库（只是添加到缓存区），.代表添加文件夹下所有文件 
 
@@ -259,7 +295,7 @@ git push -u origin main    // 第一次推送时
 
 四、在github仓库页面点击setting，开启pages服务
 
-![](https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/pages.png)
+{% image https://cdn.jsdelivr.net/gh/oylx-maker/CDN@0.2/hexo/pages.png, alt=图6设置pages服务 %}
 
 五、使用`hexo-deployer-git`一键部署
 
@@ -376,4 +412,5 @@ git push origin main
 ```
 
 {% endfolding %}
+至此博客搭建以及基本使用已经全部介绍完毕，但还需要进行一些配置才能更好的使用博客，请移步[hexo优化和个性化配置](./)
 

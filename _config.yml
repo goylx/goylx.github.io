@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 人云亦云楼
 subtitle: ''
 description: ''
-keywords:
-author: John Doe
-language: en
+keywords: [java,html,spring,springboot,redis,js,css,hexo,volantis,elasticsearch]
+author: 欧阳罗霄
+language: zh
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
+url: http://guluo.icu
+permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -111,4 +111,7 @@ deploy:
   - type: git
     repo: https://gitee.com/oylxgl/blog.git
     branch: gh-pages
-  
+import:
+  script:
+    - <script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?bfbc7be3eb0f9b092752b26e7725d66e";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+

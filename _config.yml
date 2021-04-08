@@ -113,5 +113,5 @@ deploy:
     branch: gh-pages
 import:
   script:
-    - <script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?bfbc7be3eb0f9b092752b26e7725d66e";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
+    - <script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?8eaac8f3d3279e0c748b7ebd0ff64d1c";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
 

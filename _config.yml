@@ -114,4 +114,5 @@ deploy:
 import:
   script:
     - <script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?8eaac8f3d3279e0c748b7ebd0ff64d1c";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
-
+    - <script async src="/js/gtag.js"></script>
+    - <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-TS0XM5EFK1');</script>

@@ -137,8 +137,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/'>
           
-            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-          
           
           
         </a>
@@ -251,7 +249,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
           <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
+          <input type="text" class="input u-search-input" placeholder="世界之大，探索一下！" />
         </form>
       </div>
 
@@ -371,9 +369,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
-            <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"></div>
           
           <div class='cover-body'>
   <div class='top'>
@@ -384,51 +382,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
   </div>
   <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="世界之大，探索一下！" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
     <div class='menu navigation'>
       <div class='list-h'>
         
-          
-            <a href="/v4/getting-started/"
-              
-              
-              id="v4getting-started">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/faqs/"
-              
-              
-              id="faqs">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>帮助</p>
-            </a>
-          
-            <a href="/examples/"
-              
-              
-              id="examples">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>示例</p>
-            </a>
-          
-            <a href="/contributors/"
-              
-              
-              id="contributors">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>社区</p>
-            </a>
-          
-            <a href="/archives/"
-              
-              
-              id="archives">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
-            </a>
-          
-            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
-              
-              
-              id="https:githubcomvolantis-xhexo-theme-volantis">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg'><p>源码</p>
-            </a>
           
         
       </div>
@@ -519,13 +483,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.7k字</p>
+      <p>1.7k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
+      <p>7 min</p>
     </a>
   </div>
 
@@ -540,23 +504,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章主要介绍Hexo的基本使用以及一些优化配置，如果还没有搭建起博客并托管至Github Pages请点<a href="">这里</a><br>本文基于volantis主题，部分配置可能不同请查看相应主题的官方文档自行配置。</p>
-<h2 id="1-基础配置"><a href="#1-基础配置" class="headerlink" title="1.基础配置"></a>1.基础配置</h2><pre><code>1. 网站信息
-    &#123;% codeblock _config.yml lang:yaml %&#125;
-            title:              # 网站标题
-            subtitle: ''        # 副标题
-            description: ''     # 描述信息
-            keywords:           # 关键字
-            author:             # 作者
-            language: zh        # 语言
-        &#123;% endcodeblock %&#125;
-2. 网址信息
-    &#123;% codeblock _config.yml lang:yaml %&#125;
-            url                 # 网址根路径
-            permalink: :title/  # 文章生成的永久链接格式
-        &#123;% endcodeblock %&#125; 
-</code></pre>
-<h2 id="2-配置主题"><a href="#2-配置主题" class="headerlink" title="2.配置主题"></a>2.配置主题</h2><p><a target="_blank" rel="noopener" href="https://volantis.js.org/v5/getting-started/">volantis官方文档</a></p>
-<ol>
+<h2 id="1-基础配置"><a href="#1-基础配置" class="headerlink" title="1.基础配置"></a>1.基础配置</h2><ol>
+<li>网站信息<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span>              <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span>        <span class="comment"># 副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span>     <span class="comment"># 描述信息</span></span><br><span class="line"><span class="attr">keywords:</span>           <span class="comment"># 关键字</span></span><br><span class="line"><span class="attr">author:</span>             <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh</span>        <span class="comment"># 语言</span></span><br></pre></td></tr></table></figure></li>
+<li>网址信息<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url</span>                 <span class="comment"># 网址根路径</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span>  <span class="comment"># 文章生成的永久链接格式</span></span><br></pre></td></tr></table></figure> 
+<h2 id="2-配置主题"><a href="#2-配置主题" class="headerlink" title="2.配置主题"></a>2.配置主题</h2><a target="_blank" rel="noopener" href="https://volantis.js.org/v5/getting-started/">volantis官方文档</a><ol>
 <li>修改配置文件<br>在hexo的配置文件_config.yml中找到theme属性并修改。<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">volantis</span></span><br></pre></td></tr></table></figure></li>
 <li>下载主题<br>在终端中输入：<code>npm i hexo-theme-volantis</code></li>
 <li>创建主题配置文件<br>在根目录下创建文件<code>_config.volantis.yml</code>,volantis主题相关配置写在该文件内。<div class="note "><p>PS: 基于hexo5的新特性</p></div>
@@ -577,11 +528,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="5-统计分析网站访问量"><a href="#5-统计分析网站访问量" class="headerlink" title="5.统计分析网站访问量"></a>5.统计分析网站访问量</h2><h3 id="5-1-百度统计"><a href="#5-1-百度统计" class="headerlink" title="5.1 百度统计"></a>5.1 百度统计</h3>百度统计主要用于分析网站数据：流量、访客量等。</li>
 <li>注册百度统计账号，官网链接：<a target="_blank" rel="noopener" href="https://tongji.baidu.com/">https://tongji.baidu.com</a></li>
 <li>点击<code>管理&gt;新增网站</code>，填写数据后点击确定</li>
-<li>复制代码并在配置文件中引入代码<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">import:</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;script&gt;var</span> <span class="string">_hmt</span> <span class="string">=</span> <span class="string">_hmt</span> <span class="string">||</span> []<span class="string">;(function()</span> &#123;<span class="string">var</span> <span class="string">hm</span> <span class="string">=</span> <span class="string">document.createElement(&quot;script&quot;);hm.src</span> <span class="string">=</span> <span class="string">&quot;https://hm.baidu.com/hm.js?xxxxxxxxxxxxxx&quot;</span><span class="string">;var</span> <span class="string">s</span> <span class="string">=</span> <span class="string">document.getElementsByTagName(&quot;script&quot;)</span>[<span class="number">0</span>]<span class="string">;</span> <span class="string">s.parentNode.insertBefore(hm</span>, <span class="string">s);</span>&#125;<span class="string">)();&lt;/script&gt;</span> <span class="comment">#从图二复制的代码</span></span><br></pre></td></tr></table></figure>
+<li>复制代码并在配置文件中引入代码<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">import:</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;script&gt;var</span> <span class="string">_hmt</span> <span class="string">=</span> <span class="string">_hmt</span> <span class="string">||</span> []<span class="string">;(function()</span> &#123;<span class="string">var</span> <span class="string">hm</span> <span class="string">=</span> <span class="string">document.createElement(&quot;script&quot;);hm.src</span> <span class="string">=</span> <span class="string">&quot;https://hm.baidu.com/hm.js?xxxxxxxxxxxxxx&quot;</span><span class="string">;var</span> <span class="string">s</span> <span class="string">=</span> <span class="string">document.getElementsByTagName(&quot;script&quot;)</span>[<span class="number">0</span>]<span class="string">;</span> <span class="string">s.parentNode.insertBefore(hm</span>, <span class="string">s);</span>&#125;<span class="string">)();&lt;/script&gt;</span> <span class="comment">#从图二复制的代码</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 可以在管理页面查看代码是否安装正确，然后就可以查看网页访问的报告了。<h3 id="5-2-google统计"><a href="#5-2-google统计" class="headerlink" title="5.2 google统计"></a>5.2 google统计</h3>google统计和百度统计类似，主要满足国外流量的统计。注册google统计账号，官网链接：<a target="_blank" rel="noopener" href="https://analytics.google.com/%E3%80%82%E5%A4%8D%E5%88%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B%EF%BC%9A">https://analytics.google.com/。复制的代码如下：</a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span><br><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;https://www.googletagmanager.com/gtag/js?id=xxxxxxxx&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="built_in">window</span>.dataLayer = <span class="built_in">window</span>.dataLayer || [];</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">gtag</span>(<span class="params"></span>)</span>&#123;dataLayer.push(<span class="built_in">arguments</span>);&#125;</span><br><span class="line">  gtag(<span class="string">&#x27;js&#x27;</span>, <span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">  gtag(<span class="string">&#x27;config&#x27;</span>, <span class="string">&#x27;xxxxxxx&#x27;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <div class="note "><p>可以将<code>&lt;script async src=https://www.googletagmanager.com/gtag/js?id=xxxxxxxx&gt;&lt;/script&gt;</code>src引入的文件下载放在本地，已加快速度。</p></div>
 将上面的代码在配置文件中引入即可<h2 id="6-提高博客访问速度"><a href="#6-提高博客访问速度" class="headerlink" title="6.提高博客访问速度"></a>6.提高博客访问速度</h2><h3 id="6-1hexo-offline-popup插件"><a href="#6-1hexo-offline-popup插件" class="headerlink" title="6.1hexo-offline-popup插件"></a>6.1hexo-offline-popup插件</h3>hexo-offline-popup 是一个 hexo 插件， 它可加速你的Hexo网站的加载速度，以及网站内容更新弹窗提示<br>在Hexo根目录打开Git-bash ，执行命令<code>npm i hexo-offline-popup --save</code><br>在博客根目录的_config.yml中添加如下配置<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># offline config passed to sw-precache.</span></span><br><span class="line"><span class="attr">service_worker:</span></span><br><span class="line">  <span class="attr">maximumFileSizeToCacheInBytes:</span> <span class="number">5242880</span></span><br><span class="line">  <span class="attr">staticFileGlobs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">public/**/*.&#123;js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2&#125;</span></span><br><span class="line">  <span class="attr">stripPrefix:</span> <span class="string">public</span></span><br><span class="line">  <span class="attr">verbose:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-如果你有CDN资源，例：    - <a target="_blank" rel="noopener" href="https://unpkg.com/artitalk">https://unpkg.com/artitalk</a>    - <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/artitalk">https://cdn.jsdelivr.net/npm/artitalk</a><br>将此配置添加到根目录的_config.yml<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service_worker:</span></span><br><span class="line">  <span class="attr">runtimeCaching:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">urlPattern:</span> <span class="string">/*</span>  <span class="comment"># 子路径（接受通配符）</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">cacheFirst</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">origin:</span> <span class="string">unpkg.com</span>  <span class="comment"># 域名</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">urlPattern:</span> <span class="string">/npm/*</span>   <span class="comment"># 子路径（接受通配符）</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">cacheFirst</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">origin:</span> <span class="string">cdn.jsdelivr.net</span>  <span class="comment"># 域名</span></span><br></pre></td></tr></table></figure></li>
+如果你有CDN资源，例：</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://unpkg.com/artitalk">https://unpkg.com/artitalk</a></li>
+<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/artitalk">https://cdn.jsdelivr.net/npm/artitalk</a><br>将此配置添加到根目录的_config.yml<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service_worker:</span></span><br><span class="line">  <span class="attr">runtimeCaching:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">urlPattern:</span> <span class="string">/*</span>  <span class="comment"># 子路径（接受通配符）</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">cacheFirst</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">origin:</span> <span class="string">unpkg.com</span>  <span class="comment"># 域名</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">urlPattern:</span> <span class="string">/npm/*</span>   <span class="comment"># 子路径（接受通配符）</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">cacheFirst</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">origin:</span> <span class="string">cdn.jsdelivr.net</span>  <span class="comment"># 域名</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 </ol>
 
   
@@ -617,10 +574,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-09T09:24:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-22T11:35:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Apr 9, 2021</p>
+    <p>更新于：Apr 22, 2021</p>
   </a>
 </div>
 
@@ -1038,6 +995,218 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://github.com/volantis-x/volantis-docs/
+        
+        
+        
+        
+          id="https:githubcomvolantis-xvolantis-docs"
+        >
+        <i class='fa fa-code-branch fa-fw'></i> 本站源码
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
+        
+        
+        
+          onclick="document.execCommand('print')"
+        
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
 
 <script>
   function loadIssuesJS() {
@@ -1244,6 +1413,8 @@ function listenSearch(){
 }
 function setSearchService() {
 	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
 	
 }
 </script>

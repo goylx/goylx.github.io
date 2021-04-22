@@ -10,7 +10,7 @@
 
 'use strict';
 
-var precacheConfig = [["/404.html","4c4b35db508717345dbc3d34943e2270"],["/HexoBlog/index.html","587d92d876c4596bb76f7c8e64e5c3ff"],["/HexoOptimize/index.html","4361cf223488f2ed279ad075d1d842c1"],["/about/index.html","6ab1bdfeb5776786010f08de43709808"],["/archives/2021/04/index.html","79752b100366d94d37d1673a799709f5"],["/archives/2021/index.html","8a1a2e331bf7d605523b8850f9612706"],["/archives/index.html","56731afaf64834da5c9b33e82e0a3ce9"],["/categories/hexo/index.html","1b9b241a8afa841000b7912fe29c4dd4"],["/categories/index.html","c1b18616f1aff83b85e86b8c77fb6d14"],["/css/first.css","dc6e521f4f0458ee4e29a4a0ca43e0bb"],["/css/style.css","4b95168fca60ee2653e870eea52c90d9"],["/friends/index.html","8fdfd4f8e35ca068534e9550020c82d6"],["/index.html","55f503bb279c995b57602eedcc5094ab"],["/js/aplayer.js","0256a926f30b74f07457e05f236adec2"],["/js/app.js","04596a7dc24b204061bd4fc766cc8e77"],["/js/gtag.js","36fe33a5d63052d80449fa672a19c865"],["/js/issues.js","d450701b133a092543f48ffc22ce966e"],["/js/search/algolia.js","3a8dc835cb0dbe9ceea9e4f83237a799"],["/js/search/azure.js","1e73788c42d8a55e4b26b32470c4deb2"],["/js/search/baidu.js","4247fb05f942bf561a59975ece561cb2"],["/js/search/google.js","ea57d9d8604b92e062162ccca76b7f5e"],["/js/search/hexo.js","9e1783dc56f7541ea906411167cca5f9"],["/js/valine.js","15d0f1f9d975de124ef5389385961992"],["/sw-register.js","457c66a97960877e210fd5ff93fbcf15"],["/tags/hexo/index.html","d09063abf12ec875297b994f2a9294cb"],["/tags/index.html","d5e01a95b7aa306fd5b699cfedccc0fa"],["/tags/volantis/index.html","ed8fa6ce81ca45d8f2f3e089fee54105"]];
+var precacheConfig = [];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 var firstRegister = 1; // 默认1是首次安装SW， 0是SW更新
 

@@ -457,6 +457,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 						<h2>2021</h2>
 					
 						<div class='timenode'>
+								<a class="meta" href="/HexoSeo/">
+									<time>04-23</time>
+									
+										博客优化及主题配置
+									
+									
+									
+									
+								</a>
+						</div>
+				
+			
+				
+				
+					
+						<div class='timenode'>
 								<a class="meta" href="/HexoOptimize/">
 									<time>04-09</time>
 									
@@ -579,7 +595,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/hexo/" href="/categories/hexo/"
             id="categorieshexo"
-            ><div class='name'>hexo</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>hexo</div><div class='badge'>(3)</div></a></li>
         
       </ul>
     </div>
@@ -630,7 +646,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>2 篇</div>
+          <div>3 篇</div>
         </div>
       
 
@@ -652,7 +668,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>5.6k 字</div>
+          <div>6.6k 字</div>
         </div>
       
 
@@ -678,7 +694,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Apr 23 2021 10:46:55 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Apr 23 2021 13:05:13 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-04-23 日</div>
           
         </div>
@@ -1557,7 +1573,7 @@ function setSearchService() {
       // 请求 PV 并自增
       var pvCtn = document.querySelector('#lc-sv');
       if (pvCtn || enableIncr) {
-        var pvGetter = this.getRecord(Counter, 'http://guluo.icu' + '/#lc-sv', 'Visits').then((record) => {
+        var pvGetter = this.getRecord(Counter, 'https://www.guluo.icu' + '/#lc-sv', 'Visits').then((record) => {
           incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-sv #number');
           if (eles.length > 0) {
@@ -1575,7 +1591,7 @@ function setSearchService() {
       // 请求 UV 并自增
       var uvCtn = document.querySelector('#lc-uv');
       if (uvCtn || enableIncr) {
-        var uvGetter = this.getRecord(Counter, 'http://guluo.icu' + '/#lc-uv', 'Visitors').then((record) => {
+        var uvGetter = this.getRecord(Counter, 'https://www.guluo.icu' + '/#lc-uv', 'Visitors').then((record) => {
           var vuv = this.validUV();
           vuv && incrArr.push(this.buildIncrement(record.objectId))
           var eles = document.querySelectorAll('#lc-uv #number');
@@ -1597,7 +1613,7 @@ function setSearchService() {
         for (i = 0; i < allPV.length; i++) {
           let pv = allPV[i];
           let title = pv.getAttribute('data-title');
-          var url = 'http://guluo.icu' + pv.getAttribute('data-path');
+          var url = 'https://www.guluo.icu' + pv.getAttribute('data-path');
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增

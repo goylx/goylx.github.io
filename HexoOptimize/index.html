@@ -518,13 +518,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.8k字</p>
+      <p>字數：2k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
+      <p>時長：8分鐘</p>
     </a>
   </div>
 
@@ -581,19 +581,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="5-统计分析网站访问量"><a href="#5-统计分析网站访问量" class="headerlink" title="5.统计分析网站访问量"></a>5.统计分析网站访问量</h2><h3 id="5-1-百度统计"><a href="#5-1-百度统计" class="headerlink" title="5.1 百度统计"></a>5.1 百度统计</h3><p>百度统计主要用于分析网站数据：流量、访客量等。</p>
 <ol>
 <li>注册百度统计账号，官网链接：<a target="_blank" rel="noopener" href="https://tongji.baidu.com/">https://tongji.baidu.com</a></li>
-<li>点击<code>管理&gt;新增网站</code>，填写数据后点击确定</li>
-<li>复制代码并在配置文件中引入代码<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">import:</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;script&gt;var</span> <span class="string">_hmt</span> <span class="string">=</span> <span class="string">_hmt</span> <span class="string">||</span> []<span class="string">;(function()</span> &#123;<span class="string">var</span> <span class="string">hm</span> <span class="string">=</span> <span class="string">document.createElement(&quot;script&quot;);hm.src</span> <span class="string">=</span> <span class="string">&quot;https://hm.baidu.com/hm.js?xxxxxxxxxxxxxx&quot;</span><span class="string">;var</span> <span class="string">s</span> <span class="string">=</span> <span class="string">document.getElementsByTagName(&quot;script&quot;)</span>[<span class="number">0</span>]<span class="string">;</span> <span class="string">s.parentNode.insertBefore(hm</span>, <span class="string">s);</span>&#125;<span class="string">)();&lt;/script&gt;</span> <span class="comment">#从图二复制的代码</span></span><br></pre></td></tr></table></figure></li>
+<li>点击<code>管理&gt;新增网站</code><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/baiduAdd.png" class="lazyload" data-srcset="/image/hexo/baiduAdd.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="添加百度统计分析的网站"/></div><span class="image-caption">添加百度统计分析的网站</span></div>
+填写数据后点击确定后会跳转到代码获取页面</li>
+<li>复制代码中的key并在配置文件设置<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/baiduKey.png" class="lazyload" data-srcset="/image/hexo/baiduKey.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="添加百度统计分析的网站"/></div><span class="image-caption">添加百度统计分析的网站</span></div>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidu_analytics_key:</span> <span class="string">百度统计的key</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <p>可以在管理页面查看代码是否安装正确，然后就可以查看网页访问的报告了。</p>
-<h3 id="5-2-google统计"><a href="#5-2-google统计" class="headerlink" title="5.2 google统计"></a>5.2 google统计</h3><p>google统计和百度统计类似，主要满足国外流量的统计。注册google统计账号，官网链接：<a target="_blank" rel="noopener" href="https://analytics.google.com/%E3%80%82%E5%A4%8D%E5%88%B6%E7%9A%84%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B%EF%BC%9A">https://analytics.google.com/。复制的代码如下：</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span><br><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;https://www.googletagmanager.com/gtag/js?id=xxxxxxxx&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="built_in">window</span>.dataLayer = <span class="built_in">window</span>.dataLayer || [];</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">gtag</span>(<span class="params"></span>)</span>&#123;dataLayer.push(<span class="built_in">arguments</span>);&#125;</span><br><span class="line">  gtag(<span class="string">&#x27;js&#x27;</span>, <span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">  gtag(<span class="string">&#x27;config&#x27;</span>, <span class="string">&#x27;xxxxxxx&#x27;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-google统计"><a href="#5-2-google统计" class="headerlink" title="5.2 google统计"></a>5.2 google统计</h3><p>google统计和百度统计类似，主要满足国外流量的统计。注册google统计账号，官网链接：<a target="_blank" rel="noopener" href="https://analytics.google.com/%E3%80%82%E5%A4%8D%E5%88%B6key%E5%B9%B6%E5%9C%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E9%85%8D%E7%BD%AE">https://analytics.google.com/。复制key并在配置文件中配置</a></p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">google_analytics_key:</span> <span class="string">谷歌统计的key</span></span><br></pre></td></tr></table></figure>
 <div class="note "><p>可以将<code>&lt;script async src=https://www.googletagmanager.com/gtag/js?id=xxxxxxxx&gt;&lt;/script&gt;</code>src引入的文件下载放在本地，已加快速度。</p></div>
 <p>将上面的代码在配置文件中引入即可</p>
 <h3 id="5-3-leancloud统计页面访问次数"><a href="#5-3-leancloud统计页面访问次数" class="headerlink" title="5.3 leancloud统计页面访问次数"></a>5.3 leancloud统计页面访问次数</h3><h4 id="5-3-1-创建leancloud服务"><a href="#5-3-1-创建leancloud服务" class="headerlink" title="5.3.1 创建leancloud服务"></a>5.3.1 创建leancloud服务</h4><ol>
 <li>进入官网 <a target="_blank" rel="noopener" href="https://leancloud.cn/%EF%BC%8C%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E9%AA%8C%E8%AF%81%E9%82%AE%E7%AE%B1">https://leancloud.cn/，注册账号验证邮箱</a></li>
-<li>进入控制台创建应用，名称随意后期可以修改，选择开发版即可<div class="img-wrap"><div class="img-bg">" class="lazyload" data-srcset="" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" class="lazyload" data-srcset="" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=<img class="img lazyload lazyload" src="" alt="图3 创建leancloud应用"/></div><span class="image-caption">图3 创建leancloud应用</span></div></li>
-<li></li>
+<li>进入控制台创建应用，名称随意后期可以修改，选择开发版即可<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudCreate.png" class="lazyload" data-srcset="/image/hexo/leancloudCreate.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="创建leancloud应用"/></div><span class="image-caption">创建leancloud应用</span></div></li>
+<li>创建 Class：点击刚创建的应用，选择数据存储/结构化数据，创建一个 Class 表用来保存我们的博客访问数据。<ul>
+<li>此处创建的 Class 名字必须为 Counter，用来保证与 NexT 主题的修改相兼容；</li>
+<li>ACL 权限选择 无限制，避免后续因为权限的问题导致次数统计显示不正常<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudClass.png" class="lazyload" data-srcset="/image/hexo/leancloudClass.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="创建Counter Class表"/></div><span class="image-caption">创建Counter Class表</span></div></li>
+</ul>
+</li>
+<li>创建 Class 完成之后，新创建的 Counter 表会显示在左侧，这时再切换到应用的 设置 - 应用 Key 界面复制app_key和和app_id<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudKey.png" class="lazyload" data-srcset="/image/hexo/leancloudKey.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图3 复制app_key、app_id"/></div><span class="image-caption">图3 复制app_key、app_id</span></div></li>
+<li>修改主题配置文件：<figure class="highlight yaml"><figcaption><span>_config.volantis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">analytics:</span></span><br><span class="line">  <span class="attr">leancloud:</span> <span class="comment"># 请使用自己的 id &amp; key 以防止数据丢失</span></span><br><span class="line">    <span class="attr">app_id:</span> </span><br><span class="line">    <span class="attr">app_key:</span> </span><br><span class="line">    <span class="attr">custom_api_server:</span> <span class="comment"># 国际版一般不需要写，除非自定义了 API Server</span></span><br></pre></td></tr></table></figure></li>
 </ol>
+<p>这时再使用 hexo g、hexo d 命令重新部署博客，就可以正常使用文章阅读量统计的功能了，如下图所示：</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudResult.png" class="lazyload" data-srcset="/image/hexo/leancloudResult.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="查看文章阅读量"/></div><span class="image-caption">查看文章阅读量</span></div>
+<p class='p red'>记录文章访问量的唯一标识符是文章的发布日期和文章的标题，因此要确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</p>
+
 <h2 id="6-提高博客访问速度"><a href="#6-提高博客访问速度" class="headerlink" title="6.提高博客访问速度"></a>6.提高博客访问速度</h2><h3 id="6-1hexo-offline-popup插件"><a href="#6-1hexo-offline-popup插件" class="headerlink" title="6.1hexo-offline-popup插件"></a>6.1hexo-offline-popup插件</h3><p>hexo-offline-popup 是一个 hexo 插件， 它可加速你的Hexo网站的加载速度，以及网站内容更新弹窗提示<br>在Hexo根目录打开Git-bash ，执行命令<code>npm i hexo-offline-popup --save</code><br>在博客根目录的_config.yml中添加如下配置</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># offline config passed to sw-precache.</span></span><br><span class="line"><span class="attr">service_worker:</span></span><br><span class="line">  <span class="attr">maximumFileSizeToCacheInBytes:</span> <span class="number">5242880</span></span><br><span class="line">  <span class="attr">staticFileGlobs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">public/**/*.&#123;js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2&#125;</span></span><br><span class="line">  <span class="attr">stripPrefix:</span> <span class="string">public</span></span><br><span class="line">  <span class="attr">verbose:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <p>如果你有CDN资源，例：<br>    - <a target="_blank" rel="noopener" href="https://unpkg.com/artitalk">https://unpkg.com/artitalk</a><br>    - <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/artitalk">https://cdn.jsdelivr.net/npm/artitalk</a><br>将此配置添加到根目录的_config.yml</p>
@@ -633,7 +645,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-23T09:42:06+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-23T10:37:19+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Apr 23, 2021</p>
@@ -1060,12 +1072,12 @@ var loadCSS = function( href, before, media, attributes ){
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>复制文本</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>複製文本</a>
         <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>复制链接</a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新标签页打开</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>複製鏈接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新標籤頁打開</a>
         <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>复制图片地址</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>複製圖片地址</a>
         <hr id='hr-src'>
       </li>
       
@@ -1491,8 +1503,8 @@ function setSearchService() {
   <script defer>
 
   const LCCounter = {
-    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
-    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    app_id: 'ybMPynUfyv3NPRE4k7ep6osN-gzGzoHsz',
+    app_key: 'j85W5iluYcIYun0snaxJgoRd',
     custom_api_server: '',
 
     // 查询存储的记录
@@ -1701,6 +1713,40 @@ function setSearchService() {
 
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- https://github.com/volantis-x/hexo-theme-volantis/issues/63 -->
+<script>
+	setTimeout(function() {
+	  loadScript("https://www.googletagmanager.com/gtag/js?id=G-TS0XM5EFK1");
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-TS0XM5EFK1');
+	}, 5000);
+	// 关于谷歌统计对 SPA 页面的处理：
+	// 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+	// https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+	volantis.pjax.push(()=>{
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('config', 'G-TS0XM5EFK1', {'page_path': document.location.pathname});
+	},'google_analytics')
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+    loadScript("https://hm.baidu.com/hm.js?3736afbe2db81c97b667096bfc2567fb")
+  }, 5000);
+})();
+// 关于百度统计对 SPA 页面的处理：
+// 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+// 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+volantis.pjax.push(()=>{_hmt.push(['_trackPageview', document.location.pathname]);},'baidu_analytics')
+</script>
 
 
 
@@ -1787,15 +1833,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
 
 <!-- more -->
-
-  
-  <script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?8eaac8f3d3279e0c748b7ebd0ff64d1c";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>
-
-  <script async src="/js/gtag.js"></script>
-
-  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-TS0XM5EFK1');</script>
-
-
 
  
 	   

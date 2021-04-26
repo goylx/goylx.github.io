@@ -12,31 +12,33 @@ thumbnail: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hex
 这篇文章主要介绍Hexo的基本使用以及一些优化配置，如果还没有搭建起博客并托管至Github Pages请点[这里]()
 本文基于volantis主题，部分配置可能不同请查看相应主题的官方文档自行配置。
 ## 1.基础配置
-    1. 网站信息
-        {% codeblock _config.yml lang:yaml %}
-            title:              # 网站标题
-            subtitle: ''        # 副标题
-            description: ''     # 描述信息
-            keywords:           # 关键字
-            author:             # 作者
-            language: zh        # 语言
-        {% endcodeblock %}
-    2. 网址信息
-        {% codeblock _config.yml lang:yaml %}
-            url                 # 网址根路径
-            permalink: :title/  # 文章生成的永久链接格式
-        {% endcodeblock %} 
+1. 网站信息
+{% codeblock _config.yml lang:yaml %}
+title:              # 网站标题
+subtitle: ''        # 副标题
+description: ''     # 描述信息
+keywords:           # 关键字
+author:             # 作者
+language: zh        # 语言
+{% endcodeblock %}
+2. 网址信息
+{% codeblock _config.yml lang:yaml %}
+url                 # 网址根路径
+permalink: :title/  # 文章生成的永久链接格式
+{% endcodeblock %}
+
 ## 2.配置主题
 [volantis官方文档](https://volantis.js.org/v5/getting-started/)
-   1. 修改配置文件
-   在hexo的配置文件_config.yml中找到theme属性并修改。
-    {% codeblock _config.yml  lang:yaml %}theme: volantis{% endcodeblock %}
-   2. 下载主题
-    在终端中输入：`npm i hexo-theme-volantis`
-   3. 创建主题配置文件
-    在根目录下创建文件`_config.volantis.yml`,volantis主题相关配置写在该文件内。
-    {% note, PS: 基于hexo5的新特性 %}
+1. 修改配置文件
+在hexo的配置文件_config.yml中找到theme属性并修改。
+{% codeblock _config.yml  lang:yaml %}theme: volantis{% endcodeblock %}
+2. 下载主题
+在终端中输入：`npm i hexo-theme-volantis`
+3. 创建主题配置文件
+在根目录下创建文件`_config.volantis.yml`,volantis主题相关配置写在该文件内。
+{% note, PS: 基于hexo5的新特性 %}
 主题有关的样式配置请查看主题的官方文档进行配置，本文只对部分内容进行介绍。volantis官方文档[传送门](https://volantis.js.org/v5/theme-settings/)
+
 ## 3.页面配置
 ### 3.1归档页面
 hexo默认会根据`/source/_posts`下的文件生成归档页面，默认存放在`archives`目录，可以在`_config.yml`文件中修改
@@ -174,15 +176,52 @@ popularPosts:
 ## 5.统计分析网站访问量
 ### 5.1 百度统计
 百度统计主要用于分析网站数据：流量、访客量等。
-   1. 注册百度统计账号，官网链接：https://tongji.baidu.com
-   2. 点击`管理>新增网站`，填写数据后点击确定
-   3. 复制代码并在配置文件中引入代码
+1. 注册百度统计账号，官网链接：https://tongji.baidu.com
+2. 点击`管理>新增网站`
+{% image /image/hexo/baiduAdd.png, alt="添加百度统计分析的网站" %}
+填写数据后点击确定后会跳转到代码获取页面
+3. 复制代码中的key并在配置文件设置
+{% image /image/hexo/baiduKey.png, alt="添加百度统计分析的网站" %}
 {% codeblock _config.yml lang:yaml%}
-import:
-  script:
-    - <script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxx";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script> #从图二复制的代码
+baidu_analytics_key: 百度统计的key
 {% endcodeblock %}
+
 可以在管理页面查看代码是否安装正确，然后就可以查看网页访问的报告了。
+### 5.2 google统计
+google统计和百度统计类似，主要满足国外流量的统计。注册google统计账号，官网链接：https://analytics.google.com/。复制key并在配置文件中配置
+{% codeblock _config.yml lang:yaml %}
+google_analytics_key: 谷歌统计的key
+{% endcodeblock %}
+{% note, 可以将`<script async src="https://www.googletagmanager.com/gtag/js?id=xxxxxxxx"></script>`src引入的文件下载放在本地，已加快速度。%}
+将上面的代码在配置文件中引入即可
+
+### 5.3 leancloud统计页面访问次数
+#### 5.3.1 创建leancloud服务
+1. 进入官网 https://leancloud.cn/，注册账号验证邮箱
+2. 进入控制台创建应用，名称随意后期可以修改，选择开发版即可
+
+{% image /image/hexo/leancloudCreate.png, alt="创建leancloud应用" %}
+3. 创建 Class：点击刚创建的应用，选择数据存储/结构化数据，创建一个 Class 表用来保存我们的博客访问数据。
+   - 此处创建的 Class 名字必须为 Counter，用来保证与 NexT 主题的修改相兼容；
+   - ACL 权限选择 无限制，避免后续因为权限的问题导致次数统计显示不正常
+
+  {% image /image/hexo/leancloudClass.png, alt="创建Counter Class表" %}
+4. 创建 Class 完成之后，新创建的 Counter 表会显示在左侧，这时再切换到应用的 设置 - 应用 Key 界面复制app_key和和app_id
+
+{% image /image/hexo/leancloudKey.png, alt="图3 复制app_key、app_id" %}
+5. 修改主题配置文件：
+{% codeblock _config.volantis.yml lang:yaml %}
+analytics:
+  leancloud: # 请使用自己的 id & key 以防止数据丢失
+    app_id: 
+    app_key: 
+    custom_api_server: # 国际版一般不需要写，除非自定义了 API Server
+{% endcodeblock %}
+
+这时再使用 hexo g、hexo d 命令重新部署博客，就可以正常使用文章阅读量统计的功能了，如下图所示：
+{% image /image/hexo/leancloudResult.png, alt="查看文章阅读量" %}
+{% p red, 记录文章访问量的唯一标识符是文章的发布日期和文章的标题，因此要确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。 %}
+
 ## 6.提高博客访问速度
 ### 6.1hexo-offline-popup插件
 hexo-offline-popup 是一个 hexo 插件， 它可加速你的Hexo网站的加载速度，以及网站内容更新弹窗提示

@@ -1,3 +1,33 @@
+# css配置
+custom_css:
+  #光标样式
+  cursor:
+    enable: true
+    text: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/text.png
+    pointer: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/pointer.png
+    default: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/left_ptr.png
+    not-allowed: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/circle.png
+    zoom-out: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-out.png
+    zoom-in: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/zoom-in.png
+    grab: https://cdn.jsdelivr.net/gh/inkss/common@master/cursor/openhand.png
+  # 字体设计
+  fontfamily:
+    logofont:
+      fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      name: 'Varela Round'
+      url: https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf
+      weight: normal
+      style: normal
+    bodyfont:
+      fontfamily: '"fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      name: 'fwzcN'
+      url: https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/fonts/foundertype/fwzcN.OTF
+      weight: normal
+      style: normal
+    codefont:
+      fontfamily: 'Menlo, UbuntuMono, Monaco'
+
+# 页面配置
 pages:
   friends:
     layout_scheme: sites
@@ -107,7 +137,7 @@ article:
         - id: weibo
           img: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png
 
-
+# 插件配置
 plugins:
   ################# required plugins ################
   # jquery
@@ -302,7 +332,195 @@ plugins:
     enable: #true
     id: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+# 站内搜索配合，使用hexo
 search:
   enable: true
   service: hexo  # hexo, google, algolia, azure, baidu
   js: https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2.6.4/js/search.js
+
+# 页脚配置
+site_footer:
+  # layout of footer: [aplayer, social, license, info, copyright]
+  layout: [social, copyright, record]
+  social:
+    - icon: fas fa-rss
+      url: atom.xml
+    - icon: fas fa-envelope
+      url: mailto:2236212702@qq.com
+    - icon: fab fa-github
+      url: https://github.com/oylx-maker
+    - icon: fas fa-headphones-alt
+      url: https://music.163.com/#/user/home?id=63035382
+  record: <a href="http://beian.miit.gov.cn">蜀ICP备2021009139号-1</a>
+
+# 封面设置
+cover:
+  height_scheme: half
+  layout_scheme: search # search (搜索), dock (坞), featured (精选), focus (焦点)
+  # logo:  https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.1.1/images/logo.png
+  background: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg
+  search: '世界之大，探索一下！'
+  logo: /image/logo.png
+  title: ''
+  features: 
+    - name: 博客
+      icon: fa fa-book 
+      url: /
+    - name: 分类
+      icon: fa fa-archive
+      url: /categories/
+    - name: 标签
+      icon: fas fa-tags
+      url: tags/
+    - name: 归档
+      icon: fas fa-archive
+      url: archives/
+    - name: 友链
+      icon: fas fa-link
+      url: friends/
+
+  display:
+    home: true
+    archive: false
+    others: false # can be written in front-matter 'cover: true'
+
+navbar:
+  logo: # choose [img] or [icon + title]
+    img:
+    icon:
+    title:
+  search: 世界之大，探索一下！   # Search bar placeholder
+
+# 自定义右键菜单
+rightmenu:
+  enable: true
+  # hr: 分割线, music: 音乐控制器
+  layout: [home, hr, source_docs, hr, print, hr, dark_mode, hr, music]
+  # 可选功能项
+  print:
+    name: 打印页面
+    icon: fa fa-print
+    onclick: document.execCommand('print')
+  source_docs:
+    name: 本站源码
+    icon: fa fa-code-branch
+    url: https://github.com/volantis-x/volantis-docs/
+  dark_mode:
+    name: Dark mode
+    icon: fas fa-moon
+    toggle: darkmode
+
+# 侧边栏配置
+sidebar:
+  # 主页、分类、归档等独立页面
+  for_page: [blogger, category, tagcloud, qrcode, webinfo]
+  # layout: docs/post 这类文章页面
+  for_post: [toc]
+  # 侧边栏组件库
+  widget_library:
+    # ---------------------------------------
+    # blogger info widget
+    blogger:
+      class: blogger
+      display: [desktop, mobile] # [desktop, mobile]
+      avatar: https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png
+      shape: rectangle # circle, rectangle
+      url: /about/
+      title:
+      subtitle:
+      jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.
+      social:
+        - icon: fas fa-rss
+          url: /atom.xml
+        - icon: fas fa-envelope
+          url: mailto:me@xxx.com
+        - icon: fab fa-github
+          url: https://github.com/volantis-x/
+        - icon: fas fa-headphones-alt
+          url: /
+    # ---------------------------------------
+    # toc widget (valid only in articles)
+    toc:
+      class: toc
+      display: [desktop, mobile] # [desktop, mobile]
+      header:
+        icon: fas fa-list
+        title: 本文目录
+      list_number: false
+      min_depth: 2
+      max_depth: 5
+    # ---------------------------------------
+    # category widget
+    category:
+      class: category
+      display: [desktop] # [desktop, mobile]
+      header:
+        icon: fas fa-folder-open
+        title: 文章分类
+        url: /categories/
+    # ---------------------------------------
+    # tagcloud widget
+    tagcloud:
+      class: tagcloud
+      display: [desktop, mobile] # [desktop, mobile]
+      header:
+        icon: fas fa-tags
+        title: 热门标签
+        url: /tags/
+      min_font: 14
+      max_font: 24
+      color: true
+      start_color: '#999'
+      end_color: '#555'
+
+    # ---------------------------------------
+    # qrcode widget
+    donate:
+      class: qrcode
+      display: [desktop, mobile] # [desktop, mobile]
+      height: 64px  # Automatic height if not set
+      images:
+        - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+        - https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png
+    # ---------------------------------------
+    # webinfo widget
+    webinfo:
+      class: webinfo
+      display: [desktop]
+      header:
+        icon: fas fa-award
+        title: 站点信息
+      type:
+        article:
+          enable: true
+          text: '文章数目：'
+          unit: '篇'
+        runtime:
+          enable: true
+          data: '2021/04/01'    # 填写建站日期
+          text: '已运行时间：'
+          unit: '天'
+        wordcount:
+          enable: true
+          text: '本站总字数：'   # 需要启用 wordcount
+          unit: '字'
+        visitcounter:
+          service: leancloud  # busuanzi, leancloud
+          siteuv:
+            enable: true
+            text: '本站访客数：'
+            unit: '人'
+          sitepv:
+            enable: true
+            text: '本站总访问量：'
+            unit: '次'
+        lastupd:
+          enable: true
+          friendlyShow: true    # 更友好的时间显示
+          text: '最后活动时间：'
+          unit: '日'
+analytics:
+  leancloud: # 请使用自己的 id & key 以防止数据丢失
+    app_id: ybMPynUfyv3NPRE4k7ep6osN-gzGzoHsz
+    app_key: j85W5iluYcIYun0snaxJgoRd
+    custom_api_server: # 国际版一般不需要写，除非自定义了 API Server

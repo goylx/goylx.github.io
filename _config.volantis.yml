@@ -355,7 +355,7 @@ site_footer:
 
 # 封面设置
 cover:
-  height_scheme: half
+  height_scheme: full
   layout_scheme: search # search (搜索), dock (坞), featured (精选), focus (焦点)
   # logo:  https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.1.1/images/logo.png
   background: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg
@@ -363,20 +363,15 @@ cover:
   logo: /image/logo.png
   title: ''
   features: 
-    - name: 博客
-      icon: fa fa-book 
-      url: /
+    - name: 导读
+      url: /guide/
     - name: 分类
-      icon: fa fa-archive
       url: /categories/
     - name: 标签
-      icon: fas fa-tags
       url: tags/
     - name: 归档
-      icon: fas fa-archive
       url: archives/
     - name: 友链
-      icon: fas fa-link
       url: friends/
 
   display:
@@ -519,6 +514,7 @@ sidebar:
           friendlyShow: true    # 更友好的时间显示
           text: '最后活动时间：'
           unit: '日'
+
 analytics:
   leancloud: # 请使用自己的 id & key 以防止数据丢失
     app_id: ybMPynUfyv3NPRE4k7ep6osN-gzGzoHsz

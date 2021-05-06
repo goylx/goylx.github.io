@@ -21,7 +21,7 @@ custom_css:
     bodyfont:
       fontfamily: '"fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'fwzcN'
-      url: https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/fonts/foundertype/fwzcN.OTF
+      url: /fonts/foundertype/fwzcN.OTF
       weight: normal
       style: normal
     codefont:

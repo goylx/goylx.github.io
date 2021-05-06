@@ -1,0 +1,106 @@
+<%- partial('global') %>
+<script>
+  <% if (theme.plugins.fontawesome) { %>
+  volantis.css("<%- theme.plugins.fontawesome %>");
+  <% } %>
+  <% if (theme.plugins.fontawesome_animation.enable) { %>
+  volantis.css("<%- theme.plugins.fontawesome_animation.css %>");
+  <% } %>
+  <% if (theme.plugins.nodewaves.enable) { %>
+  volantis.css("<%- theme.plugins.nodewaves.css %>");
+  <% } %>
+  <% if ((theme.plugins.highlightjs.enable == true)&&(theme.plugins.highlightjs.css)) { %>
+  volantis.css("<%- theme.plugins.highlightjs.css %>");
+  <% } %>
+</script>
+<!-- required -->
+<%- js(theme.plugins.jquery) %>
+
+<!-- internal -->
+
+<%- partial('cover') %>
+
+<% if (theme.rightmenu.enable == true) { %>
+  <%- partial('../rightmenu') %>
+<% } %>
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+<% if (theme.plugins.darkmodejs.enable) { %>
+  <%- partial('darkmode') %>
+<% } %>
+
+<%- partial('github-api') %>
+
+<% if (theme.plugins.lazyload && theme.plugins.lazyload.enable) { %>
+  <%- partial('../../_third-party/lazyload/script') %>
+<% } %>
+
+<% if (theme.plugins.preload.enable && theme.plugins.preload.service) { %>
+  <%- partial('../../_third-party/preload/script') %>
+<% } %>
+
+<% if (theme.plugins.clipboard.enable && (theme.custom_css.body.highlight.copy_btn == true)) { %>
+  <%- partial('../../_third-party/clipboard/script') %>
+<% } %>
+
+<% if (theme.plugins.scrollreveal.enable && theme.plugins.scrollreveal.js) { %>
+   <%- partial('../../_third-party/scrollreveal/script') %>
+<% } %>
+
+<% if (theme.plugins.aplayer && theme.plugins.aplayer.enable && theme.plugins.aplayer.js) { %>
+  <%- partial('../../_third-party/aplayer/script') %>
+<% } %>
+
+<% if (theme.comments.service && theme.comments.service.length > 0) { %>
+  <%- partial('../../_third-party/comments/' + theme.comments.service + '/script') %>
+<% } %>
+
+<% if (theme.analytics.busuanzi) { %>
+  <script defer src="<%- theme.analytics.busuanzi %>" data-pjax></script>
+<% } %>
+
+<%- js(theme.cdn.map.js.app) %>
+
+<!-- optional -->
+<% if (theme.search && theme.search.enable) { %>
+  <%- partial('search') %>
+<% } %>
+
+
+<% if (theme.plugins.nodewaves.enable) { %>
+  <%- partial('../../_third-party/nodewaves/script') %>
+<% } %>
+
+<% if (theme.plugins.comment_typing.enable) { %>
+  <%- js(theme.plugins.comment_typing.js) %>
+<% } %>
+
+<% if (theme.plugins.highlightjs.enable) { %>
+  <%- partial('../../_third-party/highlightjs/script') %>
+<% } %>
+
+<% if (theme.analytics && theme.analytics.leancloud && theme.analytics.leancloud.app_id) { %>
+  <%- partial('counter') %>
+<% } %>
+
+<%- partial('../../_third-party/analytics/script') %>
+
+<%- partial('../../_third-party/tidio/script') %>
+
+<%- partial('../../_third-party/parallax/script') %>
+
+<%- partial('../../_third-party/message/script') %>
+
+<%- partial('../../_third-party/hpp/hpptalk') %>
+
+<%- partial('../snackbar') %>
+
+<%- partial('toc') %>
+
+<%- js(['js/iconfont-inkss.js']) %>
+
+<%- js(['js/iconfont-emoji.js']) %>
+
+<!-- more -->
+<% if (config.import && config.import.script) { %>
+  <%- partial('import') %>
+<% } %>

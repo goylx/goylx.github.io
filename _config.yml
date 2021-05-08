@@ -8,7 +8,7 @@ subtitle: '愿你既能朝九晚五，又能浪迹天涯'
 description: ''
 keywords: [java,html,spring,springboot,redis,js,css,hexo,volantis,elasticsearch]
 author: 欧阳罗霄
-language: zh
+language: zh_CN
 timezone: ''
 
 # URL
@@ -130,7 +130,6 @@ import:
     - <link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
     - <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/favicon.ico">
     - <link rel="stylesheet" href="/css/oylx_style.css"></link>
-    - <link rel="stylesheet" href="/fonts/fontawesome/css/all.min.css"></link>
   script:
     # - <script src="/fonts/fontawesome/js/all.min.js"></script>
 baidu_analytics_key: 3736afbe2db81c97b667096bfc2567fb

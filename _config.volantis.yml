@@ -30,10 +30,106 @@ custom_css:
       url: /fonts/foundertype/sxls.OTF
       weight: normal
       style: normal
+  # 防锯齿
+  font_smoothing: true # font-smoothing for webkit
+
+
+color_scheme:
+  # ------------
+  # 通用颜色
+  common:
+    # 主题色
+    theme: '#00a0e9'
+    # 链接色
+    link: '#2196f3'
+    # 按钮色
+    button: '#00a0e9'
+    # 鼠标放到交互元素上时的色
+    hover: '#ff5722'
+    # 主题色块内部的文字颜色
+    inner: '#fff'
+    # 选中区域文字的背景颜色
+    selection: 'alpha(#2196f3, 0.2)'
+  # ------------
+  # 亮色主题（默认）
+  light:
+    # 网站背景色
+    site_bg: '#f4f4f4'
+    # 网站背景上的文字
+    site_inner: '#fff'
+    # 网站页脚文字
+    site_footer: '#666'
+
+    # 卡片背景色
+    card: '#fff'
+    # 卡片上的普通文字
+    text: '#444'
+
+    # 区块和代码块背景色
+    block: '#f6f6f6'
+    # 代码块高亮时的背景色
+    codeblock: '#FFF7EA'
+    # 行内代码颜色
+    inlinecode: '#D56D28'
+
+    # 文章部分
+    h1: '#444'
+    h2: '#444'
+    h3: '#444'
+    h4: '#444'
+    h5: '#444'
+    h6: '#444'
+    p: '#444'
+
+    # 列表文字
+    list: '#666'
+    # 列表 hover 时的文字
+    list_hl: 'mix($color-theme, #000, 80)'
+    # 辅助性文字
+    meta: '#888'
+  # ------------
+  # 暗色主题
+  dark:
+    # 网站背景色
+    site_bg: '#222'
+    # 网站背景上的文字
+    site_inner: '#eee'
+    # 网站页脚文字
+    site_footer: '#aaa'
+    # 卡片背景色
+    card: '#444'
+    # 卡片上的普通文字
+    text: '#eee'
+
+    # 区块和代码块背景色
+    block: '#3a3a3a'
+    # 代码块高亮时的背景色
+    codeblock: '#343a3c'
+    # 行内代码颜色
+    inlinecode: '#D56D28'
+
+    # 文章部分
+    h1: '#eee'
+    h2: '#eee'
+    h3: '#ddd'
+    h4: '#ddd'
+    h5: '#ddd'
+    h6: '#ddd'
+    p: '#bbb'
+
+    # 列表文字
+    list: '#aaa'
+    # 列表 hover 时的文字
+    list_hl: 'mix($color-theme, #fff, 80)'
+    # 辅助性文字
+    meta: '#888'
+    # 夜间图片亮度
+    brightness: 70%
+
 # 页面配置
 pages:
   friends:
-    layout_scheme: sites
+    layout_scheme: simple
 
 # 文章布局
 article:
@@ -54,7 +150,7 @@ article:
   body:
     # 文章顶部信息
     # 从 meta_library 中取
-    top_meta: [author, category, date, counter, wordcount]
+    top_meta: [author, updated, wordcount]
     # ----------------
     # 文章页脚组件
     footer_widget:
@@ -110,7 +206,7 @@ article:
         format: 'll' # 日期格式 http://momentjs.com/docs/
       # 文章更新日期
       updated:
-        icon: fas fa-edit
+        icon: fad fa-edit PETERRIVE
         title: '更新于：'
         format: 'll' # 日期格式 http://momentjs.com/docs/
       # 文章分类
@@ -308,8 +404,8 @@ plugins:
   artitalk:
     # Set `layout: artitalk` to enable in page
     # 配置项按照yml格式继续填写即可
-    appId: ogP8qj3veMh0LFpFWMPOyF0X-MdYXbMMI # your appID
-    appKey: nHXLd3N3Jgh460t2iRQKWAtr # your appKEY
+    appId: l8pEEDhJhoQuPa4rolic3wpQ-MdYXbMMI # your appID
+    appKey: tLyxGBsrfOuyPVRwDpNgSN30 # your appKEY
     # serverURL:  #leancloud绑定的安全域名，使用国际版的话不需要填写
     # lang: # 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语
     # pageSize: #每页说说的显示数量
@@ -415,7 +511,7 @@ navbar:
           url: friends/
         - name: 留言
           icon: fad fa-comment-alt-smile WETASPHALT fa-fw
-          url: archives/
+          url: artitalk/
     
           
 
@@ -425,7 +521,7 @@ navbar:
 rightmenu:
   enable: true
   # hr: 分割线, music: 音乐控制器
-  layout: [home, hr, source_docs, hr, print, hr, dark_mode, hr, music]
+  layout: [home, hr, hr, print, hr, dark_mode]
   # 可选功能项
   print:
     name: 打印页面
@@ -443,9 +539,9 @@ rightmenu:
 # 侧边栏配置
 sidebar:
   # 主页、分类、归档等独立页面
-  for_page: [blogger, webinfo]
+  for_page: [navigation,webinfo]
   # layout: docs/post 这类文章页面
-  for_post: [toc]
+  for_post: [toc,navigation,webinfo]
   # 侧边栏组件库
   widget_library:
     # ---------------------------------------
@@ -549,9 +645,108 @@ sidebar:
           friendlyShow: true    # 更友好的时间显示
           text: '最后活动时间：'
           unit: '日'
+    # ---------------------------------------
+    # 站内导航
+    navigation:
+      class: grid
+      display: [desktop]
+      header: 
+        icon: fad fa-map-signs ASBESTOS fa-fw
+        title: 站内导航
+      fixed: true # 固定宽度
+      rows:
+        - name: 反馈BUG
+          icon: fas fa-bug
+          url: https://github.com/volantis-x/hexo-theme-volantis/issues/
 
 analytics:
   leancloud: # 请使用自己的 id & key 以防止数据丢失
     app_id: ybMPynUfyv3NPRE4k7ep6osN-gzGzoHsz
     app_key: j85W5iluYcIYun0snaxJgoRd
     custom_api_server: # 国际版一般不需要写，除非自定义了 API Server
+
+# 评论系统配置
+comments:
+  title: <i class='fad fa-comments POMEGRANATE'></i> 评论
+  service: waline
+  # Waline
+  # https://waline.js.org/
+  waline:
+    js: https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js
+    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是waline的问题
+    placeholder: 快来评论吧~ # 评论占位提示
+    imageHosting: https://7bu.top/api/upload # 图床api（默认使用去不图床）
+    visitor: true
+    # 其他配置项按照yml格式继续填写即可 除了 [el path placeholder uploadImage] 选项
+    serverURL: https://imnerd-api-ashy.vercel.app/ # Waline 的服务端地址（必填） 测试用地址: https://waline-ruddy.vercel.app
+    # 这里设置CDN, 默认微博表情CDN
+    # emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/'
+    # 表情title和图片映射
+    emojiMaps: {
+      "heo-再见": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/再见.png",
+      "heo-微笑": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/微笑.png",
+      "heo-亲亲": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/亲亲.png",
+      "heo-愤怒": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/愤怒.png",
+      "heo-尴尬": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/尴尬.png",
+      "heo-捂嘴笑": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/捂嘴笑.png",
+      "heo-惊吓": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/惊吓.png",
+      "heo-捂脸": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/捂脸.png",
+      "heo-生病": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/生病.png",
+      "heo-绿帽": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/绿帽.png",
+      "heo-鼓掌": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/鼓掌.png",
+      "heo-抠鼻": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/抠鼻.png",
+      "heo-感动": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/感动.png",
+      "heo-吐血": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/吐血.png",
+      "heo-鬼脸": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/鬼脸.png",
+      "heo-擦汗": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/擦汗.png",
+      "heo-惊讶": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/惊讶.png",
+      "heo-恶心": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/恶心.png",
+      "heo-禁言": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/禁言.png",
+      "heo-睡觉": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/睡觉.png",
+      "heo-笑哭": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/笑哭.png",
+      "heo-思考": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/思考.png",
+      "heo-疑问": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/疑问.png",
+      "heo-奋斗": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/奋斗.png",
+      "heo-耍酷": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/耍酷.png",
+      "heo-吵架": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/吵架.png",
+      "heo-眩晕": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/眩晕.png",
+      "heo-哭泣": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/哭泣.png",
+      "heo-开心": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/开心.png",
+      "heo-害羞": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/害羞.png",
+      "heo-喜欢": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/喜欢.png",
+      "heo-烦恼": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/烦恼.png",
+      "heo-爆炸": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/爆炸.png",
+      "heo-熬夜": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/熬夜.png",
+      "heo-吃瓜": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/吃瓜.png",
+      "heo-阴险": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/阴险.png",
+      "heo-狗头": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/狗头.png",
+      "heo-滑稽": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/滑稽.png",
+      "heo-被打": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/被打.png",
+      "heo-哈士奇": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/哈士奇.png",
+      "heo-大笑": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/大笑.png",
+      "heo-加班": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/加班.png",
+      "heo-唱歌": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/唱歌.png",
+      "heo-纠结": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/纠结.png",
+      "heo-发红包": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/发红包.png",
+      "heo-送福": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/送福.png",
+      "heo-牛年进宝": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/牛年进宝.png",
+      "heo-狗头围脖": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/狗头围脖.png",
+      "heo-狗头花": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/狗头花.png",
+      "heo-狗头草": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/狗头草.png",
+      "heo-头秃": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/头秃.png",
+      "heo-狗头胖次": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/狗头胖次.png",
+      "heo-我看好你": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/我看好你.png",
+      "heo-好的": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/好的.png",
+      "heo-好奇": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/好奇.png",
+      "heo-偷偷看": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/偷偷看.png",
+      "heo-危险": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/危险.png",
+      "heo-小丑": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/小丑.png",
+      "heo-引起不适": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/引起不适.png",
+      "heo-滑稽喝水": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/滑稽喝水.png",
+      "heo-熊猫": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/熊猫.png",
+      "heo-熊猫唱歌": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/熊猫唱歌.png",
+      "heo-打牌": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/打牌.png",
+      "heo-哈士奇失去意识": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/哈士奇失去意识.png",
+      "heo-应援": "https://cdn.jsdelivr.net/gh/zhheo/Sticker-Heo@main/Sticker-100/应援.png"
+    }
+    avatar: "robohas"

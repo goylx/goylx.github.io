@@ -10,7 +10,10 @@ thumbnail: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hex
 references:
   - title: 使用Github Pages 和Hexo搭建自己的独立博客
     url: https://www.itrhx.com/2018/08/15/A02-hexo-blog/
+headimg: /image/hexo/hexoGithub.png
 ---
+这篇文章主要介绍如何使用hexo搭建静态博客网站并通过github page提供服务
+<!-- more -->
 
 ## 前言
 

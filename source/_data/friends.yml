@@ -1,9 +1,13 @@
-- group: 友链 # 分组标题
-  description:  普通 # 分组描述
+- group: <i class="fal fa-code-branch">代码托管</i>
+  description:  # 分组描述
   items:
-    - title: a # 名称
-      avatar: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png # 头像
-      url: https://www.baidu.com # 链接
-      screenshot: https://gitee.com/static/errors/images/403.png # 截图
-      keywords:  # 关键词
-      description:  # 描述
+    - title: Github
+      url: https://github.com/
+      avatar: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-IaGb6BUvCTW_ktB4yElFJ215r8E66FuxDw&usqp=CAU
+      description: github是一个面向开源和私有软件的代码托管平台
+    - title: # 名称
+      avatar: # 头像
+      url: # 链接
+      screenshot: # 截图
+      keywords: # 关键词
+      description: # 描述

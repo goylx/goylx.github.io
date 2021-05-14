@@ -7,7 +7,8 @@ tags:
 	- volantis
 thumbnail: https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png
 ---
-
+使用volantis主题，并进行一些自定义配置和优化
+<!-- more -->
 ## 前言
 这篇文章主要介绍Hexo的基本使用以及一些优化配置，如果还没有搭建起博客并托管至Github Pages请点[这里]()
 本文基于volantis主题，部分配置可能不同请查看相应主题的官方文档自行配置。

@@ -129,7 +129,7 @@ color_scheme:
 # 页面配置
 pages:
   friends:
-    layout_scheme: simple
+    layout_scheme: sites
 
 # 文章布局
 article:

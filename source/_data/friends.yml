@@ -5,9 +5,7 @@
       url: https://github.com/
       avatar: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-IaGb6BUvCTW_ktB4yElFJ215r8E66FuxDw&usqp=CAU
       description: github是一个面向开源和私有软件的代码托管平台
-    - title: # 名称
-      avatar: # 头像
-      url: # 链接
-      screenshot: # 截图
-      keywords: # 关键词
-      description: # 描述
+    - title: Github
+      url: https://github.com/
+      screenshot: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-IaGb6BUvCTW_ktB4yElFJ215r8E66FuxDw&usqp=CAU
+      description: github是一个面向开源和私有软件的代码托管平台

@@ -25,6 +25,11 @@ article > p
   line-height: 2 !important;
   margin: 0 0 20px 0;
 
+if hexo-config('custom_css.fontfamily.bodyfont')
+  article > p
+    font-family: hexo-config('custom_css.fontfamily.bodyfont.fontfamily')
+
+
 //.j-china-lantern
 //   @media screen and (max-width: 1400px)
 //    display: none !important

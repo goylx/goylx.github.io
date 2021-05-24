@@ -1,8 +1,10 @@
 ---
 layout: friends # 必须
-title: 我的朋友们 # 可选，这是友链页的标题
+title: 开发百宝箱 # 可选，这是友链页的标题
 top_meta: false
 bottom_meta: false
+sidebar: [tags]
+link: https://www.pdai.tech/md/resource/tools.html
 ---
 整理收录一下有趣实用的网站
 <!-- more -->

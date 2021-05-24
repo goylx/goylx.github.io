@@ -24,7 +24,9 @@
                       <% } %>
                     </div>
                     <div class="info">
+                      <% if (item.avatar) { %>
                       <img src="<%- item.avatar || (theme.plugins.lazyload && theme.plugins.lazyload.loadingImg) %>"/>
+                      <% } %>
                       <span class="title"><%- item.title %></span>
                       <span class="desc"><%- item.description %></span>
                     </div>

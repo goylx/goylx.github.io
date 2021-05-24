@@ -1,5 +1,6 @@
 # css配置
 custom_css:
+  max_width: 1280px
   #光标样式
   cursor:
     enable: true
@@ -13,7 +14,7 @@ custom_css:
   # 字体设计
   fontfamily:
     logofont:
-      fontfamily: '"fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      fontfamily: '"sxls", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
       name: 'fwzcN'
       url: /fonts/foundertype/fwzcN.OTF
       weight: normal
@@ -521,7 +522,7 @@ navbar:
 rightmenu:
   enable: true
   # hr: 分割线, music: 音乐控制器
-  layout: [home, hr, hr, print, hr, dark_mode]
+  layout: [home, hr, print, dark_mode]
   # 可选功能项
   print:
     name: 打印页面

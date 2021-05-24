@@ -251,7 +251,7 @@ const RightMenu = (() => {
       $readingModel.hide();
     }
 
-    if (volantis.APlayerController.status === 'play') {
+    if (volantis.APlayerController?.status === 'play') {
       optionFlag = true;
       $menuMusic.show();
     } else {

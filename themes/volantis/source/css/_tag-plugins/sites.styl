@@ -1,87 +1,70 @@
-.sites-wrap
-  .group-header
-    margin: 0 0 1rem
-    p
-      margin: 0
-      font-size: $fs-14
-      &:first-child
-        font-size: 1.25rem
-        font-weight: 500
-  .group-body
-    width: 100%
-    margin-bottom: 2rem
-  .sitesjs-wrap
-    display: block
-    .loading-wrap
-      min-height: 50px
-      margin: 2rem 0
-      text-align: center
-
-.sites-wrap .group-body
-  display: grid
-  grid-gap: 1rem 1rem
-  grid-template-columns: repeat(auto-fill, "calc((100% - 3 * %s) / 4)" % 1rem)
-  @media screen and (max-width: $device-laptop)
-    grid-template-columns: repeat(auto-fill, "calc((100% - 2 * %s) / 3)" % 1rem)
-  @media screen and (max-width: 900px)
-    grid-template-columns: repeat(auto-fill, "calc((100% - 1 * %s) / 2)" % 1rem)
-  @media screen and (max-width: $device-tablet)
-    grid-template-columns: repeat(auto-fill, "calc((100% - 2 * %s) / 3)" % 1rem)
-  @media screen and (max-width: $device-mobile)
-    grid-template-columns: repeat(auto-fill, "calc((100% - 1 * %s) / 2)" % 1rem)
-  margin-bottom: 2rem
-
-.sites-wrap .group-body .site-card .card-link
-  width: 100%
+.site-card-group
   display: flex
-  flex-direction: column
-  >img
+  flex-wrap: wrap
+  justify-content: flex-start
+  margin: -0.5 * $gap
+  align-items: stretch
+.site-card
+  margin: $gap * 0.5
+  width: "calc(100% / 4 - %s)" % $gap
+  @media screen and (min-width: $device-2k)
+      width: "calc(100% / 5 - %s)" % $gap
+  @media screen and (max-width: $device-tablet)
+      width: "calc(100% / 3 - %s)" % $gap
+  @media screen and (max-width: $device-mobile)
+      width: "calc(100% / 2 - %s)" % $gap
+  display: block
+  line-height: 1.4
+  height 100%
+  .img
     width: 100%
     height 120px
-    border-radius: 4px
-    @media screen and (max-width: $device-laptop)
-      height: 150px
-    @media screen and (max-width: 900px)
-      height: 180px
-    @media screen and (max-width: $device-tablet)
-      height: 150px
-    object-fit: cover
+    @media screen and (max-width: $device-mobile)
+      height 100px
+    overflow: hidden
+    border-radius: $border-card * 0.5
     box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2)
+    background: var(--color-block)
+    img
+      width: 100%
+      height 100%
+      // trans(.75s)
+      transition: transform 2s ease
+      object-fit: cover
+
   .info
-    margin-top: 0.5rem
-    line-height: 1.2
-    >img
-      width: 28px
-      height: @width
-      border-radius: @width
+    margin-top: $gap * 0.5
+    img
+      width: 32px
+      height: 32px
+      border-radius: 16px
       float: left
       margin-right: 8px
       margin-top: 2px
     span
       display: block
     .title
-      font-weight: 500
-      color: var(--text-p1)
-      font-size: $fs-14
-      margin-top: 1px
+      font-weight: 600
+      font-size: $fontsize-list
+      color: var(--color-p)
       display: -webkit-box
       -webkit-box-orient: vertical
       overflow: hidden
       -webkit-line-clamp: 1
+      trans()
     .desc
-      font-size: 10px
-      margin-top: 2px
-      word-wrap: break-word
-      color: var(--text-p3)
+      font-size: $fontsize-footnote
+      word-wrap: break-word;
+      line-height: 1.2
+      color: var(--color-meta)
       display: -webkit-box
       -webkit-box-orient: vertical
       overflow: hidden
       -webkit-line-clamp: 2
-
-// transform
-.sites-wrap .site-card .card-link
-  >img
+  .img
     trans()
   &:hover
-    >img
+    .img
       box-shadow: $boxshadow-float, $boxshadow-card-float
+    .info .title
+      color: $color-hover

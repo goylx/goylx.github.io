@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh_CN">
+<html lang="zh-CN">
   
 
 
@@ -31,6 +31,8 @@
     <meta name="keywords" content="hexo,volantis">
   
 
+  
+    <meta name="description" content="使用volantis主题，并进行一些自定义配置和优化">
   
 
   <!-- feed -->
@@ -92,7 +94,7 @@
   box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
 }
 @font-face {
-  font-family: 'fwzcN';
+  font-family: '"fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial';
   src: url("/fonts/foundertype/fwzcN.OTF");
   font-weight: 'normal';
   font-style: 'normal';
@@ -133,7 +135,7 @@
 .md .footer .header,
 .widget header,
 details summary {
-  font-family: "fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "sxls", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
 }
 :root {
   --site-bg: #f8f8f8;
@@ -706,7 +708,7 @@ th {
   margin-top: 32px;
 }
 .cover-wrapper .cover-body .title {
-  font-family: "fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "sxls", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
   font-size: 3.125rem;
   line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -1135,13 +1137,13 @@ th {
   line-height: 64px;
   padding: 0 24px;
   font-size: 1.25rem;
-  font-family: "fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "sxls", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
   height: 64px;
 }
 .l_header .nav-sub {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: auto;
 }
 .l_header .nav-sub .title {
@@ -1544,7 +1546,7 @@ ul.list-v >li>a:hover {
   right: calc(100% - 0.5 * 16px);
 }
 #wrapper {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: auto;
 }
 @media screen and (min-width: 2048px) {
@@ -1600,11 +1602,11 @@ ul.list-v >li>a:hover {
 }
 @media screen and (max-width: 2048px) {
   .l_header {
-    max-width: 1112px;
-    left: calc((100% - 1112px) * 0.5);
+    max-width: 1312px;
+    left: calc((100% - 1312px) * 0.5);
   }
 }
-@media screen and (max-width: 1112px) {
+@media screen and (max-width: 1312px) {
   .l_header {
     left: 0;
     border-radius: 0;
@@ -1985,15 +1987,13 @@ ul.list-v >li>a:hover {
   }
 }
 article > p {
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
   font-weight: 400 !important;
   line-height: 2 !important;
   margin: 0 0 20px 0;
 }
-h1.title {
-  text-align: center;
-  font-size: 2rem !important;
-  font-weight: 600;
-  font-family: sxls, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace !important;
+article > p {
+  font-family: '"fwzcN", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial';
 }
 @media screen and (max-width: 500px) {
   #safearea {
@@ -2593,10 +2593,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-23T11:06:57+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-12T09:13:41+08:00">
   <a class='notlink'>
     <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月23日</p>
+    <p>更新于：2021年5月12日</p>
   </a>
 </div>
 
@@ -2628,7 +2628,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   
-  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章主要介绍Hexo的基本使用以及一些优化配置，如果还没有搭建起博客并托管至Github Pages请点<a href="">这里</a><br>本文基于volantis主题，部分配置可能不同请查看相应主题的官方文档自行配置。</p>
+  <p>使用volantis主题，并进行一些自定义配置和优化</p>
+<span id="more"></span>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章主要介绍Hexo的基本使用以及一些优化配置，如果还没有搭建起博客并托管至Github Pages请点<a href="">这里</a><br>本文基于volantis主题，部分配置可能不同请查看相应主题的官方文档自行配置。</p>
 <h2 id="1-基础配置"><a href="#1-基础配置" class="headerlink" title="1.基础配置"></a>1.基础配置</h2><ol>
 <li>网站信息<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span>              <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span>        <span class="comment"># 副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span>     <span class="comment"># 描述信息</span></span><br><span class="line"><span class="attr">keywords:</span>           <span class="comment"># 关键字</span></span><br><span class="line"><span class="attr">author:</span>             <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh</span>        <span class="comment"># 语言</span></span><br></pre></td></tr></table></figure></li>
 <li>网址信息<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url</span>                 <span class="comment"># 网址根路径</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span>  <span class="comment"># 文章生成的永久链接格式</span></span><br></pre></td></tr></table></figure></li>
@@ -2744,10 +2746,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-23T11:06:57+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-12T09:13:41+08:00">
   <a class='notlink'>
     <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月23日</p>
+    <p>更新于：2021年5月12日</p>
   </a>
 </div>
 
@@ -2769,7 +2771,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary=使用volantis主题，并进行一些自定义配置和优化"
           
           >
           
@@ -2781,7 +2783,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary=使用volantis主题，并进行一些自定义配置和优化"
           
           >
           
@@ -2793,7 +2795,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary=使用volantis主题，并进行一些自定义配置和优化"
           
           >
           
@@ -2821,15 +2823,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/HexoSeo/'>
           <p class='title'><i class="fad fa-chevron-left" aria-hidden="true"></i>博客提交搜索引擎收录并进行seo优化</p>
-          <p class='content'>前言网站在没有提交搜索引擎收录之前，直接搜索你网站的内容是搜不到的，只有提交搜索引擎之后，搜索引擎才能收录你的站点，通过爬虫抓取你网站的东西，对于 hexo 博客来说，如果你是部署在 GitHu...</p>
+          <p class='content'>让百度和谷歌的搜索引擎收录博客
+
+前言网站在没有提交搜索引擎收录之前，直接搜索你网站的内容是搜不到的，只有提交搜索引擎之后，搜索引擎才能收录你的站点，通过爬虫抓取你网站的东西，对于 hexo 博...</p>
         </a>
       
       
         <a class='next' href='/HexoBlog/'>
           <p class='title'>使用Github Pages 和Hexo搭建自己的独立博客<i class="fad fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>前言首先感谢你阅读我的博客：OYLX’S BLOG
+          <p class='content'>这篇文章主要介绍如何使用hexo搭建静态博客网站并通过github page提供服务
 
-这是一篇有关如何使用Hexo搭建博客，并通过Github Pages服务部署上线的详细教程。本人是软件工程专业本科生，目前大三下学期在企业顶...</p>
+
+前言首先感谢你阅读我的博客：OYLX’S BLOG
+
+这是一篇有关如何使用Hexo搭建博客，并通过Git...</p>
         </a>
       
     </div>
@@ -2977,8 +2984,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue May 11 2021 18:05:16 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-05-11 日</div>
+            <div id="last-update" style="display: none;">Mon May 24 2021 16:15:16 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-05-24 日</div>
           
         </div>
         
@@ -3028,7 +3035,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-05-11 日';
+            document.getElementById('last-update-show').innerHTML = '2021-05-24 日';
           }
         </script>
         
@@ -3335,19 +3342,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
       
         
-          <hr class="menuLoad-Content">
-        
-      
-        
           <li class='option menuOption-Content'>
             <span class='vlts-menu opt fix-cursor-default' id='printHtml'>
               <i class='fa fa-print fa-fw '></i> 打印页面
             </span>
           </li>  
-        
-      
-        
-          <hr class="menuLoad-Content">
         
       
         

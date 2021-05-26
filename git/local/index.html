@@ -10,8 +10,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -28,7 +26,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：volantis - 楼</title>
+  <title>搭建本地代码仓库 - 楼</title>
+  
+    <meta name="keywords" content="git">
   
 
   
@@ -2477,7 +2477,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/coverCtrl.ejs -->
-        <div id="none" class='cover-wrapper  search' style="display: none;">
+        <div id="none" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
           
@@ -2560,81 +2560,349 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div id="l_main" class=''>
+  <article class=" article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        搭建本地代码仓库
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>欧阳罗霄</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-26T20:38:58+08:00">
+  <a class='notlink'>
+    <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年5月26日</p>
+  </a>
+</div>
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/HexoOptimize/">
-        博客优化及主题配置
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>使用volantis主题，并进行一些自定义配置和优化</p>
-    
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fad fa-keyboard PETERRIVE fa-fw fa-fw" aria-hidden="true"></i>
+      <p>字数：3.5k 字</p>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-04-09</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/hexo/">hexo</a>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fad fa-hourglass-half BELIZEHOLE fa-fw fa-fw" aria-hidden="true"></i>
+      <p>时长：13 分钟</p>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  
+  <h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><div class="note blue"><p>本文默认你对命令行工具有基本的了解，如果你还不知道如何使用请先对命令行工具有基本的了解后继续本文的阅读。</p></div>
+<p>打开命令行工具输入命令<code>git version</code>查看git版本，如果没有安装git参照如下方式：</p>
+<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-1">windows</a></li><li class="tab"><a class="#tab-id-2">linux</a></li><li class="tab"><a class="#tab-id-3">mac</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1"><p>在 Git 官方网站下载，打开 <a target="_blank" rel="noopener" href="http://git-scm.com/download/win">http://git-scm.com/download/win</a> 选择对应版本，下载后双击运行安装程序即可</p></div><div class="tab-pane" id="tab-id-2"><p>如果你想在 Linux 上用二进制安装程序来安装 Git，可以使用发行版包含的基础软件包管理工具来安装。 如果以 Fedora 上为例，你可以使用 yum：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install git</span><br></pre></td></tr></table></figure>
+
+<p>如果你在基于 Debian 的发行版上，请尝试用 apt-get：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p>要了解更多选择，Git 官方网站上有在各种 Unix 风格的系统上安装步骤，网址为 <a target="_blank" rel="noopener" href="http://git-scm.com/download/linux%E3%80%82">http://git-scm.com/download/linux。</a></p></div><div class="tab-pane" id="tab-id-3"><p>安装 Xcode Command Line Tools。 Mavericks （10.9） 或更高版本的系统中，在 Terminal 里尝试首次运行 ‘git’ 命令即可。 如果没有安装过命令行开发者工具，将会提示你安装。</p>
+<p>如果你想安装更新的版本，可以使用二进制安装程序。 官方维护的 OSX Git 安装程序可以在 Git 官方网站下载，网址为 <a target="_blank" rel="noopener" href="http://git-scm.com/download/mac%E3%80%82">http://git-scm.com/download/mac。</a></p></div></div></div>
+
+<h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><p>Git 可以通过<code>git config</code>命令查看或者定制git的环境信息，环境配置一共有三种作用域</p>
+<ul>
+<li>system: <code>git config --system</code>，配置文件存放在/etc/gitconfig，对于系统所有用户起作用，不常用</li>
+<li>global: <code>git config --global</code>，配置文件存放在~/.gitconfig 或 ~/.config/git/config，只对当前用户起作用，常用</li>
+<li>local : <code>git condif --local </code>，配置文件存放在当前使用仓库的 Git 目录中的 config 文件（就是 .git/config），只针对当前仓库，常用</li>
+</ul>
+<p>查看配置信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --list或-l           <span class="comment">#列出所有配置项，可能会看到重复的变量名，因为 Git 会从不同的文件中读取同一个配置（例如：/etc/gitconfig 与 ~/.gitconfig）。 这种情况下，Git 会使用它找到的每一个变量的最后一个配置。</span></span><br><span class="line">git config --global --list      <span class="comment">#只查看全局的配置</span></span><br><span class="line">git config &lt;key&gt;                <span class="comment">#查看制定配置项的值</span></span><br></pre></td></tr></table></figure>
+<p>配置自定义环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxxx              <span class="comment">#配置用户名</span></span><br><span class="line">git config --global user.email xxx@xxx.com      <span class="comment">#配置邮箱地址</span></span><br><span class="line">当安装完 Git 应该做的第一件事就是设置你的用户名称与邮件地址。 这样做很重要，因为每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中</span><br><span class="line">当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 git config --<span class="built_in">local</span> user.name xxxx  选项的命令来配置</span><br><span class="line"></span><br><span class="line">git config --global core.editor emacs           <span class="comment">#配置默认的编辑器</span></span><br><span class="line">当 Git 需要你输入信息时会调用它。 如果未配置，Git 会使用操作系统默认的文本编辑器，通常是 Vim。</span><br></pre></td></tr></table></figure>
+<h2 id="获取代码仓库"><a href="#获取代码仓库" class="headerlink" title="获取代码仓库"></a>获取代码仓库</h2><p>有两种取得 Git 项目仓库的方法。 第一种是将现有项目导入到 Git 控制中，或者新建一个Git控制的项目； 第二种是从一个服务器克隆一个现有的 Git 仓库。</p>
+<h3 id="在现有目录中初始化仓库"><a href="#在现有目录中初始化仓库" class="headerlink" title="在现有目录中初始化仓库"></a>在现有目录中初始化仓库</h3><p><code>git init</code>命令创建一个新的 Git 仓库。它用来将已存在但还没有版本控制的项目转换成一个 Git 仓库，或者创建一个空的新仓库。大多数Git命令在未初始化的仓库中都是无法使用的，所以这就是你运行新项目的第一个命令了。运行 <code>git init</code> 命令会在你项目的根目录下创建一个新的 .git 目录，其中包含了你项目必需的所有元数据。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init                    <span class="comment"># 将当前的目录转换成一个 Git 仓库</span></span><br><span class="line">git init &lt;directory&gt;        <span class="comment"># 在指定目录创建一个空的 Git 仓库。</span></span><br><span class="line">git init --bare &lt;directory&gt; <span class="comment"># 初始化一个裸的 Git 仓库，没有工作目录</span></span><br></pre></td></tr></table></figure>
+<div class="note "><p>使用–bare标记生成一个没有工作目录的裸仓库，用于作为中央仓库，因为向非裸仓库推送分支有可能会覆盖已有的代码变动。应该将裸仓库看做一个存储设施而非开发环境，在客户端的非裸仓库进行开发后推送到中央的裸仓库</p></div>
+
+<h3 id="克隆已有的仓库"><a href="#克隆已有的仓库" class="headerlink" title="克隆已有的仓库"></a>克隆已有的仓库</h3><p><code>git clone</code>命令拷贝整个 Git 仓库,默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。通常可以使用任何一个克隆下来的用户端来重建服务器上的仓库（虽然可能会丢失某些服务器端的挂钩设置，但是所有版本的数据仍在）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> /home/xxx/git_learing                         <span class="comment"># 从本地/home/xxx/git_learing仓库克隆一份仓库，使用哑协议——不建议</span></span><br><span class="line">git <span class="built_in">clone</span> file:///home/xxx/git_learing                  <span class="comment"># 从本地/home/xxx/git_learing仓库克隆一份仓库，使用智能协议——建议</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2            <span class="comment"># 从github上克隆一份仓库，会在当前目录下创建一个名为libgit2的仓库</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/libgit2/libgit2 mylibgit   <span class="comment"># 将执行与上一个命令相同的操作，不过在本地创建的仓库名字变为mylibgit</span></span><br></pre></td></tr></table></figure>
+<p>Git 支持多种数据传输协议。上面的例子使用的是 https:// 协议，不过你也可以使用 git:// 协议或者使用 SSH 传输协议，比如 user@server:path/to/repo.git 。</p>
+<h2 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h2><p>工作目录下的每一个文件都不外乎这两种状态：已跟踪或未跟踪。 <span class='p red'>已跟踪的文件</span>是指那些被纳入了版本控制的文件，在<span class='p red'>上一次快照中有它们的记录</span>，在工作一段时间后，它们的状态可能处于未修改，已修改或已放入暂存区。 工作目录中除已跟踪文件以外的所有其它文件都属于未跟踪文件，它们既不存在于上次快照的记录中，也没有放入暂存区。 初次克隆某个仓库的时候，工作目录中的所有文件都属于已跟踪文件，并处于未修改状态。<br>编辑过某些文件之后，由于自上次提交后你对它们做了修改，Git 将它们标记为已修改文件。 我们逐步将这些修改过的文件放入暂存区，然后提交所有暂存了的修改，如此反复。所以使用 Git 时文件的生命周期如下：</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/lifeCycle.png" class="lazyload" data-srcset="/image/Devops/git/lifeCycle.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="git项目中文件的生命周期"/></div><span class="image-caption">git项目中文件的生命周期</span></div>
+<h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>要查看哪些文件处于什么状态，可以用<code>git status</code>命令。如果在克隆/新建仓库后立即使用此命令，会看到类似这样的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+<p>这说明现在的工作目录相当干净。换句话说，所有已跟踪文件在上次提交后都未被更改过。 此外，上面的信息还表明，当前目录下没有出现任何处于未跟踪状态的新文件，否则 Git 会在这里列出来。 最后，该命令还显示了当前所在分支，并告诉你这个分支同远程服务器上对应的分支没有偏离。 现在分支名是master,这是默认的分支名。</p>
+<h3 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h3><details green><summary> 查看新建的未被跟踪的文件状态 </summary>
+              <div class='content'>
+              <p>如果在项目中新建一个未被跟踪的文件，运行<code>git status</code>命令会看到如下内容：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&#x27;hello world&#x27;</span> &gt; README</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line">	README</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">&quot;git add&quot;</span> to track)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<p>使用命令 <code>git add</code> 开始跟踪一个文件。 所以，要跟踪 README 文件，运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add README</span><br></pre></td></tr></table></figure>
+<p><code>git add</code>命令使用文件或目录的路径作为参数；如果参数是目录的路径，该命令将递归地跟踪该目录下的所有文件，例如<code>git add .</code>会暂存当前目录下全部文件，<code>git add -a</code>会暂存当前项目全部修改的文件。</p>
+<details green><summary> 查看执行 git add 命令后的文件状态 </summary>
+              <div class='content'>
+              <p>此时再运行 git status 命令，会看到 README 文件已被跟踪，并处于暂存状态：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line"></span><br><span class="line">No commits yet</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">	new file:   README</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>只要在 Changes to be committed 这行下面的，就说明是已暂存状态。如果此时使用<code>git commit</code>命令提交，那么该文件此时此刻的版本将被留存在历史记录中。</p>
+              </div>
+            </details>
+
+<h3 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h3><p>使用<code>git commit</code>命令将<span class='p red'>暂存区</span>的内容做一次提交，保存为一份快照。在此之前，请一定要确认还有什么修改过的或新建的文件还没有<code>git add</code>过，否则提交的时候不会记录这些还没暂存起来的变化。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">&#x27;add README&#x27;</span>                <span class="comment"># -m 参数指定本次提交的说明信息</span></span><br><span class="line">[master (root-commit) 48a8482] add README   <span class="comment"># 显示提交到的分支（master），本次提交索引的校验和（48a8482）</span></span><br><span class="line"> 1 file changed, 1 insertion(+)             <span class="comment"># 显示一个文件被修改，添加了一行内容</span></span><br><span class="line"> create mode 100644 README</span><br></pre></td></tr></table></figure>
+<div class="note "><p>git commit本身只会提交暂存区的内容，没有使用git add命令暂存的修改不会被提交，可以使用git commit -am 提交的说明信息命令跳过暂存区直接将工作区的已经被纳入跟踪的文件进行提交，相当于执行了 git add -a 和 git commit -m 两条命令</p></div>
+
+<h3 id="暂存已修改文件"><a href="#暂存已修改文件" class="headerlink" title="暂存已修改文件"></a>暂存已修改文件</h3><p>如果修改了一个已经保存被提交（<code>git commit</code>）的文件，运行<code>git status</code>命令会看到如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&#x27;change content&#x27;</span> &gt;&gt; README</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line">	modified:   README</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">&quot;git add&quot;</span> and/or <span class="string">&quot;git commit -a&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>文件<code>README</code>出现在 Changes not staged for commit 这行下面，说明已跟踪文件的内容发生了变化，但还没有放到暂存区。 要暂存这次更新，需要运行 <code>git add</code>命令。 这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“添加内容到下一次提交中”而不是“将一个文件添加到项目中”要更加合适。运行<code>git add</code>将README放到暂存区，然后再看看<code>git status</code>的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git restore --staged &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">	modified:   README</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较文件详细差异"><a href="#比较文件详细差异" class="headerlink" title="比较文件详细差异"></a>比较文件详细差异</h3><ul>
+<li><p>查看工作区文件和暂存区文件差异</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git diff README</span><br><span class="line">diff --git a/README b/README</span><br><span class="line">index 325b5ab..557db03 100644</span><br><span class="line">--- a/README</span><br><span class="line">+++ b/README</span><br><span class="line">@@ -1,2 +1 @@</span><br><span class="line"> Hello World</span><br><span class="line">-change content</span><br></pre></td></tr></table></figure></li>
+<li><p>查看暂存区和上一次提交的文件差异</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git diff --staged                  <span class="comment"># 或者使用git diff --cached</span></span><br><span class="line">diff --git a/README b/README</span><br><span class="line">index 557db03..0835e4f 100644</span><br><span class="line">--- a/README</span><br><span class="line">+++ b/README</span><br><span class="line">@@ -1 +1 @@</span><br><span class="line">-Hello World</span><br><span class="line">+change</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>在工作目录删除文件后，需要将删除修改暂存到暂存区然后再进行提交才能从已跟踪清单中移除。</p>
+<details green><summary> 从工作目录删除文件后查看文件状态 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">&quot;git add/rm &lt;file&gt;...&quot;</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line">	deleted:    README</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">&quot;git add&quot;</span> and/or <span class="string">&quot;git commit -a&quot;</span>)</span><br></pre></td></tr></table></figure><p>此时显示删除修改没有被暂存，下次提交的快照记录中不会删除文件，此时可以使用git add 或者git rm将删除修改保存到暂存区。</p>
+              </div>
+            </details>
+<p>使用<code>git rm &lt;file&gt;</code>命令可以将文件从工作区删除并将删除修改保存到暂存区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git rm README </span><br><span class="line">rm <span class="string">&#x27;README&#x27;</span></span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git restore --staged &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">	deleted:    README</span><br></pre></td></tr></table></figure>
+<div class="note "><p>如果删除的文件被修改并保存到了暂存区，需要使用-f选项强制删除</p></div>
+<div class="note "><p>如果只想删除暂存区的文件保留工作目录下的文件，需要使用–cached选项</p></div>
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><p>和移除文件类似，在工作目录移动文件后需要将修改暂存才能在下次提交中被提交，可以使用<code>git mv &lt;file&gt;</code>命令移动工作区文件并暂存移动修改，等价于如下命令集合: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mv README.md README</span><br><span class="line">$ git rm README.md</span><br><span class="line">$ git add README</span><br></pre></td></tr></table></figure>
+<h2 id="回滚修改"><a href="#回滚修改" class="headerlink" title="回滚修改"></a>回滚修改</h2><h3 id="撤销工作区的变更"><a href="#撤销工作区的变更" class="headerlink" title="撤销工作区的变更"></a>撤销工作区的变更</h3><ul>
+<li>将工作区的文件回退到和暂存区一致：<ul>
+<li><code>git checkout -- &lt;file&gt;</code>：旧版本</li>
+<li><code>git restore [--worktree] &lt;file&gt;</code></li>
+</ul>
+</li>
+<li>取消暂存的文件：<ul>
+<li><code>git reset [HEAD] [&lt;file&gt;]</code>:旧版本，如果指定文件则取消全部暂存</li>
+<li><code>git restore --staged &lt;file&gt;</code></li>
+</ul>
+</li>
+<li>取消暂存的文件同时更改工作目录中的文件（将指定文件从暂存区中移除并将工作目录中的文件回退到上一次提交的版本）：<ul>
+<li><code>git reset --hard [HEAD]</code>:旧版本，只能全部重置不能指定某个文件</li>
+<li><code>git restore --staged --worktree &lt;file&gt;</code><div class="note "><p>两种回滚的方式都可以指定回退到那一次提交的版本，git reset –hard <commit_id>或git restore –staged [–worktree] –source=<commit_id></p></div></li>
+</ul>
+</li>
+</ul>
+<div class="note danger"><p>git reset 不仅会将文件回退到之前的版本甚至会清除指定提交版本之后的提交历史记录，永远不要重置为已经提交到公共仓库</p></div>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <!-- <a class='readmore' href='/HexoOptimize/'>
-            <i class="fad fa-books fa-fw" aria-hidden="true" title="Read Me"></i> 阅读更多
-          </a> -->
-          <a class="link-fx-1 color-contrast-higher" href="/HexoOptimize/">
-            <span><i class="fad fa-books fa-fw" aria-hidden="true" title="Read Me"></i> 阅读更多</span>
-            <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="15.5"/><line x1="10" y1="18" x2="16" y2="12"/><line x1="16" y1="12" x2="22" y2="18" /></g></svg>
-          </a>
+        <div class='references'>
+          <section class='header'>
+            
+              <i class="fas fa-quote-left fa-fw" aria-hidden="true"></i>
+            
+            <span>参考资料</span>
+          </section>
+          <section class='body'>
+            <ul>
+              
+                <li>
+                  <a href="https://bingohuang.gitbooks.io/progit2/content/01-introduction/sections/about-version-control.html" rel="external nofollow noopener noreferrer" target="_blank">
+                  《Git Pro2中文Gitbook》
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/geeeeeeeeek/git-recipes" rel="external nofollow noopener noreferrer" target="_blank">
+                  高质量的 Git 中文教程
+                  </a>
+                </li>
+              
+            </ul>
+          </section>
         </div>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://www.guluo.icu/git/local/>https://www.guluo.icu/git/local/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-26T20:38:58+08:00">
+  <a class='notlink'>
+    <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年5月26日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/git/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>git</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.guluo.icu/git/local/&title=搭建本地代码仓库 - 楼&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.guluo.icu/git/local/&title=搭建本地代码仓库 - 楼&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.guluo.icu/git/local/&title=搭建本地代码仓库 - 楼&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/git/concept/'>
+          <p class='title'>git及版本控制<i class="fad fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>关于版本控制版本控制用于记录一个或多个文件内容变更，以方便将来查询修订情况。使用版本控制就可以将某个文件回溯到之前的状态，甚至将整个项目都回退到过去某个时间点的状态，你可以比较文件的变化细节，查...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fad fa-comments POMEGRANATE'></i> 评论</p>
+    
+    <div id="waline">
+  <i class="fad fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side'>
   
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-text">git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-text">获取代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-text">在现有目录中初始化仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-text">克隆已有的仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-text">记录每次更新到仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%B7%B2%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">暂存已修改文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E5%B7%AE%E5%BC%82"><span class="toc-text">比较文件详细差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-text">移动文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E4%BF%AE%E6%94%B9"><span class="toc-text">回滚修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E5%8F%98%E6%9B%B4"><span class="toc-text">撤销工作区的变更</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
   
     
     
@@ -2799,13 +3067,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="搭建本地代码仓库";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   //  see: /layout/_partial/scripts/coverCtrl.ejs

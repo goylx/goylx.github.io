@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.guluo.icu/git/local/</loc>
+    <lastmod>2021-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://www.guluo.icu/git/concept/</loc>
+    <lastmod>2021-05-25</lastmod>
+  </url>
+  <url>
     <loc>https://www.guluo.icu/HexoOptimize/</loc>
     <lastmod>2021-05-12</lastmod>
   </url>

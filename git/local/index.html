@@ -2587,10 +2587,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-26T20:38:58+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-27T17:01:27+08:00">
   <a class='notlink'>
     <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月26日</p>
+    <p>更新于：2021年5月27日</p>
   </a>
 </div>
 
@@ -2601,13 +2601,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fad fa-keyboard PETERRIVE fa-fw fa-fw" aria-hidden="true"></i>
-      <p>字数：3.5k 字</p>
+      <p>字数：4.7k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fad fa-hourglass-half BELIZEHOLE fa-fw fa-fw" aria-hidden="true"></i>
-      <p>时长：13 分钟</p>
+      <p>时长：18 分钟</p>
     </a>
   </div>
 
@@ -2642,7 +2642,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>查看配置信息：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --list或-l           <span class="comment">#列出所有配置项，可能会看到重复的变量名，因为 Git 会从不同的文件中读取同一个配置（例如：/etc/gitconfig 与 ~/.gitconfig）。 这种情况下，Git 会使用它找到的每一个变量的最后一个配置。</span></span><br><span class="line">git config --global --list      <span class="comment">#只查看全局的配置</span></span><br><span class="line">git config &lt;key&gt;                <span class="comment">#查看制定配置项的值</span></span><br></pre></td></tr></table></figure>
 <p>配置自定义环境：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxxx              <span class="comment">#配置用户名</span></span><br><span class="line">git config --global user.email xxx@xxx.com      <span class="comment">#配置邮箱地址</span></span><br><span class="line">当安装完 Git 应该做的第一件事就是设置你的用户名称与邮件地址。 这样做很重要，因为每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中</span><br><span class="line">当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 git config --<span class="built_in">local</span> user.name xxxx  选项的命令来配置</span><br><span class="line"></span><br><span class="line">git config --global core.editor emacs           <span class="comment">#配置默认的编辑器</span></span><br><span class="line">当 Git 需要你输入信息时会调用它。 如果未配置，Git 会使用操作系统默认的文本编辑器，通常是 Vim。</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxxx              <span class="comment">#配置用户名</span></span><br><span class="line">git config --global user.email xxx@xxx.com      <span class="comment">#配置邮箱地址</span></span><br><span class="line">当安装完 Git 应该做的第一件事就是设置你的用户名称与邮件地址。 这样做很重要，因为每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中</span><br><span class="line">当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 git config --<span class="built_in">local</span> user.name xxxx  选项的命令来配置</span><br><span class="line"></span><br><span class="line">git config --global core.editor emacs           <span class="comment">#配置默认的编辑器</span></span><br><span class="line">当 Git 需要你输入信息时会调用它。 如果未配置，Git 会使用操作系统默认的文本编辑器，通常是 Vim。</span><br><span class="line"></span><br><span class="line">git config --global alias.co checkout			<span class="comment">#给命令配置别名</span></span><br></pre></td></tr></table></figure>
 <h2 id="获取代码仓库"><a href="#获取代码仓库" class="headerlink" title="获取代码仓库"></a>获取代码仓库</h2><p>有两种取得 Git 项目仓库的方法。 第一种是将现有项目导入到 Git 控制中，或者新建一个Git控制的项目； 第二种是从一个服务器克隆一个现有的 Git 仓库。</p>
 <h3 id="在现有目录中初始化仓库"><a href="#在现有目录中初始化仓库" class="headerlink" title="在现有目录中初始化仓库"></a>在现有目录中初始化仓库</h3><p><code>git init</code>命令创建一个新的 Git 仓库。它用来将已存在但还没有版本控制的项目转换成一个 Git 仓库，或者创建一个空的新仓库。大多数Git命令在未初始化的仓库中都是无法使用的，所以这就是你运行新项目的第一个命令了。运行 <code>git init</code> 命令会在你项目的根目录下创建一个新的 .git 目录，其中包含了你项目必需的所有元数据。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init                    <span class="comment"># 将当前的目录转换成一个 Git 仓库</span></span><br><span class="line">git init &lt;directory&gt;        <span class="comment"># 在指定目录创建一个空的 Git 仓库。</span></span><br><span class="line">git init --bare &lt;directory&gt; <span class="comment"># 初始化一个裸的 Git 仓库，没有工作目录</span></span><br></pre></td></tr></table></figure>
@@ -2697,25 +2697,87 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <div class="note "><p>如果只想删除暂存区的文件保留工作目录下的文件，需要使用–cached选项</p></div>
 <h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><p>和移除文件类似，在工作目录移动文件后需要将修改暂存才能在下次提交中被提交，可以使用<code>git mv &lt;file&gt;</code>命令移动工作区文件并暂存移动修改，等价于如下命令集合: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mv README.md README</span><br><span class="line">$ git rm README.md</span><br><span class="line">$ git add README</span><br></pre></td></tr></table></figure>
-<h2 id="回滚修改"><a href="#回滚修改" class="headerlink" title="回滚修改"></a>回滚修改</h2><h3 id="撤销工作区的变更"><a href="#撤销工作区的变更" class="headerlink" title="撤销工作区的变更"></a>撤销工作区的变更</h3><ul>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/addCommit.png" class="lazyload" data-srcset="/image/Devops/git/addCommit.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="提交一次更新"/></div><span class="image-caption">提交一次更新</span></div>
+<h2 id="回滚修改"><a href="#回滚修改" class="headerlink" title="回滚修改"></a>回滚修改</h2><h3 id="撤销未提交的变更"><a href="#撤销未提交的变更" class="headerlink" title="撤销未提交的变更"></a>撤销未提交的变更</h3><ul>
 <li>将工作区的文件回退到和暂存区一致：<ul>
-<li><code>git checkout -- &lt;file&gt;</code>：旧版本</li>
+<li><code>git checkout [--] &lt;file&gt;</code>：旧版本</li>
 <li><code>git restore [--worktree] &lt;file&gt;</code></li>
 </ul>
 </li>
-<li>取消暂存的文件：<ul>
-<li><code>git reset [HEAD] [&lt;file&gt;]</code>:旧版本，如果指定文件则取消全部暂存</li>
+<li>使用上一次提交的快照替换暂存区的内容：<ul>
+<li><code>git reset [HEAD] [&lt;file&gt;]</code>:旧版本，如果不指定文件则替换全部暂存</li>
 <li><code>git restore --staged &lt;file&gt;</code></li>
 </ul>
 </li>
 <li>取消暂存的文件同时更改工作目录中的文件（将指定文件从暂存区中移除并将工作目录中的文件回退到上一次提交的版本）：<ul>
 <li><code>git reset --hard [HEAD]</code>:旧版本，只能全部重置不能指定某个文件</li>
-<li><code>git restore --staged --worktree &lt;file&gt;</code><div class="note "><p>两种回滚的方式都可以指定回退到那一次提交的版本，git reset –hard <commit_id>或git restore –staged [–worktree] –source=<commit_id></p></div></li>
+<li><code>git checkout HEAD [&lt;file&gt; &lt;file&gt; ...]</code>：旧版本</li>
+<li><code>git restore --staged --worktree &lt;file&gt; &lt;file&gt; ...</code><div class="note "><p>三种回滚的方式都可以指定回退到那一个版本的提交，git reset –hard <commit_id>、git checkout <commit_id> [<file> <file>]（如果不指定回退的文件则会全部回退，并且处于<a href="">分离头指针</a>的状态）、git restore –staged [–worktree] –source=<commit_id> <file> <file></p></div>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/stagedBack.png" class="lazyload" data-srcset="/image/Devops/git/stagedBack.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="撤销未提交的变更"/></div><span class="image-caption">撤销未提交的变更</span></div>
+<div class="note danger"><p>git reset 不仅会将文件回退到之前的版本甚至会清除指定提交版本之后的提交历史记录，永远不要重置那些已经被推送到公共仓库的提交快照</p></div></li>
 </ul>
 </li>
 </ul>
-<div class="note danger"><p>git reset 不仅会将文件回退到之前的版本甚至会清除指定提交版本之后的提交历史记录，永远不要重置为已经提交到公共仓库</p></div>
+<h3 id="撤销提交错误"><a href="#撤销提交错误" class="headerlink" title="撤销提交错误"></a>撤销提交错误</h3><ul>
+<li><p><code>git commit --amend</code>：修复最新的一次提交，可以将暂存区的修改和上一次提交合并，而不是提交一份新的快照。缓存区没有文件时运行这个命令可以用来编辑上次提交的提交信息，而不会更改快照。<br>下面这个🌰展示了 Git 开发工作流中的一个常见情形。我们编辑了一些希望在同一个快照中提交的文件，但我们忘记添加了其中的一个。修复错误只需要缓存那个文件并且用 –amend 标记提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编辑 hello.py 和 main.py</span></span><br><span class="line">git add hello.py</span><br><span class="line">git commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 意识到你忘记添加 main.py 的更改</span></span><br><span class="line">git add main.py</span><br><span class="line">git commit --amend --no-edit</span><br></pre></td></tr></table></figure>
 
+<p>编辑器会弹出上一次提交的信息，加入 –no-edit 标记会修复提交但不修改提交信息。需要的话你可以修改，不然的话就像往常一样保存并关闭文件。完整的提交会替换之前不完整的提交，看上去就像我们在同一个快照中提交了 hello.py 和 main.py。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/amend.gif" class="lazyload" data-srcset="/image/Devops/git/amend.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="git commit --amend更新上一次提交"/></div><span class="image-caption">git commit --amend更新上一次提交</span></div></li>
+<li><p><code>git rebase &lt;commit_id&gt;</code>：基于某一次提交的快照，重新整理之后的提交记录。可以通过-i选项进行交互式整理提交历史，如果不使用默认会将提交历史线性化处理一般用在处理分支合并的情况。</p>
+  <div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/rebase.gif" class="lazyload" data-srcset="/image/Devops/git/rebase.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="git rebase --i <commit_id>整理指定提交后的提交"/></div><span class="image-caption">git rebase --i <commit_id>整理指定提交后的提交</span></div></li>
+<li><p><code>git revert &lt;commit_id&gt;</code>：基于指定的快照做一次新的提交，同时会更新暂存区和工作区</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/revert.png" class="lazyload" data-srcset="/image/Devops/git/revert.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="git revert <commit_id> 使用指定版本的提交快照做一次新的提交"/></div><span class="image-caption">git revert <commit_id> 使用指定版本的提交快照做一次新的提交</span></div></li>
+</ul>
+<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>使用<code>git log</code>命令可以回顾提交历史，不传入任何参数的默认情况下，会按时间先后顺序列出所有的提交，最近的更新排在最上面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> </span><br><span class="line">commit 8a71ac1b9775a0dd80f31aba914513539cfa4441 (HEAD -&gt; master)</span><br><span class="line">Author: 欧阳罗霄 &lt;2236212702@qq.com&gt;</span><br><span class="line">Date:   Thu May 27 14:41:19 2021 +0800</span><br><span class="line"></span><br><span class="line">    Revert <span class="string">&quot;add index.js&quot;</span></span><br><span class="line">    </span><br><span class="line">    This reverts commit 5a412bfa187031dd9321ad17575dd907390893ab.</span><br><span class="line"></span><br><span class="line">commit 5a412bfa187031dd9321ad17575dd907390893ab</span><br><span class="line">Author: 欧阳罗霄 &lt;2236212702@qq.com&gt;</span><br><span class="line">Date:   Thu May 27 14:38:33 2021 +0800</span><br><span class="line"></span><br><span class="line">    add index.js</span><br><span class="line"></span><br><span class="line">commit 31ae2ddc94e9f944c2befe0a61604e68355d199c</span><br><span class="line">Author: 欧阳罗霄 &lt;2236212702@qq.com&gt;</span><br><span class="line">Date:   Thu May 27 14:35:19 2021 +0800</span><br><span class="line"></span><br><span class="line">    add style.css</span><br><span class="line"></span><br><span class="line">commit f106a0567207fc166d9cbd2e2e2867a66335e155</span><br><span class="line">Author: 欧阳罗霄 &lt;2236212702@qq.com&gt;</span><br><span class="line">Date:   Thu May 27 14:24:46 2021 +0800</span><br><span class="line"></span><br><span class="line">    合并两次提交</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会列出每个提交的 SHA-1 校验和、作者的名字和电子邮件地址、提交时间以及提交说明。</p>
+<p>常用的选项如下：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--patch</code></td>
+<td>按补丁格式显示每个提交引入的差异。</td>
+</tr>
+<tr>
+<td><code>--stat</code></td>
+<td>显示每次提交的文件修改统计信息。</td>
+</tr>
+<tr>
+<td><code>--oneline</code></td>
+<td>仅显示commit_id缩略号和提交信息</td>
+</tr>
+<tr>
+<td><code>-&lt;n&gt;</code></td>
+<td>仅显示最近的 n 条提交。</td>
+</tr>
+<tr>
+<td><code>--author</code></td>
+<td>仅显示作者匹配指定字符串的提交。</td>
+</tr>
+<tr>
+<td><code>-S</code></td>
+<td>仅显示添加或删除内容匹配指定字符串的提交。</td>
+</tr>
+</tbody></table>
+<h2 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h2><p>Git 可以给历史中的某一个提交打上标签，以示重要。 比较有代表性的是人们会使用这个功能来标记发布结点（v1.0 等等）。Git 使用两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）。<br>一个轻量标签很像一个不会改变的分支 - 它只是一个特定提交的引用。<br>附注标签是存储在 Git 数据库中的一个完整对象。 它们是可以被校验的；其中包含打标签者的名字、电子邮件地址、日期时间；还有一个标签信息；并且可以使用 GNU Privacy Guard （GPG）签名与验证。 通常建议创建附注标签，这样你可以拥有以上所有信息；但是如果你只是想用一个临时的标签，或者因为某些原因不想要保存那些信息，轻量标签也是可用的。</p>
+<ul>
+<li><p>新建附注标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a &lt;tag_name&gt; -m <span class="string">&#x27;标签说明信息&#x27;</span> [&lt;commit_id&gt;]			<span class="comment">#如果没有为附注标签指定一条信息，Git 会运行编辑器要求你输入信息。不指定提交id则默认为HEAD提交打标签</span></span><br></pre></td></tr></table></figure></li>
+<li><p>新建轻量标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag &lt;tag_name&gt; -m <span class="string">&#x27;标签说明信息&#x27;</span> [&lt;commit_id&gt;]	</span><br></pre></td></tr></table></figure></li>
+<li><p>列出现有的标签：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -l <span class="string">&#x27;过滤条件&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>显示标签对应的提交详细信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show &lt;tag&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2>
   
   
     
@@ -2775,10 +2837,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-26T20:38:58+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-27T17:01:27+08:00">
   <a class='notlink'>
     <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月26日</p>
+    <p>更新于：2021年5月27日</p>
   </a>
 </div>
 
@@ -2896,7 +2958,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-text">git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-text">获取代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-text">在现有目录中初始化仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-text">克隆已有的仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-text">记录每次更新到仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%B7%B2%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">暂存已修改文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E5%B7%AE%E5%BC%82"><span class="toc-text">比较文件详细差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-text">移动文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E4%BF%AE%E6%94%B9"><span class="toc-text">回滚修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E5%8F%98%E6%9B%B4"><span class="toc-text">撤销工作区的变更</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-text">git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-text">获取代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-text">在现有目录中初始化仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-text">克隆已有的仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-text">记录每次更新到仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%B7%B2%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">暂存已修改文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E5%B7%AE%E5%BC%82"><span class="toc-text">比较文件详细差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-text">移动文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E4%BF%AE%E6%94%B9"><span class="toc-text">回滚修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84%E5%8F%98%E6%9B%B4"><span class="toc-text">撤销未提交的变更</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF"><span class="toc-text">撤销提交错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="toc-text">查看提交历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E6%A0%87%E7%AD%BE"><span class="toc-text">打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li></ol>
     </div>
   </section>
 
@@ -2975,7 +3037,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>11.9k 字</div>
+          <div>13.1k 字</div>
         </div>
       
 
@@ -3001,8 +3063,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed May 26 2021 20:42:29 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-05-26 日</div>
+            <div id="last-update" style="display: none;">Thu May 27 2021 17:01:46 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-05-27 日</div>
           
         </div>
         
@@ -3052,7 +3114,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-05-26 日';
+            document.getElementById('last-update-show').innerHTML = '2021-05-27 日';
           }
         </script>
         

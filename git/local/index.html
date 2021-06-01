@@ -2587,10 +2587,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-27T17:01:27+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-01T11:30:58+08:00">
   <a class='notlink'>
     <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月27日</p>
+    <p>更新于：2021年6月1日</p>
   </a>
 </div>
 
@@ -2601,13 +2601,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fad fa-keyboard PETERRIVE fa-fw fa-fw" aria-hidden="true"></i>
-      <p>字数：4.7k 字</p>
+      <p>字数：6.2k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fad fa-hourglass-half BELIZEHOLE fa-fw fa-fw" aria-hidden="true"></i>
-      <p>时长：18 分钟</p>
+      <p>时长：23 分钟</p>
     </a>
   </div>
 
@@ -2777,7 +2777,70 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>显示标签对应的提交详细信息：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show &lt;tag&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="git三大对象"><a href="#git三大对象" class="headerlink" title="git三大对象"></a>git三大对象</h3><p>在学习分支之前需要深入理解一下git的一些底层概念和实际存储，其中最重要的是commit、tree、blob三个对象，实际数据都存放在项目根目录下的.git目录。<br>暂存操作’git add’会使用SHA-1哈希算法计算每个文件的校验和，然后会把当前版本的文件快照保存到 Git 仓库中（Git 使用 blob 对象来保存它们，如果文件的内容没有改变则不会保存重复的快照），最终将校验和加入到暂存区域等待提交。<br>当使用<code>git commit</code>进行提交操作时，Git 会先计算每一个子目录的校验和，然后在 Git 仓库中这些校验和保存为树对象。 随后，Git 便会创建一个提交对象包含指向项目根目录对应的树对象的指针、作者的姓名和邮箱、提交时输入的信息以及指向它的父对象的指针。首次提交产生的提交对象没有父对象，普通提交操作产生的提交对象有一个父对象，而由多个分支合并产生的提交对象有多个父对象</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/gitObjects.png" class="lazyload" data-srcset="/image/Devops/git/gitObjects.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="commit、tree、blob对象之间的关系"/></div><span class="image-caption">commit、tree、blob对象之间的关系</span></div>
+<p>做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/commits-and-parents.png" class="lazyload" data-srcset="/image/Devops/git/commits-and-parents.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="提交对象及其父对象"/></div><span class="image-caption">提交对象及其父对象</span></div>
+
+<h3 id="git核心目录"><a href="#git核心目录" class="headerlink" title="git核心目录"></a>git核心目录</h3><p>在项目根目录下的.git目录存有git仓库的全部数据:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.git/</span><br><span class="line">├── branches</span><br><span class="line">├── COMMIT_EDITMSG</span><br><span class="line">├── config				<span class="comment"># git config --local 设置的配置存放文件</span></span><br><span class="line">├── description</span><br><span class="line">├── HEAD				<span class="comment"># 指向当前追踪的提交对象即下一次提交的父对象</span></span><br><span class="line">├── hooks</span><br><span class="line">├── index</span><br><span class="line">├── info</span><br><span class="line">├── logs				<span class="comment"># 存放git的日志</span></span><br><span class="line">├── objects				<span class="comment"># 存放git的三大对象：commit、tree、blob</span></span><br><span class="line">├── ORIG_HEAD</span><br><span class="line">├── packed-refs</span><br><span class="line">├── REBASE_HEAD</span><br><span class="line">└── refs				<span class="comment"># 存放标签、分支</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分支、标签、HEAD头指针"><a href="#分支、标签、HEAD头指针" class="headerlink" title="分支、标签、HEAD头指针"></a>分支、标签、HEAD头指针</h3><p>Git 的分支、标签、HEAD头指针都是指向提交对象的指针，区别在于一般HEAD、分支都是可变的，而标签声明后不会指向其他提交对象。在<code>.git/refs</code>目录下有<code>heads</code>、<code>tag</code>目录分别存放当前项目的分支和标签，这些文件的内容是提交对象的校验和即commit_id，而HEAD头指针记录在<code>.git/HEAD</code>文件中，通常是指向一个分支指向<code>.git/refs/heads</code>下的一个文件例如：<code>ref: refs/heads/master</code>，也可以直接指向提交对象（此时称为分离头指针状态）保存提交对象的索引<code>commit_id</code>。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/branch-and-history.png" class="lazyload" data-srcset="/image/Devops/git/branch-and-history.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="分支及其提交历史"/></div><span class="image-caption">分支及其提交历史</span></div>
+
+<h3 id="分支的新建、切换、删除与合并"><a href="#分支的新建、切换、删除与合并" class="headerlink" title="分支的新建、切换、删除与合并"></a>分支的新建、切换、删除与合并</h3><ul>
+<li><p>查看分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch 	<span class="comment"># 查看存在的分支列表</span></span><br><span class="line">  iss53		</span><br><span class="line">* master		<span class="comment"># 当前HEAD指针正指向master分支</span></span><br></pre></td></tr></table></figure>
+
+<p>常用选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-v</code></td>
+<td>查看每一个分支的最后一次提交</td>
+</tr>
+<tr>
+<td><code>--merged</code> 与 <code>--no-merged</code></td>
+<td>过滤这个列表中已经合并或尚未合并到当前分支的分支</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>新建分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch &lt;branch_name&gt;			<span class="comment"># 基于当前HEAD指向的提交对象新建一个branch_name分支，当前跟踪的分支不变</span></span><br></pre></td></tr></table></figure>
+
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/create-branching-1.png" class="lazyload" data-srcset="/image/Devops/git/create-branching-1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="根据HEAD指向的提交对象新建分支"/></div><span class="image-caption">根据HEAD指向的提交对象新建分支</span></div></li>
+<li><p>切换分支</p>
+<p>本质上是改变HEAD头指针的值，如果切换到分支，每一次提交时HEAD指向的分支指针会指向最新的提交对象。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout &lt;branch_name&gt;或git switch &lt;branch_name&gt;			<span class="comment"># 切换到branch_name分支，清空暂存区，将工作目录同步到切换的分支</span></span><br><span class="line">$ git checkout -b &lt;branch_name&gt;或git switch -c &lt;branch_name&gt;     <span class="comment"># 基于当前HEAD指向的提交对象新建一个branch_name分支，并且换到新分支</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># git checkout命令可以切换到提交对象、分支、标签，git switch只能切换到分支</span></span><br></pre></td></tr></table></figure>
+
+<p>使用上面的命令切换到iss53分支，并做出一些修改并提交到iss53分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim index.html</span><br><span class="line">$ git commit -a -m <span class="string">&#x27;added a new footer [issue 53]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/switch-branching.png" class="lazyload" data-srcset="/image/Devops/git/switch-branching.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="提交到新分支"/></div><span class="image-caption">提交到新分支</span></div></li>
+<li><p>合并分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge &lt;branch_name&gt;				<span class="comment"># 将branch_name分支合并到当前分支</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>fast-forwrad合并</p>
+<p>如果当前分支与合并分支属于线性关系，即合并分支指向的提交对象是当前分支指向的提交对象的直接后继， Git会直接将当前分支指针向前移动。换句话说，当你试图合并两个分支时， 如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候， 只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧——这就叫做 “快进（fast-forward）”。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/merge-ff.gif" class="lazyload" data-srcset="/image/Devops/git/merge-ff.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="当前分支相比于我们要合并的分支没有额外的提交（commit）时，执行 fast-forward 合并"/></div><span class="image-caption">当前分支相比于我们要合并的分支没有额外的提交（commit）时，执行 fast-forward 合并</span></div></li>
+<li><p>No-fast-foward (—no-ff)</p>
+<p>如果当前分支含有合并分支没有的提交对象，则会进行No-fast-foward合并。Git 会使用两个分支的末端所指的快照以及这两个分支的公共祖先，做一个简单的三方合并。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/merge-no-ff.gif" class="lazyload" data-srcset="/image/Devops/git/merge-no-ff.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="当前分支相比于我们要合并的分支有额外的提交（commit）时，执行 No-fast-forward 合并"/></div><span class="image-caption">当前分支相比于我们要合并的分支有额外的提交（commit）时，执行 No-fast-forward 合并</span></div></li>
+<li><p>发生合并冲突</p>
+<p>如果两个分支修改了同一个文件同一处位置的代码时或者一个分支删除了一个文件而另一个分支修改了这个文件时，Git不能自己决定该使用哪一个分支的内容，因此就出现了合并冲突，当尝试合并这些分支时，Git 会向你展示冲突出现的位置。我们可以手动移除我们不想保留的修改，保存这些修改，再次添加这个已修改的文件，然后提交这些修改。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/Devops/git/merge-conflict.gif" class="lazyload" data-srcset="/image/Devops/git/merge-conflict.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="手动解决合并冲突，重新提交"/></div><span class="image-caption">手动解决合并冲突，重新提交</span></div></li>
+</ul>
+</li>
+<li><p>删除分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d &lt;branch_name&gt;			<span class="comment"># 删除分支</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="储藏与清理"><a href="#储藏与清理" class="headerlink" title="储藏与清理"></a>储藏与清理</h2>
   
   
     
@@ -2802,6 +2865,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                 <li>
                   <a href="https://github.com/geeeeeeeeek/git-recipes" rel="external nofollow noopener noreferrer" target="_blank">
                   高质量的 Git 中文教程
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="http://dockone.io/article/10081" rel="external nofollow noopener noreferrer" target="_blank">
+                  动图展示十大Git命令
                   </a>
                 </li>
               
@@ -2837,10 +2906,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-27T17:01:27+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-01T11:30:58+08:00">
   <a class='notlink'>
     <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月27日</p>
+    <p>更新于：2021年6月1日</p>
   </a>
 </div>
 
@@ -2958,7 +3027,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-text">git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-text">获取代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-text">在现有目录中初始化仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-text">克隆已有的仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-text">记录每次更新到仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%B7%B2%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">暂存已修改文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E5%B7%AE%E5%BC%82"><span class="toc-text">比较文件详细差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-text">移动文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E4%BF%AE%E6%94%B9"><span class="toc-text">回滚修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84%E5%8F%98%E6%9B%B4"><span class="toc-text">撤销未提交的变更</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF"><span class="toc-text">撤销提交错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="toc-text">查看提交历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E6%A0%87%E7%AD%BE"><span class="toc-text">打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E9%85%8D%E7%BD%AE"><span class="toc-text">git配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-text">获取代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%8E%B0%E6%9C%89%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-text">在现有目录中初始化仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-text">克隆已有的仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="toc-text">记录每次更新到仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9F%E8%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E6%9B%B4%E6%96%B0"><span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%B7%B2%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">暂存已修改文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E8%AF%A6%E7%BB%86%E5%B7%AE%E5%BC%82"><span class="toc-text">比较文件详细差异</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-text">移动文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E6%BB%9A%E4%BF%AE%E6%94%B9"><span class="toc-text">回滚修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84%E5%8F%98%E6%9B%B4"><span class="toc-text">撤销未提交的变更</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF"><span class="toc-text">撤销提交错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="toc-text">查看提交历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E6%A0%87%E7%AD%BE"><span class="toc-text">打标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E4%B8%89%E5%A4%A7%E5%AF%B9%E8%B1%A1"><span class="toc-text">git三大对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%A0%B8%E5%BF%83%E7%9B%AE%E5%BD%95"><span class="toc-text">git核心目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E3%80%81%E6%A0%87%E7%AD%BE%E3%80%81HEAD%E5%A4%B4%E6%8C%87%E9%92%88"><span class="toc-text">分支、标签、HEAD头指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%9A%84%E6%96%B0%E5%BB%BA%E3%80%81%E5%88%87%E6%8D%A2%E3%80%81%E5%88%A0%E9%99%A4%E4%B8%8E%E5%90%88%E5%B9%B6"><span class="toc-text">分支的新建、切换、删除与合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%82%A8%E8%97%8F%E4%B8%8E%E6%B8%85%E7%90%86"><span class="toc-text">储藏与清理</span></a></li></ol>
     </div>
   </section>
 
@@ -3037,7 +3106,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>13.1k 字</div>
+          <div>14.5k 字</div>
         </div>
       
 
@@ -3063,8 +3132,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu May 27 2021 17:01:46 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2021-05-27 日</div>
+            <div id="last-update" style="display: none;">Tue Jun 01 2021 14:36:07 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2021-06-01 日</div>
           
         </div>
         
@@ -3114,7 +3183,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-05-27 日';
+            document.getElementById('last-update-show').innerHTML = '2021-06-01 日';
           }
         </script>
         

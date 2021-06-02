@@ -11,7 +11,7 @@
 // {% image url, bg=#eee %}
 // {% image url, alt=haha, width=400px %}
 // {% image url, alt=haha, width=400px, bg=#eee %}
-hexo.extend.tag.register('image', function(args) {
+hexo.extend.tag.register('image', function (args) {
   args = args.join(' ').split(', ');
   const url = args[0].trim();
   let alt = '';
@@ -69,7 +69,7 @@ hexo.extend.tag.register('image', function(args) {
 
 // {% inlineimage url %}
 // {% inlineimage url, height=22px %}
-hexo.extend.tag.register('inlineimage', function(args) {
+hexo.extend.tag.register('inlineimage', function (args) {
   args = args.join(' ').split(', ');
   const url = args[0].trim();
   let ret = '';

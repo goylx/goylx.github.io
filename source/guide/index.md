@@ -12,9 +12,7 @@ DevOps 是一个完整的面向IT运维的工作流，以 IT 自动化以及持�
 {% folding Git 是目前世界上被最广泛使用的现代软件版本管理系统，这里将提供如何学习Git，以及Git工作流的总结，和常用的操作命令 %}
 - [基础概念](/git/concept/)
 - [搭建本地代码仓库](/git/local)
-- [远程团队协作和管理]()
-- [命令和原理详解]()
-- [实用贴士]()
+- [远程团队协作和管理](/git/remote)
 
 有个很好的在线学习网站，推荐给大家： https://learngitbranching.js.org/
 {% endfolding %}

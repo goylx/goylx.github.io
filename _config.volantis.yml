@@ -302,7 +302,7 @@ plugins:
 
   # fontawesome animation
   fontawesome_animation:
-    enable: true
+    enable: false
     css: https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css
 
   # Typing Effects

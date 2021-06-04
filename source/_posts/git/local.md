@@ -13,6 +13,9 @@ references:
   - title: 动图展示十大Git命令
 	  url : http://dockone.io/article/10081
 ---
+
+使用git进行文件版本控制，介绍如何暂存、提交、回滚文件版本，如何使用分支、贮藏功能快速切换不同工作空间解决不同问题。
+<!-- more -->
 ## 安装git
 {% note blue, 本文默认你对命令行工具有基本的了解，如果你还不知道如何使用请先对命令行工具有基本的了解后继续本文的阅读。 %}
 打开命令行工具输入命令`git version`查看git版本，如果没有安装git参照如下方式：
@@ -264,7 +267,12 @@ $ git add README
   - `git restore --staged --worktree <file> <file> ...`
   {% note , 三种回滚的方式都可以指定回退到那一个版本的提交，git reset --hard <commit_id>、git checkout <commit_id> [<file> <file>]（如果不指定回退的文件则会全部回退，并且处于[分离头指针]()的状态）、git restore --staged [--worktree] --source=<commit_id> <file> <file> %}
 {% image /image/Devops/git/stagedBack.png, alt=撤销未提交的变更 %}
+
 {% note danger, git reset 不仅会将文件回退到之前的版本甚至会清除指定提交版本之后的提交历史记录，永远不要重置那些已经被推送到公共仓库的提交快照 %}
+
+{% image /image/Devops/git/reset.gif, alt=重置会导致提交历史改变 %}
+
+{%note , 注意上述回退只能回退追踪的文件，如果想要回退新增的文件使用命令`git clean -f [file] [file]` %}
 
 ### 撤销提交错误
 - `git commit --amend`：修复最新的一次提交，可以将暂存区的修改和上一次提交合并，而不是提交一份新的快照。缓存区没有文件时运行这个命令可以用来编辑上次提交的提交信息，而不会更改快照。
@@ -287,7 +295,7 @@ $ git add README
     {% image /image/Devops/git/rebase.gif, alt='git rebase --i <commit_id>'整理指定提交后的提交 %}
 
 - `git revert <commit_id>`：基于指定的快照做一次新的提交，同时会更新暂存区和工作区
-  {% image /image/Devops/git/revert.png, alt='git revert <commit_id> '使用指定版本的提交快照做一次新的提交 %}
+  {% image /image/Devops/git/revert.gif, alt='git revert <commit_id> '使用指定版本的提交快照做一次新的提交 %}
 
 ### 查看提交历史
 
@@ -466,6 +474,12 @@ Git 的分支、标签、HEAD头指针都是指向提交对象的指针，区别
     如果两个分支修改了同一个文件同一处位置的代码时或者一个分支删除了一个文件而另一个分支修改了这个文件时，Git不能自己决定该使用哪一个分支的内容，因此就出现了合并冲突，当尝试合并这些分支时，Git 会向你展示冲突出现的位置。我们可以手动移除我们不想保留的修改，保存这些修改，再次添加这个已修改的文件，然后提交这些修改。
 
     {% image /image/Devops/git/merge-conflict.gif, alt='手动解决合并冲突，重新提交' %}
+    
+  - 通过变基命令改变合并提交历史
+
+    从上面可以看到，除了`fast-forwrad`合并之外都会导致提交历史出现分叉，如果你希望保持一个线性的提交历史。你可以使用变基命令`git rebase`命令实现。
+
+    {% image /image/Devops/git/rebase-merge.gif, alt='将一个分支的修改融入到另一个分支' %}
 
 - 删除分支
 
@@ -473,13 +487,33 @@ Git 的分支、标签、HEAD头指针都是指向提交对象的指针，区别
   $ git branch -d <branch_name>			# 删除分支
   ```
 
-## 贮藏与清理
+## 贮藏
 
 如果需要暂时存储当前做出的改变切换到另一个分支，但是不想要对只完成了一般的工作做一次提交，可能需要用到贮藏功能。贮藏（stash）会将跟踪文件的修改与暂存的改动保存到一个栈上， 可以在任何时候重新应用这些改动（甚至在不同的分支上）。
 
 ```bash
-$ git stash [push]					# 将当前的改动入栈
+$ git stash [push]					# 将当前工作目录中的改动入栈，清空暂存区，工作目录同步到上一次提交, 默认情况下，git stash 只会贮藏已修改和暂存的 已跟踪 文件。
 保存工作目录和索引状态 WIP on master: 8a71ac1 Revert "add index.js"
-git stash list				# 
+$ git switch <branch>				# 切换到其他分支，此时会清空暂存区，并将工作目录同步到切换的分支
+紧急做出一些修改并提交后，重新切换回主分支，并取出贮藏的内容
+$ git stash list					# 查看当前贮藏的列表
+stash@{0}: WIP on master: 8a71ac1 Revert "add index.js"
+$ git stash apply					# 将贮藏的内容同步到暂存区和工作目录，贮藏的内容不出栈，后续可以重新取出
+$ git stash pop						# 将贮藏的内容同步到暂存区和工作目录，贮藏的内容出栈
 ```
+
+**常用的选项**
+
+| 选项                          | 描述                                             |
+| ----------------------------- | ------------------------------------------------ |
+| `--keep-index`                | 保留暂存区的内容，注意取出时不会得到暂存区的内容 |
+| `--include-untracked` 或 `-u` | 贮藏除了在.gitingore中明确忽略的文件之外任何文件 |
+| `--all` 或 `-a`               | 贮藏全部文件                                     |
+| `--patch`                     | 交互式，自主选择贮藏那些改变                     |
+
+### 从贮藏创建一个分支
+
+如果贮藏了一些工作，然后继续在贮藏的分支上工作，在重新应用贮藏时可能会有问题。 你会得到一个合并冲突并不得不解决它。 如果想要一个轻松的方式来再次测试贮藏的改动，可以运行 `git stash branch <new branchname>` 以你指定的分支名创建一个新分支，检出贮藏工作时所在的提交，重新在那应用工作，然后在应用成功后丢弃贮藏。
+
+
 

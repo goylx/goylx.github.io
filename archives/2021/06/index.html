@@ -10,6 +10,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -26,13 +28,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>博客优化及主题配置 - 楼</title>
-  
-    <meta name="keywords" content="hexo,volantis">
+  <title>归档：2021/6 - 楼</title>
   
 
-  
-    <meta name="description" content="使用volantis主题，并进行一些自定义配置和优化">
   
 
   <!-- feed -->
@@ -2902,7 +2900,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/coverCtrl.ejs -->
-        <div id="none" class='cover-wrapper post search' style="display: none;">
+        <div id="none" class='cover-wrapper  search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
           
@@ -2986,329 +2984,77 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div id="l_main" class=''>
-  <article class=" article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
-  
-
-
-  
-  <div class="article-meta" id="top">
+	
+		
+  <section class="post-list">
+    
+      
+        
+          
+        
+      
     
     
-      <a title='博客优化及主题配置' href='/HexoOptimize/'>
-        <img class='thumbnail' src='https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png'>
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/git/remote/">
+        远程团队协作和管理
       </a>
+    </h2>
+  
+  <div class='md'>
     
+      <p>使用git、github进行文件版本分布式管理，从而更好地实现团队合作开发、测试及维护</p>
     
-      <h1 class="title">
-        博客优化及主题配置
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>欧阳罗霄</p>
-  </a>
-</div>
-
-          
-        
-          
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-12T09:13:41+08:00">
-  <a class='notlink'>
-    <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月12日</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fad fa-keyboard PETERRIVE fa-fw fa-fw" aria-hidden="true"></i>
-      <p>字数：2k 字</p>
-    </a>
   </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fad fa-hourglass-half BELIZEHOLE fa-fw fa-fw" aria-hidden="true"></i>
-      <p>时长：8 分钟</p>
-    </a>
-  </div>
-
-
-          
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-06-02</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/git/">git</a>
         
       </div>
-    
-  </div>
-
-
-  
-  
-  
-  <p>使用volantis主题，并进行一些自定义配置和优化</p>
-<span id="more"></span>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章主要介绍Hexo的基本使用以及一些优化配置，如果还没有搭建起博客并托管至Github Pages请点<a href="">这里</a><br>本文基于volantis主题，部分配置可能不同请查看相应主题的官方文档自行配置。</p>
-<h2 id="1-基础配置"><a href="#1-基础配置" class="headerlink" title="1.基础配置"></a>1.基础配置</h2><ol>
-<li>网站信息<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span>              <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span>        <span class="comment"># 副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span>     <span class="comment"># 描述信息</span></span><br><span class="line"><span class="attr">keywords:</span>           <span class="comment"># 关键字</span></span><br><span class="line"><span class="attr">author:</span>             <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh</span>        <span class="comment"># 语言</span></span><br></pre></td></tr></table></figure></li>
-<li>网址信息<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">url</span>                 <span class="comment"># 网址根路径</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:title/</span>  <span class="comment"># 文章生成的永久链接格式</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="2-配置主题"><a href="#2-配置主题" class="headerlink" title="2.配置主题"></a>2.配置主题</h2><p><a target="_blank" rel="noopener" href="https://volantis.js.org/v5/getting-started/">volantis官方文档</a></p>
-<ol>
-<li>修改配置文件<br>在hexo的配置文件_config.yml中找到theme属性并修改。<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">volantis</span></span><br></pre></td></tr></table></figure></li>
-<li>下载主题<br>在终端中输入：<code>npm i hexo-theme-volantis</code></li>
-<li>创建主题配置文件<br>在根目录下创建文件<code>_config.volantis.yml</code>,volantis主题相关配置写在该文件内。<div class="note "><p>PS: 基于hexo5的新特性</p></div>
-主题有关的样式配置请查看主题的官方文档进行配置，本文只对部分内容进行介绍。volantis官方文档<a target="_blank" rel="noopener" href="https://volantis.js.org/v5/theme-settings/">传送门</a></li>
-</ol>
-<h2 id="3-页面配置"><a href="#3-页面配置" class="headerlink" title="3.页面配置"></a>3.页面配置</h2><h3 id="3-1归档页面"><a href="#3-1归档页面" class="headerlink" title="3.1归档页面"></a>3.1归档页面</h3><p>hexo默认会根据<code>/source/_posts</code>下的文件生成归档页面，默认存放在<code>archives</code>目录，可以在<code>_config.yml</code>文件中修改</p>
-<h3 id="3-2关于页面"><a href="#3-2关于页面" class="headerlink" title="3.2关于页面"></a>3.2关于页面</h3><p>创建一个介绍的独立页面，创建<code>/source/about/index.md</code>或者直接使用命令<code>hexo hexo new about</code>。</p>
-<figure class="highlight md"><figcaption><span>source/about/index.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: docs            # 页面布局</span><br><span class="line">seo<span class="emphasis">_title: 关于</span></span><br><span class="line"><span class="emphasis">bottom_</span>meta: false</span><br><span class="line">sidebar: []             # 侧边栏要显示的部件</span><br><span class="line">valine:</span><br><span class="line"><span class="section">  placeholder:        # 评论系统的占位字符</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">  下面写关于自己的内容</span><br></pre></td></tr></table></figure>
-<h3 id="3-3分类页面"><a href="#3-3分类页面" class="headerlink" title="3.3分类页面"></a>3.3分类页面</h3><p>创建一个文章分类的独立页面，会读取文章的<a target="_blank" rel="noopener" href="https://volantis.js.org/v5/page-settings/#front-matter">front-matter</a>中的category的内容自动生成分类页面。创建<code>/source/categories/index.md</code>或者直接使用命令<code>npx hexo new categories</code></p>
-<figure class="highlight md"><figcaption><span>source/categories/index.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: category</span><br><span class="line">index: true</span><br><span class="line"><span class="section">title: 所有分类</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-4标签页面"><a href="#3-4标签页面" class="headerlink" title="3.4标签页面"></a>3.4标签页面</h3><p>创建一个存放所有文章标签的独立页面，会读取会读取文章的<a target="_blank" rel="noopener" href="https://volantis.js.org/v5/page-settings/#front-matter">front-matter</a>中的tag的内容自动生成标签页面。创建<code>/source/tags/index.md</code>或者直接使用命令<code>npx hexo new tags</code></p>
-<figure class="highlight md"><figcaption><span>source/tags/index.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: tag</span><br><span class="line">index: true</span><br><span class="line"><span class="section">title: 所有标签</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-5友链页面"><a href="#3-5友链页面" class="headerlink" title="3.5友链页面"></a>3.5友链页面</h3><h4 id="3-5-1创建页面"><a href="#3-5-1创建页面" class="headerlink" title="3.5.1创建页面"></a>3.5.1创建页面</h4><p>创建一个存放所有推荐网站链接的独立页面,创建<code>/source/friends/index.md</code>或者直接使用命令<code>npx hexo new friends</code></p>
-<figure class="highlight md"><figcaption><span>source/friends/index.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: friends # 必须</span><br><span class="line"><span class="section">title: 我的朋友们 # 可选，这是友链页的标题</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">这里写友链上方的内容。</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">这里可以写友链页面下方的文字备注，例如自己的友链规范、示例等。</span><br></pre></td></tr></table></figure>
-<h4 id="3-5-2选择布局方案"><a href="#3-5-2选择布局方案" class="headerlink" title="3.5.2选择布局方案"></a>3.5.2选择布局方案</h4><p>在主题配置文件中配置<code>pages.friends.layout_scheme</code>属性</p>
-<figure class="highlight yaml"><figcaption><span>_config.volantis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pages:</span></span><br><span class="line">    <span class="comment"># 友链页面配置</span></span><br><span class="line">    <span class="attr">friends:</span></span><br><span class="line">    <span class="attr">layout_scheme:</span> <span class="string">traditional</span> <span class="comment"># simple: 简单布局, traditional: 传统布局,  sites: 网站卡片布局</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-5-3设置数据源"><a href="#3-5-3设置数据源" class="headerlink" title="3.5.3设置数据源"></a>3.5.3设置数据源</h4><div class="tabs" id="blog"><ul class="nav-tabs"><li class="tab active"><a class="#blog-1">静态数据源</a></li><li class="tab"><a class="#blog-2">动态数据源</a></li></ul><div class="tab-content"><div class="tab-pane active" id="blog-1"><p>新建文件<code>/source/_data/friends.yml</code>，内容格式如下：</p>
-<figure class="highlight yaml"><figcaption><span>/source/_data/friends.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">group:</span> <span class="comment"># 分组标题</span></span><br><span class="line">  <span class="attr">description:</span>  <span class="comment"># 分组描述</span></span><br><span class="line">  <span class="attr">items:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="attr">title:</span> <span class="comment"># 名称</span></span><br><span class="line">     <span class="attr">avatar:</span> <span class="comment"># 头像</span></span><br><span class="line">     <span class="attr">url:</span> <span class="comment"># 链接</span></span><br><span class="line">     <span class="attr">screenshot:</span> <span class="comment"># 截图</span></span><br><span class="line">     <span class="attr">keywords:</span> <span class="comment"># 关键词</span></span><br><span class="line">     <span class="attr">description:</span> <span class="comment"># 描述</span></span><br><span class="line">   <span class="bullet">-</span> <span class="attr">title:</span> <span class="comment"># 名称</span></span><br><span class="line">     <span class="attr">avatar:</span> <span class="comment"># 头像</span></span><br><span class="line">     <span class="attr">url:</span> <span class="comment"># 链接</span></span><br><span class="line">     <span class="attr">screenshot:</span> <span class="comment"># 截图</span></span><br><span class="line">     <span class="attr">keywords:</span> <span class="comment"># 关键词</span></span><br><span class="line">     <span class="attr">description:</span> <span class="comment"># 描述</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="blog-2"><p>后期补充</p></div></div></div>
-<h3 id="3-6-404页面"><a href="#3-6-404页面" class="headerlink" title="3.6 404页面"></a>3.6 404页面</h3><p>创建一个在路径出错时显示的独立页面，创建<code>/source/404.md</code></p>
-<figure class="highlight md"><figcaption><span>source/404.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">cover: true</span><br><span class="line">robots: noindex,nofollow</span><br><span class="line">sitemap: false</span><br><span class="line">seo<span class="emphasis">_title: 404 Not Found</span></span><br><span class="line"><span class="emphasis">bottom_</span>meta: false</span><br><span class="line">sidebar: []</span><br><span class="line">valine:</span><br><span class="line">  path: /404.html</span><br><span class="line"><span class="section">  placeholder: 请留言告诉我您要访问哪个页面找不到了</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">  输出的内容</span><br></pre></td></tr></table></figure>
-<p>可以自定义更多独立页面，满足更多个性化需求。在source目录下新建文件夹，并新建<code>/source/example/index.md</code>就可以自定义独立页面。</p>
-<h2 id="4-常用的功能插件"><a href="#4-常用的功能插件" class="headerlink" title="4.常用的功能插件"></a>4.常用的功能插件</h2><p>本文介绍一些常用插件的安装及配置，详情请查看<a target="_blank" rel="noopener" href="https://volantis.js.org/v5/theme-settings/#%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8F%92%E4%BB%B6">主题官网</a></p>
-<h3 id="4-1字数和阅读时间统计"><a href="#4-1字数和阅读时间统计" class="headerlink" title="4.1字数和阅读时间统计"></a>4.1字数和阅读时间统计</h3><p>终端输入命令<code>npm install hexo-wordcount --save</code>安装插件，在主题配置文件中配置文章布局。</p>
-<figure class="highlight yaml"><figcaption><span>_config.volantis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">article:</span></span><br><span class="line">    <span class="attr">top_meta:</span> [<span class="string">···</span>,<span class="string">wordcount</span>] <span class="comment"># 文章头部显示的元信息</span></span><br><span class="line">    <span class="attr">meta_library:</span> <span class="comment"># 元信息库</span></span><br><span class="line">      <span class="string">···</span></span><br><span class="line">      <span class="attr">wordcount:</span></span><br><span class="line">        <span class="attr">icon_wordcount:</span> <span class="string">fas</span> <span class="string">fa-keyboard</span></span><br><span class="line">        <span class="attr">icon_duration:</span> <span class="string">fas</span> <span class="string">fa-hourglass-half</span></span><br></pre></td></tr></table></figure>
-<p>在主题配置文件中开启字数统计插件</p>
-<figure class="highlight yaml"><figcaption><span>_config.volantis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">plugins:</span></span><br><span class="line">    <span class="string">···</span></span><br><span class="line">    <span class="string">wordcount</span></span><br><span class="line">        <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-2站内搜索功能"><a href="#4-2站内搜索功能" class="headerlink" title="4.2站内搜索功能"></a>4.2站内搜索功能</h3><p>默认配置为 Hexo 搜索，但是需要安装插件才能使用：<code>npm i -S hexo-generator-search hexo-generator-json-content</code></p>
-<figure class="highlight yaml"><figcaption><span>_config.volantis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">service:</span> <span class="string">hexo</span>  <span class="comment"># hexo, google, algolia, azure, baidu</span></span><br><span class="line">  <span class="attr">js:</span> <span class="string">https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2.6.4/js/search.js</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-3相关文章功能"><a href="#4-3相关文章功能" class="headerlink" title="4.3相关文章功能"></a>4.3相关文章功能</h3><p>安装插件：<code>npm i -S hexo-related-popular-posts</code>，如果您使用了头图，可以在站点配置文件中添加以下设置来让相关文章显示正确的文章头图：</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">popularPosts:</span></span><br><span class="line">  <span class="attr">eyeCatchImageAttributeName:</span> <span class="string">headimg</span></span><br></pre></td></tr></table></figure>
-<p>更多自定义配置请查看官方文档</p>
-<div class="tag link"><a class="link-card" title="hexo-related-popular-posts" target="_blank" rel="noopener" href="https://github.com/tea3/hexo-related-popular-posts"><div class="left"><img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets@master/logo/256/safari.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></div><div class="right"><p class="text">hexo-related-popular-posts</p><p class="url">https://github.com/tea3/hexo-related-popular-posts</p></div></a></div>
-<p class='p center logo large red'>未完待续</p>
-<h2 id="5-统计分析网站访问量"><a href="#5-统计分析网站访问量" class="headerlink" title="5.统计分析网站访问量"></a>5.统计分析网站访问量</h2><h3 id="5-1-百度统计"><a href="#5-1-百度统计" class="headerlink" title="5.1 百度统计"></a>5.1 百度统计</h3><p>百度统计主要用于分析网站数据：流量、访客量等。</p>
-<ol>
-<li>注册百度统计账号，官网链接：<a target="_blank" rel="noopener" href="https://tongji.baidu.com/">https://tongji.baidu.com</a></li>
-<li>点击<code>管理&gt;新增网站</code><div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/baiduAdd.png" class="lazyload" data-srcset="/image/hexo/baiduAdd.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="添加百度统计分析的网站"/></div><span class="image-caption">添加百度统计分析的网站</span></div>
-填写数据后点击确定后会跳转到代码获取页面</li>
-<li>复制代码中的key并在配置文件设置<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/baiduKey.png" class="lazyload" data-srcset="/image/hexo/baiduKey.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="添加百度统计分析的网站"/></div><span class="image-caption">添加百度统计分析的网站</span></div>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidu_analytics_key:</span> <span class="string">百度统计的key</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>可以在管理页面查看代码是否安装正确，然后就可以查看网页访问的报告了。</p>
-<h3 id="5-2-google统计"><a href="#5-2-google统计" class="headerlink" title="5.2 google统计"></a>5.2 google统计</h3><p>google统计和百度统计类似，主要满足国外流量的统计。注册google统计账号，官网链接：<a target="_blank" rel="noopener" href="https://analytics.google.com/%E3%80%82%E5%A4%8D%E5%88%B6key%E5%B9%B6%E5%9C%A8%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E9%85%8D%E7%BD%AE">https://analytics.google.com/。复制key并在配置文件中配置</a></p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">google_analytics_key:</span> <span class="string">谷歌统计的key</span></span><br></pre></td></tr></table></figure>
-<div class="note "><p>可以将<code>&lt;script async src=https://www.googletagmanager.com/gtag/js?id=xxxxxxxx&gt;&lt;/script&gt;</code>src引入的文件下载放在本地，已加快速度。</p></div>
-<p>将上面的代码在配置文件中引入即可</p>
-<h3 id="5-3-leancloud统计页面访问次数"><a href="#5-3-leancloud统计页面访问次数" class="headerlink" title="5.3 leancloud统计页面访问次数"></a>5.3 leancloud统计页面访问次数</h3><h4 id="5-3-1-创建leancloud服务"><a href="#5-3-1-创建leancloud服务" class="headerlink" title="5.3.1 创建leancloud服务"></a>5.3.1 创建leancloud服务</h4><ol>
-<li>进入官网 <a target="_blank" rel="noopener" href="https://leancloud.cn/%EF%BC%8C%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E9%AA%8C%E8%AF%81%E9%82%AE%E7%AE%B1">https://leancloud.cn/，注册账号验证邮箱</a></li>
-<li>进入控制台创建应用，名称随意后期可以修改，选择开发版即可</li>
-</ol>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudCreate.png" class="lazyload" data-srcset="/image/hexo/leancloudCreate.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="创建leancloud应用"/></div><span class="image-caption">创建leancloud应用</span></div>
-<ol start="3">
-<li>创建 Class：点击刚创建的应用，选择数据存储/结构化数据，创建一个 Class 表用来保存我们的博客访问数据。<ul>
-<li>此处创建的 Class 名字必须为 Counter，用来保证与 NexT 主题的修改相兼容；</li>
-<li>ACL 权限选择 无限制，避免后续因为权限的问题导致次数统计显示不正常</li>
-</ul>
-</li>
-</ol>
-  <div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudClass.png" class="lazyload" data-srcset="/image/hexo/leancloudClass.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="创建Counter Class表"/></div><span class="image-caption">创建Counter Class表</span></div>
-<ol start="4">
-<li>创建 Class 完成之后，新创建的 Counter 表会显示在左侧，这时再切换到应用的 设置 - 应用 Key 界面复制app_key和和app_id</li>
-</ol>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudKey.png" class="lazyload" data-srcset="/image/hexo/leancloudKey.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图3 复制app_key、app_id"/></div><span class="image-caption">图3 复制app_key、app_id</span></div>
-<ol start="5">
-<li>修改主题配置文件：<figure class="highlight yaml"><figcaption><span>_config.volantis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">analytics:</span></span><br><span class="line">  <span class="attr">leancloud:</span> <span class="comment"># 请使用自己的 id &amp; key 以防止数据丢失</span></span><br><span class="line">    <span class="attr">app_id:</span> </span><br><span class="line">    <span class="attr">app_key:</span> </span><br><span class="line">    <span class="attr">custom_api_server:</span> <span class="comment"># 国际版一般不需要写，除非自定义了 API Server</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>这时再使用 hexo g、hexo d 命令重新部署博客，就可以正常使用文章阅读量统计的功能了，如下图所示：</p>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload" src="/image/hexo/leancloudResult.png" class="lazyload" data-srcset="/image/hexo/leancloudResult.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="查看文章阅读量"/></div><span class="image-caption">查看文章阅读量</span></div>
-<p class='p red'>记录文章访问量的唯一标识符是文章的发布日期和文章的标题，因此要确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</p>
-
-<h2 id="6-提高博客访问速度"><a href="#6-提高博客访问速度" class="headerlink" title="6.提高博客访问速度"></a>6.提高博客访问速度</h2><h3 id="6-1hexo-offline-popup插件"><a href="#6-1hexo-offline-popup插件" class="headerlink" title="6.1hexo-offline-popup插件"></a>6.1hexo-offline-popup插件</h3><p>hexo-offline-popup 是一个 hexo 插件， 它可加速你的Hexo网站的加载速度，以及网站内容更新弹窗提示<br>在Hexo根目录打开Git-bash ，执行命令<code>npm i hexo-offline-popup --save</code><br>在博客根目录的_config.yml中添加如下配置</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># offline config passed to sw-precache.</span></span><br><span class="line"><span class="attr">service_worker:</span></span><br><span class="line">  <span class="attr">maximumFileSizeToCacheInBytes:</span> <span class="number">5242880</span></span><br><span class="line">  <span class="attr">staticFileGlobs:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">public/**/*.&#123;js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2&#125;</span></span><br><span class="line">  <span class="attr">stripPrefix:</span> <span class="string">public</span></span><br><span class="line">  <span class="attr">verbose:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>如果你有CDN资源，例：<br>    - <a target="_blank" rel="noopener" href="https://unpkg.com/artitalk">https://unpkg.com/artitalk</a><br>    - <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/artitalk">https://cdn.jsdelivr.net/npm/artitalk</a><br>将此配置添加到根目录的_config.yml</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">service_worker:</span></span><br><span class="line">  <span class="attr">runtimeCaching:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">urlPattern:</span> <span class="string">/*</span>  <span class="comment"># 子路径（接受通配符）</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">cacheFirst</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">origin:</span> <span class="string">unpkg.com</span>  <span class="comment"># 域名</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">urlPattern:</span> <span class="string">/npm/*</span>   <span class="comment"># 子路径（接受通配符）</span></span><br><span class="line">      <span class="attr">handler:</span> <span class="string">cacheFirst</span></span><br><span class="line">      <span class="attr">options:</span></span><br><span class="line">        <span class="attr">origin:</span> <span class="string">cdn.jsdelivr.net</span>  <span class="comment"># 域名</span></span><br></pre></td></tr></table></figure>
-
-
-  
-  
-    
-    <div class='footer'>
       
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文永久链接是：<a href=https://www.guluo.icu/HexoOptimize/>https://www.guluo.icu/HexoOptimize/</a></p>
-              
-            
-          </blockquote>
+        <div>
+          <!-- <a class='readmore' href='/git/remote/'>
+            <i class="fad fa-books fa-fw" aria-hidden="true" title="Read Me"></i> 阅读更多
+          </a> -->
+          <a class="link-fx-1 color-contrast-higher" href="/git/remote/">
+            <span><i class="fad fa-books fa-fw" aria-hidden="true" title="Read Me"></i> 阅读更多</span>
+            <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="15.5"/><line x1="10" y1="18" x2="16" y2="12"/><line x1="16" y1="12" x2="22" y2="18" /></g></svg>
+          </a>
         </div>
       
-      
     </div>
   
-  
-    
 
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-12T09:13:41+08:00">
-  <a class='notlink'>
-    <i class="fad fa-edit PETERRIVE fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月12日</p>
-  </a>
 </div>
 
+          </div>
         
       
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/volantis/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>volantis</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
     
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary=使用volantis主题，并进行一些自定义配置和优化"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
+  </section>
+  
     
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary=使用volantis主题，并进行一些自定义配置和优化"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.guluo.icu/HexoOptimize/&title=博客优化及主题配置 - 楼&pics=https://cdn.jsdelivr.net/gh/TRHX/ImageHosting/ITRHX-PIC/thumbnail/hexo.png&summary=使用volantis主题，并进行一些自定义配置和优化"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
-    </div>
-  </div>
-
-
-  
   
 
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/HexoSeo/'>
-          <p class='title'><i class="fad fa-chevron-left" aria-hidden="true"></i>博客提交搜索引擎收录并进行seo优化</p>
-          <p class='content'>让百度和谷歌的搜索引擎收录博客
 
-前言网站在没有提交搜索引擎收录之前，直接搜索你网站的内容是搜不到的，只有提交搜索引擎之后，搜索引擎才能收录你的站点，通过爬虫抓取你网站的东西，对于 hexo 博...</p>
-        </a>
-      
-      
-        <a class='next' href='/HexoBlog/'>
-          <p class='title'>使用Github Pages 和Hexo搭建自己的独立博客<i class="fad fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>这篇文章主要介绍如何使用hexo搭建静态博客网站并通过github page提供服务
-
-
-前言首先感谢你阅读我的博客：OYLX’S BLOG
-
-这是一篇有关如何使用Hexo搭建博客，并通过Git...</p>
-        </a>
-      
-    </div>
-  
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fad fa-comments POMEGRANATE'></i> 评论</p>
-    
-    <div id="waline">
-  <i class="fad fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-  </article>
-
-
-
-
-
-
+	
 </div>
 <aside id='l_side'>
   
-  
-    
-    
-
-
-
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">1.基础配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="toc-text">2.配置主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE"><span class="toc-text">3.页面配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E5%BD%92%E6%A1%A3%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.1归档页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E5%85%B3%E4%BA%8E%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.2关于页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.3分类页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E6%A0%87%E7%AD%BE%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.4标签页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E5%8F%8B%E9%93%BE%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.5友链页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-1%E5%88%9B%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.5.1创建页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-2%E9%80%89%E6%8B%A9%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88"><span class="toc-text">3.5.2选择布局方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-3%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-text">3.5.3设置数据源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-404%E9%A1%B5%E9%9D%A2"><span class="toc-text">3.6 404页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E6%8F%92%E4%BB%B6"><span class="toc-text">4.常用的功能插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E5%AD%97%E6%95%B0%E5%92%8C%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1"><span class="toc-text">4.1字数和阅读时间统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD"><span class="toc-text">4.2站内搜索功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3%E7%9B%B8%E5%85%B3%E6%96%87%E7%AB%A0%E5%8A%9F%E8%83%BD"><span class="toc-text">4.3相关文章功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90%E7%BD%91%E7%AB%99%E8%AE%BF%E9%97%AE%E9%87%8F"><span class="toc-text">5.统计分析网站访问量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1"><span class="toc-text">5.1 百度统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-google%E7%BB%9F%E8%AE%A1"><span class="toc-text">5.2 google统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-leancloud%E7%BB%9F%E8%AE%A1%E9%A1%B5%E9%9D%A2%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0"><span class="toc-text">5.3 leancloud统计页面访问次数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-%E5%88%9B%E5%BB%BAleancloud%E6%9C%8D%E5%8A%A1"><span class="toc-text">5.3.1 创建leancloud服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%8F%90%E9%AB%98%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6"><span class="toc-text">6.提高博客访问速度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1hexo-offline-popup%E6%8F%92%E4%BB%B6"><span class="toc-text">6.1hexo-offline-popup插件</span></a></li></ol></li></ol>
-    </div>
-  </section>
-
-
-  
-
   
     
     
@@ -3473,14 +3219,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
-
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="博客优化及主题配置";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   //  see: /layout/_partial/scripts/coverCtrl.ejs

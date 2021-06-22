@@ -107,9 +107,9 @@ baidu_url_submit:
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  # - type: git
-  #   repo: https://github.com/goylx/goylx.github.io.git
-  #   branch: gh-pages
+  - type: git
+    repo: https://github.com/goylx/goylx.github.io.git
+    branch: gh-pages
   - type: git
     repo: git@e.coding.net:oylx2021/blog/blog.git
     branch: gh-pages

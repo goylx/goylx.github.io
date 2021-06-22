@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.guluo.icu/maven/index/</loc>
+    
+    <lastmod>2021-06-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.guluo.icu/hexo/HexoOptimize/</loc>
+    
+    <lastmod>2021-06-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.guluo.icu/hexo/HexoBlog/</loc>
+    
+    <lastmod>2021-06-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.guluo.icu/hexo/HexoSeo/</loc>
+    
+    <lastmod>2021-06-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.guluo.icu/git/remote/</loc>
     
     <lastmod>2021-06-21</lastmod>
@@ -37,27 +65,6 @@
   </url>
   
   <url>
-    <loc>https://www.guluo.icu/HexoOptimize/</loc>
-    
-    <lastmod>2021-05-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.guluo.icu/HexoBlog/</loc>
-    
-    <lastmod>2021-05-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.guluo.icu/HexoSeo/</loc>
-    
-    <lastmod>2021-05-12</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.guluo.icu/categories/index.html</loc>
     
     <lastmod>2021-05-06</lastmod>
@@ -81,7 +88,7 @@
 
   <url>
     <loc>https://www.guluo.icu/</loc>
-    <lastmod>2021-06-21</lastmod>
+    <lastmod>2021-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -90,15 +97,22 @@
 
   
   <url>
-    <loc>https://www.guluo.icu/categories/hexo/</loc>
-    <lastmod>2021-06-21</lastmod>
+    <loc>https://www.guluo.icu/categories/git/</loc>
+    <lastmod>2021-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.guluo.icu/categories/git/</loc>
-    <lastmod>2021-06-21</lastmod>
+    <loc>https://www.guluo.icu/categories/maven/</loc>
+    <lastmod>2021-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.guluo.icu/categories/hexo/</loc>
+    <lastmod>2021-06-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

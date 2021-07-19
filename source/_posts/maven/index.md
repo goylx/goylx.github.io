@@ -9,12 +9,8 @@ headimg: /image/Devops/maven/headimg.png
 references:
   - title: 学Maven，这篇万余字的教程，真的够用了！
     url : https://www.cnblogs.com/lenve/p/12047793.html
-  - title: maven全局配置文件settings.xml详解
-    url : https://www.cnblogs.com/jingmoxukong/p/6050172.html
   - title: 廖雪峰Maven基础
     url : https://www.liaoxuefeng.com/wiki/1252599548343744/1255945359327200
-  - title: pom.xml详解
-    url : https://segmentfault.com/a/1190000021436754
 ---
 Maven是一个Java项目的自动化构建工具，帮助管理项目依赖、源文件、资源文件，编译生成的可执行文件，测试相关代码和资源，提供了清理、编译、打包、发布等生命流程，让开发者可以专注于业务开发。
 <!-- more -->
@@ -121,7 +117,7 @@ Maven中最重要的的项目描述文件`pom.xml`内容类似下面：
 </project>
 ```
 
-其中，`groupId`类似于Java的包名，通常是公司或组织名称，`artifactId`类似于Java的类名，通常是项目名称，再加上`version`，一个Maven工程就是由`groupId`，`artifactId`和`version`作为唯一标识。我们在引用其他第三方库的时候，也是通过这3个变量确定。例如，依赖`commons-lang3`：
+其中，`groupId`类似于Java的包名，通常是公司或组织名称，`artifactId`类似于Java的类名，通常是项目名称，再加上`version`，一个Maven工程就是由`groupId`，`artifactId`和`version`作为唯一标识。我们在引用其他第三方库的时候，也是通过这3个变量确定。例如，依赖`guava`：
 
 ```bash
 <dependency>
@@ -164,6 +160,8 @@ Maven提供了测试、清理、编译、打包、发布、上传到仓库等项
   ...               
   ```
 
+[更详细的安装说明](https://www.runoob.com/maven/maven-setup.html)
+
 ## 配置
 
 ### 环境变量
@@ -176,89 +174,325 @@ MAVEN_OPTS = "-Xms256m -Xmx512m"
 
 ###  全局配置文件
 
-`settings.xml`文件是Maven的全局配置文件，一般存放于全局配置：`${MAVEN_HOME}/conf/setting.xml`或用户配置：`${user.home}./m2/settings.xml`用户配置优先于全局配置。用户配置优先于全局配置。
+下载解压后的`/conf/settings.xml`文件是Maven的配置文件，定义本地仓库、仓库镜像列表等信息。可以创建`~/.m2/settings.xml`用户级配置文件，这里面的配置会覆盖`${MAVNE_HOME}/conf/settings.xml`的配置。一般情况下我们不需要更改这些配置，后面会在需要修改时介绍。
 
-`settings.xml`的顶级元素如下：
+[`settings.xml`配置详解](/maven/settings)
+
+## 常用的maven命令及生命周期
+
+Maven定义了一套标准化的构建流程，可以自动实现编译、打包、发布等等。Maven定义了生命周期`lifecycle`、阶段`phase`、goal来管理项目的构建流程。
+
+最常用的生命周期有`default`和`clean`，每个生命周期包含一系列阶段`phase`，大多数阶段在执行过程中需要在pom.xml进行相关配置，否则这些阶段什么也不会做，最常用的阶段有：
+
+- `clean`：清理，注意和生命周期中的clean有区别
+- `compile`：编译
+- `test`：运行测试
+- `package`：打包
+- `install`：安装到仓库
+- `deploy`：部署
+
+每个phase会触发一个或多个goal：
+
+| 执行的Phase | 对应执行的Goal                         |
+| ----------- | -------------------------------------- |
+| `compile`   | `compiler:compile`                     |
+| `test`      | `compiler:testCompile` `surefire:test` |
+
+**下面就列举一些常用的命令**：
+
+- `mvn clean`：清理所有Maven生成class文件和jar包，执行`clean`生命周期
+
+- `mvn clean compile`：先清理再重新将Java代码编译成class文件，执行default生命周期到compile阶段
+
+- `mvn test`：执行测试代码
+- `mvn package`：将项目进行打包
+- `mvn install`：将项目打包并安装到本地仓库
+- `mvn deploy`：将项目打包并上传到私服
+
+除了`mvn clean`命令其他都是执行default生命周期，后面的命令都包括了前面命令的阶段
+
+### 在IDEA中使用Maven
+
+
+
+## 项目配置文件
+
+### 核心描述文件`pom.xml`
+
+`pom`是Project Object Model(项目对象模型)的缩写，描述项目基本信息、依赖、远程仓库，插件信息等等，文件的顶级元素如下：
 
 ```xml
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <localRepository/>
-  <interactiveMode/>
-  <usePluginRegistry/>
-  <offline/>
-  <pluginGroups/>
-  <servers/>
-  <mirrors/>
-  <proxies/>
-  <profiles/>
-  <activeProfiles/>
-</settings>
+<project>  
+  <modelVersion>4.0.0</modelVersion>  
+  <!--Maven坐标-->
+  <groupId>...</groupId>  
+  <artifactId>...</artifactId>  
+  <version>...</version>
+  <!--Maven坐标-->  
+    
+  <packaging>...</packaging>  <!--打包方式-->
+  <dependencies>...</dependencies> <!--依赖配置--> 
+  <parent>...</parent>  <!--父项目-->
+  <dependencyManagement>...</dependencyManagement>  <!--依赖统一管理-->
+  <modules>...</modules>  <!--模块列表-->
+  <properties>...</properties>  <!--属性列表-->
+  
+    
+  <build>...</build>  <!--构建配置-->
+  <reporting>...</reporting>  <!--报表配置-->
+  
+  <!--项目信息-->
+  <name>...</name>  
+  <description>...</description>  
+  <url>...</url>  
+  <inceptionYear>...</inceptionYear>  
+  <licenses>...</licenses>  
+  <organization>...</organization>  
+  <developers>...</developers>  
+  <contributors>...</contributors>  
+  <!--项目信息-->
+    
+  <!--运维配置-->  
+  <issueManagement>...</issueManagement>  
+  <ciManagement>...</ciManagement>  
+  <mailingLists>...</mailingLists>  
+  <scm>...</scm>  
+  <prerequisites>...</prerequisites>  
+  <repositories>...</repositories>  
+  <pluginRepositories>...</pluginRepositories>  
+  <distributionManagement>...</distributionManagement>  
+  <profiles>...</profiles>  
+  <!--运维配置-->    
+</project>
 ```
 
-- `LocalRepository`：本地仓库的路径、默认值为`~/.m2/repository`
+- `project`：pom.xml的根元素，包含了一些约束信息
 
-- `InteractiveMode`：Maven是否需要和用户交互以获得输入、默认值为`true`
-
-- `UsePluginRegistry`：maven是否需要使用`plugin-registry.xml`文件来管理插件版本，默认为false
-
-- `Offline`：表示maven是否需要在离线模式下运行、默认值为`false`，当由于网络设置原因或者安全因素，构建服务器不能连接远程仓库的时候，该配置就十分有用。
-
-- `PluginGroups`：当插件的组织id（groupId）没有显式提供时，供搜寻插件组织Id（groupId）的列表。默认包含了`org.apache.maven.plugins`和`org.codehaus.mojo`。
+- `modelVersion`：pom的版本，这是Maven 2&3唯一支持的pom版本，而且不能忽略。
 
   ```xml
-  <pluginGroups>
-    <!--plugin的组织Id（groupId） -->
-    <pluginGroup>org.codehaus.mojo</pluginGroup>
-  </pluginGroups>
+  <modelVersion>4.0.0</modelVersion>
   ```
 
-- `Servers`：配置访问部分仓库时安全认知信息
+- Maven坐标
+
+  Maven坐标可以唯一定位一个Maven项目，由三部分组成：
+
+  - `groupId`：项目或者组织的唯一标志，并且配置时生成的路径也是由此生成，如org.codehaus.mojo生成的相对路径为：/org/codehaus/mojo
+
+  - `artifactId`：项目的通用名称
+
+  - `version`：项目的版本，通常来说项目对的版本号分为三段：
+
+    - 主版本号：代表架构变动或者不兼容的实现
+    - 次版本号：兼容性修改,功能增强
+    - 修订版本号：bug修复
+
+    版本号的后缀意味着项目的不同阶段：
+
+    - SNAPSHOT：开发中的版本
+    - RELEASE：正式发布版
+    - M1\M2：M指里程碑,表示即将发布
+    - RC：Release Candidate,发布候选
+    - GA：General Availablity,基本可用版本
 
   ```xml
-  <!--配置服务端的一些设置。一些设置如安全证书不应该和pom.xml一起分发。这种类型的信息应该存在于构建服务器上的settings.xml文件中。 -->
-  <servers>
-    <!--服务器元素包含配置服务器时需要的信息 -->
-    <server>
-      <!--这是server的id（注意不是用户登陆的id），该id与distributionManagement中repository元素的id相匹配。 -->
-      <id>server001</id>
-      <!--鉴权用户名。鉴权用户名和鉴权密码表示服务器认证所需要的登录名和密码。 -->
-      <username>my_login</username>
-      <!--鉴权密码 。鉴权用户名和鉴权密码表示服务器认证所需要的登录名和密码。密码加密功能已被添加到2.1.0 +。详情请访问密码加密页面 -->
-      <password>my_password</password>
-      <!--鉴权时使用的私钥位置。和前两个元素类似，私钥位置和私钥密码指定了一个私钥的路径（默认是${user.home}/.ssh/id_dsa）以及如果需要的话，一个密语。将来passphrase和password元素可能会被提取到外部，但目前它们必须在settings.xml文件以纯文本的形式声明。 -->
-      <privateKey>${usr.home}/.ssh/id_dsa</privateKey>
-      <!--鉴权时使用的私钥密码。 -->
-      <passphrase>some_passphrase</passphrase>
-      <!--文件被创建时的权限。如果在部署的时候会创建一个仓库文件或者目录，这时候就可以使用权限（permission）。这两个元素合法的值是一个三位数字，其对应了unix文件系统的权限，如664，或者775。 -->
-      <filePermissions>664</filePermissions>
-      <!--目录被创建时的权限。 -->
-      <directoryPermissions>775</directoryPermissions>
-    </server>
-  </servers>
+  <groupId>com.oylx</groupId>
+  <artifactId>MavenProject</artifactId>
+  <version>1.0-SNAPSHOT</version>
   ```
 
-- `Mirrors`：配置下载镜像列表加快依赖下载速度
+- `packaging`：打包的机制、默认值是jar。常用的打包机制：
+
+  - jar：可以直接通过`java -jar xxx.jar`
+  - war：打包后放在tomcat等Servlet容器
+  - pom：聚合工程中只用于统一规定一些依赖的父项目使用的类型，后面会详细介绍
+
+- `dependencies`：配置依赖项，后面会详细介绍
+- 聚合模块相关配置
+  - `parent`：聚合项目中指定父项目，如果没有指定父项目则默认继承自[Super POM](https://maven.apache.org/ref/3.0.4/maven-model-builder/super-pom.html)
+  - `modules`：聚合项目中指定子模块
+  - `dependencyManagement`：在顶层项目中统一规定各依赖的相同因素，如版本，scope
+
+- `properties`：配置文件中的值占位符
 
   ```xml
-  <mirrors>
-    <!-- 阿里云镜像。 -->
-    <mirror>
-    <!-- 该镜像的唯一标识符。id用来区分不同的mirror元素。 -->
-    <id>nexus-aliyun</id>
-    <!-- 镜像名称 -->
-    <name>Nexus aliyun</name>
-    <!-- 该镜像的URL。构建系统会优先考虑使用该URL，而非使用默认的服务器URL。 -->
-    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-    <mirrorOf>*</mirrorOf>
-  </mirror>
+  <properties>
+      <dependence.version>3.2.5</dependence.version>
+  </properties>
+  ...
+  <dependencies>
+      <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+       <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <!--等价于<version>3.2.5</version>--> 
+          <version>${dependence.version}</version>
+      </dependency>
+  </dependencies>
   ```
 
-更多配置项请参考官方文档：https://maven.apache.org/settings.html，一般情况下不会改动全局配置文件
+- `build`：项目构建配置，后面会详细介绍
 
-### 项目配置文件
+- 项目信息
 
-#### 核心描述文件`pom.xml`
+  {% folding  cyan, 一般项目中很少使用这些配置，如果现在不想了解可以跳过 %}
+
+  - `licenses`：许可证列表
+
+    ```xml
+    <licenses>
+        <license>
+            <name>名称</name>
+            <url>官方license页面的url</url>
+            <distribution>项目发布方式（repo：从Maven仓库下载、manual：手动安装）</distribution>
+            <comments>注释</comments>
+        </license>
+    </licenses>
+    ```
+
+  - `organazation`：组织信息
+
+    ```xml
+    <organazation>
+        <name>组织名称</name>
+        <url>组织页面的url</url>
+    </organazation>
+    ```
+
+  - `developers`：开发者列表
+
+    ```xml
+    <developers>
+        <developer>
+            <id>开发者id</id>
+            <name>姓名</name>
+            <email>邮箱</email>
+            <url>开发者主页的url</url>
+            <organazation>所属组织</organazation>
+            <organizationUrl>所属组织主页url</organizationUrl>
+            <roles>
+                <role>角色信息</role>
+            </roles>
+            <properties>
+                开发者属性：如何处理即时消息
+            </properties>
+        </developer>
+    </developers>
+    ```
+
+  - `contributors`：贡献者列表，类似与开发者列表
+
+  {% endfolding %}
+
+- 运维配置
+
+  - `repositories`：镜像仓库列表
+
+    ```xml
+    <repositories>
+        <repository>
+            <id>远程仓库的标识符</id>
+            <name>远程仓库的名称</name>
+            <url>远程仓库的url</url>
+        </repository>
+    </repositories>
+    ```
+
+  - `pluginRepositories`：插件仓库镜像列表，类似于`repositories`
+
+  {% folding  cyan, 一般项目中很少使用这些配置，如果现在不想了解可以跳过 %}
+
+  - `issueManagement`：定义缺陷跟踪系统
+
+    ```xml
+    <issueManagement>
+        <system>系统名字</system>
+        <url>缺陷管理系统的url</url>
+    </issueManagement>
+    ```
+
+  - `ciManagement`：持续集成管理系统
+
+    ```xml
+    <ciManagement>
+        <system>系统名称</system>
+        <url>持续集成系统的url</url>
+        <notifiers>
+            <!--配置触发器列表-->
+            <notifier>
+                <type>如何发送通知，例如：mail</type>
+                <sendOnError>ture/false：错误时是否发送</sendOnError>
+                <sendOnFailure>ture/false：失败时是否发送</sendOnFailure>
+                <sendOnSuccess>ture/false：成功时是否发送</sendOnSuccess>
+                <sendOnWarning>ture/false：警告时是否发送</sendOnWarning>
+                <configuration>
+                    <address>发送的地址</address>
+                    ...
+                </configuration>
+            </notifier>
+        </notifiers>
+    </ciManagement>
+    ```
+
+  - `mailingLists`：邮件列表
+
+    ```xml
+    <mailingLists>
+        <mailingList>
+            <name>邮件名称</name>
+            <subscribe>订阅邮件地址或链接</subscribe>
+            <unsubscribe>取消订阅邮件或链接</unsubscribe>
+            <post>要发送的邮件地址</post>
+            <archive>查看旧的邮件的url</archive>
+        </mailingList>
+    </mailingLists>
+    ```
+
+  - `scm`：软件版本管理配置，详情请查看https://blog.csdn.net/fenglibing/article/details/16842645
+
+  {% endfolding %}
+
+- `profiles`：包含一组<profile>,每个<profile>可以定义不同的配置,包含的元素有:
+
+  - `id`：配置文件的id,比如测试的可以叫test.
+
+  - `build`：相关构建信息.
+
+  - `modules`：模块信息.
+
+  - `repositories`：远程仓库信息.
+
+  - `pluginRepositories`：插件仓库信息.
+
+  - `dependencies`：依赖信息.
+
+  - `reporting`：报表信息.
+
+  - `dependencyManagement`：依赖管理信息.
+
+  - `distributeManagement`：分发管理
+
+  - `activation`：activation是profile的关键,profile的强大之处是某些情况下才可以修改基本pom,这些情况通过activation指定
+
+    ```xml
+    <activation>
+        <activeByDefault>true/false：是否默认激活</activeByDefault>
+        <jdk>指定什么jdk版本激活该配置</jdk>
+        <os>指定什么操作系统激活该配置</os>
+        <property>
+            <!--指定含有什么属性且属性值则激活该配置-->
+            <name>属性名称</name>
+            <value>属性值</value>
+        </property>
+        <file>
+            <exists>文件</exists> <!--存在则激活-->
+            <missing>文件</missing> <!--不存在则激活-->
+        </file>
+    </activation>
+    ```
+
+  ### maven配置文件
+
+  可以在项目根目录下创建一个`.mvn`的文件夹，然后可以创建一些额外的配置文件。实际工作中很少用到，详情请查看[官网](https://maven.apache.org/configure.html)
 
